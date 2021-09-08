@@ -25,7 +25,7 @@ Here are presented the resources estimated by vivado and the actual utilization 
 ### Latency
 As it is clear the main bottlenecks are the PS-PL interface (AXI memory mapped) and the encode-decode performed on the PS side, to lower the first it is possible to perform burst transers employing a DMA (transfer data via DDR memory), insted to alleviate the second the functions for encoding and decoding can be vectorized.  
 
-These problems can be avoided entirely if the input and output are preprocessed in the PL side.
+These problems can be avoided entirely if the input and output are preprocessed in the PL side, leaving the PS only the result analysis.
 
 ### Comparisons
 <center>
