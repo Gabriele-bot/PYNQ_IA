@@ -1,0 +1,54 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Wed Sep  8 19:00:14 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 4.304 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">113, 117, 0.565 us, 0.585 us, 32, 32, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config2_s_fu_74">dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config2_s, 20, 21, 0.100 us, 0.105 us, 8, 8, loop rewind(delay=0 initiation interval(s))</column>
+<column name="grp_dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config5_s_fu_81">dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config5_s, 35, 36, 0.175 us, 0.180 us, 32, 32, loop rewind(delay=0 initiation interval(s))</column>
+<column name="grp_dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config8_s_fu_151">dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config8_s, 19, 20, 95.000 ns, 0.100 us, 16, 16, loop rewind(delay=0 initiation interval(s))</column>
+<column name="call_ret2_relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config4_s_fu_189">relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config4_s, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="call_ret_relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config7_s_fu_257">relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config7_s, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="call_ret5_relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config10_s_fu_293">relu_ap_fixed_ap_fixed_6_1_0_0_0_relu_config10_s, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="grp_dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config11_s_fu_329">dense_resource_ap_fixed_ap_fixed_16_6_5_3_0_config11_s, 19, 20, 95.000 ns, 0.100 us, 16, 16, loop rewind(delay=0 initiation interval(s))</column>
+<column name="grp_softmax_stable_ap_fixed_ap_fixed_softmax_config13_s_fu_367">softmax_stable_ap_fixed_ap_fixed_softmax_config13_s, 13, 13, 65.000 ns, 65.000 ns, 1, 1, function</column>
+<column name="call_ln35_myproject_entry550_fu_390">myproject_entry550, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

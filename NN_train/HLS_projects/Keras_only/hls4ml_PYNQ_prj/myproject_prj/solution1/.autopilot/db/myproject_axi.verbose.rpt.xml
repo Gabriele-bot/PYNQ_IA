@@ -1,0 +1,153 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject_axi'" level="0">
+<item name = "Date">Wed Sep  8 19:09:04 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 4.039 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">139, 143, 0.695 us, 0.715 us, 139, 143, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_myproject_fu_299">myproject, 116, 120, 0.580 us, 0.600 us, 32, 32, dataflow</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 4, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">128, 271, 32595, 53842, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 268, -</column>
+<column name="Register">-, -, 603, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">45, 123, 31, 101, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="grp_myproject_fu_299">myproject, 124, 271, 32405, 53662, 0</column>
+<column name="myproject_axi_AXILiteS_s_axi_U">myproject_axi_AXILiteS_s_axi, 4, 0, 190, 180, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ap_sync_grp_myproject_fu_299_ap_done">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_grp_myproject_fu_299_ap_ready">or, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">117, 25, 1, 25</column>
+<column name="in_V_address0">85, 17, 4, 68</column>
+<column name="out_V_address0">33, 6, 3, 18</column>
+<column name="out_V_d0">33, 6, 16, 96</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">24, 0, 24, 0</column>
+<column name="ap_sync_reg_grp_myproject_fu_299_ap_done">1, 0, 1, 0</column>
+<column name="ap_sync_reg_grp_myproject_fu_299_ap_ready">1, 0, 1, 0</column>
+<column name="grp_myproject_fu_299_ap_start_reg">1, 0, 1, 0</column>
+<column name="in_V_load_10_reg_508">16, 0, 16, 0</column>
+<column name="in_V_load_11_reg_518">16, 0, 16, 0</column>
+<column name="in_V_load_12_reg_528">16, 0, 16, 0</column>
+<column name="in_V_load_13_reg_538">16, 0, 16, 0</column>
+<column name="in_V_load_14_reg_548">16, 0, 16, 0</column>
+<column name="in_V_load_1_reg_418">16, 0, 16, 0</column>
+<column name="in_V_load_2_reg_428">16, 0, 16, 0</column>
+<column name="in_V_load_3_reg_438">16, 0, 16, 0</column>
+<column name="in_V_load_4_reg_448">16, 0, 16, 0</column>
+<column name="in_V_load_5_reg_458">16, 0, 16, 0</column>
+<column name="in_V_load_6_reg_468">16, 0, 16, 0</column>
+<column name="in_V_load_7_reg_478">16, 0, 16, 0</column>
+<column name="in_V_load_8_reg_488">16, 0, 16, 0</column>
+<column name="in_V_load_9_reg_498">16, 0, 16, 0</column>
+<column name="in_V_load_reg_408">16, 0, 16, 0</column>
+<column name="in_local_V_fu_76">256, 0, 256, 0</column>
+<column name="out_local_0_fu_80">16, 0, 16, 0</column>
+<column name="out_local_1_fu_84">16, 0, 16, 0</column>
+<column name="out_local_2_fu_88">16, 0, 16, 0</column>
+<column name="out_local_3_fu_92">16, 0, 16, 0</column>
+<column name="out_local_4_fu_96">16, 0, 16, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWADDR">in, 7, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARADDR">in, 7, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, myproject_axi, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, myproject_axi, return value</column>
+</table>
+</item>
+</section>
+</profile>

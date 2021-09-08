@@ -1,0 +1,374 @@
+
+
+================================================================
+== Vivado HLS Report for 'myproject_axi'
+================================================================
+* Date:           Wed Sep  8 19:00:16 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.304 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      136|      140| 0.680 us | 0.700 us |  136|  140|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 24
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.32>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%in_local_V = alloca i256, align 8" [firmware/myproject_axi.cpp:15]   --->   Operation 25 'alloca' 'in_local_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%out_local_0 = alloca i16, align 2"   --->   Operation 26 'alloca' 'out_local_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%out_local_1 = alloca i16, align 2"   --->   Operation 27 'alloca' 'out_local_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%out_local_2 = alloca i16, align 2"   --->   Operation 28 'alloca' 'out_local_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%out_local_3 = alloca i16, align 2"   --->   Operation 29 'alloca' 'out_local_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%out_local_4 = alloca i16, align 2"   --->   Operation 30 'alloca' 'out_local_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%in_V_addr = getelementptr [16 x i16]* %in_V, i64 0, i64 0" [firmware/myproject_axi.cpp:20]   --->   Operation 31 'getelementptr' 'in_V_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [2/2] (2.32ns)   --->   "%in_V_load = load i16* %in_V_addr, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 32 'load' 'in_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 33 [1/2] (2.32ns)   --->   "%in_V_load = load i16* %in_V_addr, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 33 'load' 'in_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%in_V_addr_1 = getelementptr [16 x i16]* %in_V, i64 0, i64 1" [firmware/myproject_axi.cpp:20]   --->   Operation 34 'getelementptr' 'in_V_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [2/2] (2.32ns)   --->   "%in_V_load_1 = load i16* %in_V_addr_1, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 35 'load' 'in_V_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 36 [1/2] (2.32ns)   --->   "%in_V_load_1 = load i16* %in_V_addr_1, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 36 'load' 'in_V_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%in_V_addr_2 = getelementptr [16 x i16]* %in_V, i64 0, i64 2" [firmware/myproject_axi.cpp:20]   --->   Operation 37 'getelementptr' 'in_V_addr_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [2/2] (2.32ns)   --->   "%in_V_load_2 = load i16* %in_V_addr_2, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 38 'load' 'in_V_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 39 [1/2] (2.32ns)   --->   "%in_V_load_2 = load i16* %in_V_addr_2, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 39 'load' 'in_V_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%in_V_addr_3 = getelementptr [16 x i16]* %in_V, i64 0, i64 3" [firmware/myproject_axi.cpp:20]   --->   Operation 40 'getelementptr' 'in_V_addr_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [2/2] (2.32ns)   --->   "%in_V_load_3 = load i16* %in_V_addr_3, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 41 'load' 'in_V_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 5 <SV = 4> <Delay = 2.32>
+ST_5 : Operation 42 [1/2] (2.32ns)   --->   "%in_V_load_3 = load i16* %in_V_addr_3, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 42 'load' 'in_V_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%in_V_addr_4 = getelementptr [16 x i16]* %in_V, i64 0, i64 4" [firmware/myproject_axi.cpp:20]   --->   Operation 43 'getelementptr' 'in_V_addr_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [2/2] (2.32ns)   --->   "%in_V_load_4 = load i16* %in_V_addr_4, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 44 'load' 'in_V_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 6 <SV = 5> <Delay = 2.32>
+ST_6 : Operation 45 [1/2] (2.32ns)   --->   "%in_V_load_4 = load i16* %in_V_addr_4, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 45 'load' 'in_V_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_6 : Operation 46 [1/1] (0.00ns)   --->   "%in_V_addr_5 = getelementptr [16 x i16]* %in_V, i64 0, i64 5" [firmware/myproject_axi.cpp:20]   --->   Operation 46 'getelementptr' 'in_V_addr_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 47 [2/2] (2.32ns)   --->   "%in_V_load_5 = load i16* %in_V_addr_5, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 47 'load' 'in_V_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 7 <SV = 6> <Delay = 2.32>
+ST_7 : Operation 48 [1/2] (2.32ns)   --->   "%in_V_load_5 = load i16* %in_V_addr_5, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 48 'load' 'in_V_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_7 : Operation 49 [1/1] (0.00ns)   --->   "%in_V_addr_6 = getelementptr [16 x i16]* %in_V, i64 0, i64 6" [firmware/myproject_axi.cpp:20]   --->   Operation 49 'getelementptr' 'in_V_addr_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 50 [2/2] (2.32ns)   --->   "%in_V_load_6 = load i16* %in_V_addr_6, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 50 'load' 'in_V_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 8 <SV = 7> <Delay = 2.32>
+ST_8 : Operation 51 [1/2] (2.32ns)   --->   "%in_V_load_6 = load i16* %in_V_addr_6, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 51 'load' 'in_V_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_8 : Operation 52 [1/1] (0.00ns)   --->   "%in_V_addr_7 = getelementptr [16 x i16]* %in_V, i64 0, i64 7" [firmware/myproject_axi.cpp:20]   --->   Operation 52 'getelementptr' 'in_V_addr_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 53 [2/2] (2.32ns)   --->   "%in_V_load_7 = load i16* %in_V_addr_7, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 53 'load' 'in_V_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 9 <SV = 8> <Delay = 2.32>
+ST_9 : Operation 54 [1/2] (2.32ns)   --->   "%in_V_load_7 = load i16* %in_V_addr_7, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 54 'load' 'in_V_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_9 : Operation 55 [1/1] (0.00ns)   --->   "%in_V_addr_8 = getelementptr [16 x i16]* %in_V, i64 0, i64 8" [firmware/myproject_axi.cpp:20]   --->   Operation 55 'getelementptr' 'in_V_addr_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 56 [2/2] (2.32ns)   --->   "%in_V_load_8 = load i16* %in_V_addr_8, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 56 'load' 'in_V_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 10 <SV = 9> <Delay = 2.32>
+ST_10 : Operation 57 [1/2] (2.32ns)   --->   "%in_V_load_8 = load i16* %in_V_addr_8, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 57 'load' 'in_V_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_10 : Operation 58 [1/1] (0.00ns)   --->   "%in_V_addr_9 = getelementptr [16 x i16]* %in_V, i64 0, i64 9" [firmware/myproject_axi.cpp:20]   --->   Operation 58 'getelementptr' 'in_V_addr_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 59 [2/2] (2.32ns)   --->   "%in_V_load_9 = load i16* %in_V_addr_9, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 59 'load' 'in_V_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 11 <SV = 10> <Delay = 2.32>
+ST_11 : Operation 60 [1/2] (2.32ns)   --->   "%in_V_load_9 = load i16* %in_V_addr_9, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 60 'load' 'in_V_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_11 : Operation 61 [1/1] (0.00ns)   --->   "%in_V_addr_10 = getelementptr [16 x i16]* %in_V, i64 0, i64 10" [firmware/myproject_axi.cpp:20]   --->   Operation 61 'getelementptr' 'in_V_addr_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 62 [2/2] (2.32ns)   --->   "%in_V_load_10 = load i16* %in_V_addr_10, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 62 'load' 'in_V_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 12 <SV = 11> <Delay = 2.32>
+ST_12 : Operation 63 [1/2] (2.32ns)   --->   "%in_V_load_10 = load i16* %in_V_addr_10, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 63 'load' 'in_V_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_12 : Operation 64 [1/1] (0.00ns)   --->   "%in_V_addr_11 = getelementptr [16 x i16]* %in_V, i64 0, i64 11" [firmware/myproject_axi.cpp:20]   --->   Operation 64 'getelementptr' 'in_V_addr_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 65 [2/2] (2.32ns)   --->   "%in_V_load_11 = load i16* %in_V_addr_11, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 65 'load' 'in_V_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 13 <SV = 12> <Delay = 2.32>
+ST_13 : Operation 66 [1/2] (2.32ns)   --->   "%in_V_load_11 = load i16* %in_V_addr_11, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 66 'load' 'in_V_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_13 : Operation 67 [1/1] (0.00ns)   --->   "%in_V_addr_12 = getelementptr [16 x i16]* %in_V, i64 0, i64 12" [firmware/myproject_axi.cpp:20]   --->   Operation 67 'getelementptr' 'in_V_addr_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 68 [2/2] (2.32ns)   --->   "%in_V_load_12 = load i16* %in_V_addr_12, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 68 'load' 'in_V_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 14 <SV = 13> <Delay = 2.32>
+ST_14 : Operation 69 [1/2] (2.32ns)   --->   "%in_V_load_12 = load i16* %in_V_addr_12, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 69 'load' 'in_V_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_14 : Operation 70 [1/1] (0.00ns)   --->   "%in_V_addr_13 = getelementptr [16 x i16]* %in_V, i64 0, i64 13" [firmware/myproject_axi.cpp:20]   --->   Operation 70 'getelementptr' 'in_V_addr_13' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 71 [2/2] (2.32ns)   --->   "%in_V_load_13 = load i16* %in_V_addr_13, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 71 'load' 'in_V_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 15 <SV = 14> <Delay = 2.32>
+ST_15 : Operation 72 [1/2] (2.32ns)   --->   "%in_V_load_13 = load i16* %in_V_addr_13, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 72 'load' 'in_V_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_15 : Operation 73 [1/1] (0.00ns)   --->   "%in_V_addr_14 = getelementptr [16 x i16]* %in_V, i64 0, i64 14" [firmware/myproject_axi.cpp:20]   --->   Operation 73 'getelementptr' 'in_V_addr_14' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 74 [2/2] (2.32ns)   --->   "%in_V_load_14 = load i16* %in_V_addr_14, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 74 'load' 'in_V_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 16 <SV = 15> <Delay = 2.32>
+ST_16 : Operation 75 [1/2] (2.32ns)   --->   "%in_V_load_14 = load i16* %in_V_addr_14, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 75 'load' 'in_V_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_16 : Operation 76 [1/1] (0.00ns)   --->   "%in_V_addr_15 = getelementptr [16 x i16]* %in_V, i64 0, i64 15" [firmware/myproject_axi.cpp:20]   --->   Operation 76 'getelementptr' 'in_V_addr_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 77 [2/2] (2.32ns)   --->   "%in_V_load_15 = load i16* %in_V_addr_15, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 77 'load' 'in_V_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 17 <SV = 16> <Delay = 2.32>
+ST_17 : Operation 78 [1/2] (2.32ns)   --->   "%in_V_load_15 = load i16* %in_V_addr_15, align 2" [firmware/myproject_axi.cpp:20]   --->   Operation 78 'load' 'in_V_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_17 : Operation 79 [1/1] (0.00ns)   --->   "%in_local_V_1 = call i256 @_ssdm_op_BitConcatenate.i256.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16.i16(i16 %in_V_load_15, i16 %in_V_load_14, i16 %in_V_load_13, i16 %in_V_load_12, i16 %in_V_load_11, i16 %in_V_load_10, i16 %in_V_load_9, i16 %in_V_load_8, i16 %in_V_load_7, i16 %in_V_load_6, i16 %in_V_load_5, i16 %in_V_load_4, i16 %in_V_load_3, i16 %in_V_load_2, i16 %in_V_load_1, i16 %in_V_load)" [firmware/myproject_axi.cpp:20]   --->   Operation 79 'bitconcatenate' 'in_local_V_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 80 [1/1] (0.00ns)   --->   "store i256 %in_local_V_1, i256* %in_local_V, align 8" [firmware/myproject_axi.cpp:20]   --->   Operation 80 'store' <Predicate = true> <Delay = 0.00>
+
+State 18 <SV = 17> <Delay = 0.00>
+ST_18 : Operation 81 [2/2] (0.00ns)   --->   "call fastcc void @myproject(i256* %in_local_V, i16* %out_local_0, i16* %out_local_1, i16* %out_local_2, i16* %out_local_3, i16* %out_local_4)"   --->   Operation 81 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 19 <SV = 18> <Delay = 0.00>
+ST_19 : Operation 82 [1/2] (0.00ns)   --->   "call fastcc void @myproject(i256* %in_local_V, i16* %out_local_0, i16* %out_local_1, i16* %out_local_2, i16* %out_local_3, i16* %out_local_4)"   --->   Operation 82 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 20 <SV = 19> <Delay = 2.32>
+ST_20 : Operation 83 [1/1] (0.00ns)   --->   "%out_local_0_load = load i16* %out_local_0, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 83 'load' 'out_local_0_load' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 84 [1/1] (0.00ns)   --->   "%out_V_addr = getelementptr [5 x i16]* %out_V, i64 0, i64 0" [firmware/myproject_axi.cpp:27]   --->   Operation 84 'getelementptr' 'out_V_addr' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 85 [1/1] (2.32ns)   --->   "store i16 %out_local_0_load, i16* %out_V_addr, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 85 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 21 <SV = 20> <Delay = 2.32>
+ST_21 : Operation 86 [1/1] (0.00ns)   --->   "%out_local_1_load = load i16* %out_local_1, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 86 'load' 'out_local_1_load' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 87 [1/1] (0.00ns)   --->   "%out_V_addr_1 = getelementptr [5 x i16]* %out_V, i64 0, i64 1" [firmware/myproject_axi.cpp:27]   --->   Operation 87 'getelementptr' 'out_V_addr_1' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 88 [1/1] (2.32ns)   --->   "store i16 %out_local_1_load, i16* %out_V_addr_1, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 88 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 22 <SV = 21> <Delay = 2.32>
+ST_22 : Operation 89 [1/1] (0.00ns)   --->   "%out_local_2_load = load i16* %out_local_2, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 89 'load' 'out_local_2_load' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 90 [1/1] (0.00ns)   --->   "%out_V_addr_2 = getelementptr [5 x i16]* %out_V, i64 0, i64 2" [firmware/myproject_axi.cpp:27]   --->   Operation 90 'getelementptr' 'out_V_addr_2' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 91 [1/1] (2.32ns)   --->   "store i16 %out_local_2_load, i16* %out_V_addr_2, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 91 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 23 <SV = 22> <Delay = 2.32>
+ST_23 : Operation 92 [1/1] (0.00ns)   --->   "%out_local_3_load = load i16* %out_local_3, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 92 'load' 'out_local_3_load' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 93 [1/1] (0.00ns)   --->   "%out_V_addr_3 = getelementptr [5 x i16]* %out_V, i64 0, i64 3" [firmware/myproject_axi.cpp:27]   --->   Operation 93 'getelementptr' 'out_V_addr_3' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 94 [1/1] (2.32ns)   --->   "store i16 %out_local_3_load, i16* %out_V_addr_3, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 94 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+
+State 24 <SV = 23> <Delay = 2.32>
+ST_24 : Operation 95 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([16 x i16]* %in_V), !map !207"   --->   Operation 95 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 96 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([5 x i16]* %out_V), !map !213"   --->   Operation 96 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([14 x i8]* @myproject_axi_str) nounwind"   --->   Operation 97 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str110, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110, [1 x i8]* @p_str110, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110) nounwind" [firmware/myproject_axi.cpp:8]   --->   Operation 98 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 99 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([16 x i16]* %in_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)" [firmware/myproject_axi.cpp:9]   --->   Operation 99 'specmemcore' 'empty' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 100 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([16 x i16]* %in_V, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str110, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110, [1 x i8]* @p_str110, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110) nounwind" [firmware/myproject_axi.cpp:9]   --->   Operation 100 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 101 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecMemCore([5 x i16]* %out_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)" [firmware/myproject_axi.cpp:10]   --->   Operation 101 'specmemcore' 'empty_22' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 102 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([5 x i16]* %out_V, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str110, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110, [1 x i8]* @p_str110, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str110, [1 x i8]* @p_str110) nounwind" [firmware/myproject_axi.cpp:10]   --->   Operation 102 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 103 [1/1] (0.00ns)   --->   "%out_local_4_load = load i16* %out_local_4, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 103 'load' 'out_local_4_load' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 104 [1/1] (0.00ns)   --->   "%out_V_addr_4 = getelementptr [5 x i16]* %out_V, i64 0, i64 4" [firmware/myproject_axi.cpp:27]   --->   Operation 104 'getelementptr' 'out_V_addr_4' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 105 [1/1] (2.32ns)   --->   "store i16 %out_local_4_load, i16* %out_V_addr_4, align 2" [firmware/myproject_axi.cpp:27]   --->   Operation 105 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_24 : Operation 106 [1/1] (0.00ns)   --->   "ret void" [firmware/myproject_axi.cpp:29]   --->   Operation 106 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('in_V_addr', firmware/myproject_axi.cpp:20) [29]  (0 ns)
+	'load' operation ('in_V_load', firmware/myproject_axi.cpp:20) on array 'in_V' [30]  (2.32 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load', firmware/myproject_axi.cpp:20) on array 'in_V' [30]  (2.32 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_1', firmware/myproject_axi.cpp:20) on array 'in_V' [32]  (2.32 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_2', firmware/myproject_axi.cpp:20) on array 'in_V' [34]  (2.32 ns)
+
+ <State 5>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_3', firmware/myproject_axi.cpp:20) on array 'in_V' [36]  (2.32 ns)
+
+ <State 6>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_4', firmware/myproject_axi.cpp:20) on array 'in_V' [38]  (2.32 ns)
+
+ <State 7>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_5', firmware/myproject_axi.cpp:20) on array 'in_V' [40]  (2.32 ns)
+
+ <State 8>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_6', firmware/myproject_axi.cpp:20) on array 'in_V' [42]  (2.32 ns)
+
+ <State 9>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_7', firmware/myproject_axi.cpp:20) on array 'in_V' [44]  (2.32 ns)
+
+ <State 10>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_8', firmware/myproject_axi.cpp:20) on array 'in_V' [46]  (2.32 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_9', firmware/myproject_axi.cpp:20) on array 'in_V' [48]  (2.32 ns)
+
+ <State 12>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_10', firmware/myproject_axi.cpp:20) on array 'in_V' [50]  (2.32 ns)
+
+ <State 13>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_11', firmware/myproject_axi.cpp:20) on array 'in_V' [52]  (2.32 ns)
+
+ <State 14>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_12', firmware/myproject_axi.cpp:20) on array 'in_V' [54]  (2.32 ns)
+
+ <State 15>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_13', firmware/myproject_axi.cpp:20) on array 'in_V' [56]  (2.32 ns)
+
+ <State 16>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_14', firmware/myproject_axi.cpp:20) on array 'in_V' [58]  (2.32 ns)
+
+ <State 17>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('in_V_load_15', firmware/myproject_axi.cpp:20) on array 'in_V' [60]  (2.32 ns)
+
+ <State 18>: 0ns
+The critical path consists of the following:
+
+ <State 19>: 0ns
+The critical path consists of the following:
+
+ <State 20>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('out_local_0_load', firmware/myproject_axi.cpp:27) on local variable 'out_local_0' [64]  (0 ns)
+	'store' operation ('store_ln27', firmware/myproject_axi.cpp:27) of variable 'out_local_0_load', firmware/myproject_axi.cpp:27 on array 'out_V' [66]  (2.32 ns)
+
+ <State 21>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('out_local_1_load', firmware/myproject_axi.cpp:27) on local variable 'out_local_1' [67]  (0 ns)
+	'store' operation ('store_ln27', firmware/myproject_axi.cpp:27) of variable 'out_local_1_load', firmware/myproject_axi.cpp:27 on array 'out_V' [69]  (2.32 ns)
+
+ <State 22>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('out_local_2_load', firmware/myproject_axi.cpp:27) on local variable 'out_local_2' [70]  (0 ns)
+	'store' operation ('store_ln27', firmware/myproject_axi.cpp:27) of variable 'out_local_2_load', firmware/myproject_axi.cpp:27 on array 'out_V' [72]  (2.32 ns)
+
+ <State 23>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('out_local_3_load', firmware/myproject_axi.cpp:27) on local variable 'out_local_3' [73]  (0 ns)
+	'store' operation ('store_ln27', firmware/myproject_axi.cpp:27) of variable 'out_local_3_load', firmware/myproject_axi.cpp:27 on array 'out_V' [75]  (2.32 ns)
+
+ <State 24>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('out_local_4_load', firmware/myproject_axi.cpp:27) on local variable 'out_local_4' [76]  (0 ns)
+	'store' operation ('store_ln27', firmware/myproject_axi.cpp:27) of variable 'out_local_4_load', firmware/myproject_axi.cpp:27 on array 'out_V' [78]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

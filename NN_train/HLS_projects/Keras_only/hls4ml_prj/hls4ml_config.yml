@@ -1,0 +1,82 @@
+Backend: Vivado
+ClockPeriod: 5
+HLSConfig:
+  LayerName:
+    fc1:
+      Precision:
+        bias: ap_fixed<16,6>
+        result: ap_fixed<16,6>
+        weight: ap_fixed<16,6>
+      ReuseFactor: 16
+    fc1_input:
+      Precision:
+        result: ap_fixed<16,6>
+    fc1_linear:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    fc2:
+      Precision:
+        bias: ap_fixed<16,6>
+        result: ap_fixed<16,6>
+        weight: ap_fixed<16,6>
+      ReuseFactor: 64
+    fc2_linear:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    fc3:
+      Precision:
+        bias: ap_fixed<16,6>
+        result: ap_fixed<16,6>
+        weight: ap_fixed<16,6>
+      ReuseFactor: 32
+    fc3_linear:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    output:
+      Precision:
+        bias: ap_fixed<16,6>
+        result: ap_fixed<16,6>
+        weight: ap_fixed<16,6>
+      ReuseFactor: 32
+    output_linear:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    relu1:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    relu2:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    relu3:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+    softmax:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      exp_table_t: ap_fixed<18,8,AP_RND,AP_SAT>
+      inv_table_t: ap_fixed<18,8,AP_RND,AP_SAT>
+      table_size: 1024
+  Model:
+    Precision: ap_fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+IOType: io_parallel
+KerasModel: !keras_model '/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/HLS_projects/Keras_only/hls4ml_prj/keras_model.h5'
+OutputDir: /home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/HLS_projects/Keras_only/hls4ml_prj
+ProjectName: myproject
+Stamp: aBdE266e
+XilinxPart: xc7z020clg400-1
