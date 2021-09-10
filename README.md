@@ -1,5 +1,6 @@
 # PYNQ_IA
-## The files are organized as follows
+## Code
+The files are organized as follows
 - **`NN_train`**  : which contains the notebooks used to create and save the Keras and Qkeras models.
 - **`PYNQ_files`** : which contains the .bit and .hwh files needed to load the overlay (exported from Vivado 2020.1), it contains also the notebook ran on the board.   
   
