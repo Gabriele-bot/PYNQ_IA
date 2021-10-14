@@ -1,0 +1,53 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Thu Oct 14 16:41:00 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 6.325 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">194401, 196611, 1.230 ms, 1.244 ms, 32456, 196548, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_dense_array_array_ap_fixed_16_6_5_3_0_10u_config10_s_fu_728">dense_array_array_ap_fixed_16_6_5_3_0_10u_config10_s, 75, 76, 0.474 us, 0.481 us, 75, 76, none</column>
+<column name="grp_conv_2d_cl_array_array_ap_fixed_16u_config6_s_fu_760">conv_2d_cl_array_array_ap_fixed_16u_config6_s, 845, 196547, 5.345 us, 1.243 ms, 845, 196547, none</column>
+<column name="grp_softmax_array_array_ap_fixed_10u_softmax_config12_s_fu_800">softmax_array_array_ap_fixed_10u_softmax_config12_s, 15, 15, 94.875 ns, 94.875 ns, 15, 15, none</column>
+<column name="grp_conv_2d_cl_array_array_ap_fixed_16u_config2_s_fu_838">conv_2d_cl_array_array_ap_fixed_16u_config2_s, 3920, 122304, 24.794 us, 0.774 ms, 3920, 122304, none</column>
+<column name="grp_relu_array_array_ap_fixed_16u_relu_config4_s_fu_864">relu_array_array_ap_fixed_16u_relu_config4_s, 680, 680, 4.301 us, 4.301 us, 680, 680, none</column>
+<column name="grp_relu_array_array_ap_fixed_16u_relu_config8_s_fu_900">relu_array_array_ap_fixed_16u_relu_config8_s, 125, 125, 0.791 us, 0.791 us, 125, 125, none</column>
+<column name="grp_pooling2d_cl_array_array_ap_fixed_16u_config9_s_fu_936">pooling2d_cl_array_array_ap_fixed_16u_config9_s, 5816, 5816, 36.786 us, 36.786 us, 5816, 5816, none</column>
+<column name="grp_pooling2d_cl_array_array_ap_fixed_16u_config5_s_fu_976">pooling2d_cl_array_array_ap_fixed_16u_config5_s, 32455, 32455, 0.205 ms, 0.205 ms, 32455, 32455, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

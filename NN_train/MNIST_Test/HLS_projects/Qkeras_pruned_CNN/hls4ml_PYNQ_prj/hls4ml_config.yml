@@ -1,0 +1,53 @@
+Backend: Pynq
+ClockPeriod: 5
+HLSConfig:
+  LayerName:
+    1_relu_1:
+      Precision:
+        result: ap_fixed<3,2>
+      ReuseFactor: 1
+    layer0:
+      Precision: ap_fixed<16,6>
+    maxp:
+      Precision: ap_fixed<16,6>
+    maxp_1:
+      Precision: ap_fixed<16,6>
+    q_conv2d:
+      Precision:
+        bias: ap_fixed<6,2>
+        weight: ap_fixed<6,2>
+      ReuseFactor: 144
+    q_conv2d_1:
+      Precision:
+        bias: ap_fixed<6,2>
+        weight: ap_fixed<6,2>
+      ReuseFactor: 1152
+    q_dense:
+      Precision:
+        bias: ap_fixed<6,1>
+        weight: ap_fixed<6,1>
+      ReuseFactor: 40
+    q_relu:
+      Precision:
+        result: ap_fixed<3,2>
+      ReuseFactor: 1
+    softmax:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      Strategy: Stable
+      exp_table_t: ap_fixed<12,4>
+      inv_table_t: ap_fixed<12,2>
+      table_size: 1024
+  Model:
+    Precision: ap_fixed<16,6>
+    ReuseFactor: 20
+    Strategy: Resource
+  SkipOptimizers:
+  - reshape_stream
+IOType: io_stream
+Interface: s_axilite
+KerasModel: !keras_model '/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/keras_model.h5'
+OutputDir: /home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj
+ProjectName: myproject
+Stamp: 5E7Ba801
+XilinxPart: xc7z020clg400-1
