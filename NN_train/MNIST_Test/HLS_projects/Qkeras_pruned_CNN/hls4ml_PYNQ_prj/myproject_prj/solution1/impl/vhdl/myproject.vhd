@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity myproject is
 port (
-    layer0_V_data_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+    layer0_V_data_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
     layer0_V_data_V_empty_n : IN STD_LOGIC;
     layer0_V_data_V_read : OUT STD_LOGIC;
     layer12_out_V_data_0_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
@@ -816,7 +816,7 @@ architecture behav of myproject is
         ap_ready : OUT STD_LOGIC;
         start_out : OUT STD_LOGIC;
         start_write : OUT STD_LOGIC;
-        data_V_data_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
+        data_V_data_V_dout : IN STD_LOGIC_VECTOR (7 downto 0);
         data_V_data_V_empty_n : IN STD_LOGIC;
         data_V_data_V_read : OUT STD_LOGIC;
         res_V_data_0_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);

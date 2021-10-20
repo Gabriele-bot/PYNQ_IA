@@ -8,7 +8,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity myproject_axi_AXILiteS_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 13;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 12;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -33,7 +33,7 @@ port (
     RREADY                :in   STD_LOGIC;
     in_V_address0         :in   STD_LOGIC_VECTOR(9 downto 0);
     in_V_ce0              :in   STD_LOGIC;
-    in_V_q0               :out  STD_LOGIC_VECTOR(15 downto 0);
+    in_V_q0               :out  STD_LOGIC_VECTOR(7 downto 0);
     out_V_address0        :in   STD_LOGIC_VECTOR(3 downto 0);
     out_V_ce0             :in   STD_LOGIC;
     out_V_we0             :in   STD_LOGIC;
@@ -42,14 +42,16 @@ port (
 end entity myproject_axi_AXILiteS_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x0800 ~
--- 0x0fff : Memory 'in_V' (784 * 16b)
---          Word n : bit [15: 0] - in_V[2n]
---                   bit [31:16] - in_V[2n+1]
--- 0x1000 ~
--- 0x101f : Memory 'out_V' (10 * 16b)
---          Word n : bit [15: 0] - out_V[2n]
---                   bit [31:16] - out_V[2n+1]
+-- 0x400 ~
+-- 0x7ff : Memory 'in_V' (784 * 8b)
+--         Word n : bit [ 7: 0] - in_V[4n]
+--                  bit [15: 8] - in_V[4n+1]
+--                  bit [23:16] - in_V[4n+2]
+--                  bit [31:24] - in_V[4n+3]
+-- 0x800 ~
+-- 0x81f : Memory 'out_V' (10 * 16b)
+--         Word n : bit [15: 0] - out_V[2n]
+--                  bit [31:16] - out_V[2n+1]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of myproject_axi_AXILiteS_s_axi is
@@ -57,11 +59,11 @@ architecture behave of myproject_axi_AXILiteS_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_IN_V_BASE  : INTEGER := 16#0800#;
-    constant ADDR_IN_V_HIGH  : INTEGER := 16#0fff#;
-    constant ADDR_OUT_V_BASE : INTEGER := 16#1000#;
-    constant ADDR_OUT_V_HIGH : INTEGER := 16#101f#;
-    constant ADDR_BITS         : INTEGER := 13;
+    constant ADDR_IN_V_BASE  : INTEGER := 16#400#;
+    constant ADDR_IN_V_HIGH  : INTEGER := 16#7ff#;
+    constant ADDR_OUT_V_BASE : INTEGER := 16#800#;
+    constant ADDR_OUT_V_HIGH : INTEGER := 16#81f#;
+    constant ADDR_BITS         : INTEGER := 12;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -75,13 +77,13 @@ architecture behave of myproject_axi_AXILiteS_s_axi is
     signal ARREADY_t           : STD_LOGIC;
     signal RVALID_t            : STD_LOGIC;
     -- memory signals
-    signal int_in_V_address0   : UNSIGNED(8 downto 0);
+    signal int_in_V_address0   : UNSIGNED(7 downto 0);
     signal int_in_V_ce0        : STD_LOGIC;
     signal int_in_V_we0        : STD_LOGIC;
     signal int_in_V_be0        : UNSIGNED(3 downto 0);
     signal int_in_V_d0         : UNSIGNED(31 downto 0);
     signal int_in_V_q0         : UNSIGNED(31 downto 0);
-    signal int_in_V_address1   : UNSIGNED(8 downto 0);
+    signal int_in_V_address1   : UNSIGNED(7 downto 0);
     signal int_in_V_ce1        : STD_LOGIC;
     signal int_in_V_we1        : STD_LOGIC;
     signal int_in_V_be1        : UNSIGNED(3 downto 0);
@@ -89,7 +91,7 @@ architecture behave of myproject_axi_AXILiteS_s_axi is
     signal int_in_V_q1         : UNSIGNED(31 downto 0);
     signal int_in_V_read       : STD_LOGIC;
     signal int_in_V_write      : STD_LOGIC;
-    signal int_in_V_shift      : UNSIGNED(0 downto 0);
+    signal int_in_V_shift      : UNSIGNED(1 downto 0);
     signal int_out_V_address0  : UNSIGNED(2 downto 0);
     signal int_out_V_ce0       : STD_LOGIC;
     signal int_out_V_we0       : STD_LOGIC;
@@ -146,8 +148,8 @@ begin
 int_in_V : myproject_axi_AXILiteS_s_axi_ram
 generic map (
      BYTES    => 4,
-     DEPTH    => 392,
-     AWIDTH   => log2(392))
+     DEPTH    => 196,
+     AWIDTH   => log2(196))
 port map (
      clk0     => ACLK,
      address0 => int_in_V_address0,
@@ -305,13 +307,13 @@ port map (
 
 -- ----------------------- Memory logic ------------------
     -- in_V
-    int_in_V_address0    <= SHIFT_RIGHT(UNSIGNED(in_V_address0), 1)(8 downto 0);
+    int_in_V_address0    <= SHIFT_RIGHT(UNSIGNED(in_V_address0), 2)(7 downto 0);
     int_in_V_ce0         <= in_V_ce0;
     int_in_V_we0         <= '0';
     int_in_V_be0         <= (others => '0');
     int_in_V_d0          <= (others => '0');
-    in_V_q0              <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_in_V_q0, TO_INTEGER(int_in_V_shift) * 16)(15 downto 0));
-    int_in_V_address1    <= raddr(10 downto 2) when ar_hs = '1' else waddr(10 downto 2);
+    in_V_q0              <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_in_V_q0, TO_INTEGER(int_in_V_shift) * 8)(7 downto 0));
+    int_in_V_address1    <= raddr(9 downto 2) when ar_hs = '1' else waddr(9 downto 2);
     int_in_V_ce1         <= '1' when ar_hs = '1' or (int_in_V_write = '1' and WVALID  = '1') else '0';
     int_in_V_we1         <= '1' when int_in_V_write = '1' and WVALID = '1' else '0';
     int_in_V_be1         <= UNSIGNED(WSTRB);
@@ -363,7 +365,7 @@ port map (
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
                 if (in_V_ce0 = '1') then
-                    int_in_V_shift(0) <= in_V_address0(0);
+                    int_in_V_shift <= UNSIGNED(in_V_address0(1 downto 0));
                 end if;
             end if;
         end if;

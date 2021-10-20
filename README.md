@@ -30,12 +30,19 @@ Here are presented the resources estimated by vivado and the actual utilization 
 
 ### Resurces [MNIST classification -CNN-]
 
-Here are presented the resources estimated by vivado and the actual utilization on the optimized model.
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
 |-------------------|--------|-------|------|-------|
 |Vanilla            |-       |-      |-     |-      |
-|Quntized+Pruned    |88      |51     |40    |93     |
-|FPGA implementation|31      |50     |23    |47     |
+|Quntized+Pruned    |87      |56     |47    |92     |
+|FPGA implementation|27      |5      |26    |56     |
+
+### Resurces [MNIST classification -DNN-]
+
+|Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
+|-------------------|--------|-------|------|-------|
+|Vanilla            |-       |-      |-     |-      |
+|Quntized+Pruned    |139     |4      |41    |268    |
+|FPGA implementation|66      |5      |42    |46     |
 
 ### Latency
 As it is clear the main bottlenecks are the PS-PL interface (AXI memory mapped) and the encode-decode routines performed on the PS side, to lower the first it is possible to perform burst transfers employing a DMA (transfer data via DDR memory, but it require an AXI stream interface to the ip), to alleviate the second issue the functions for encoding and decoding can be vectorized.  

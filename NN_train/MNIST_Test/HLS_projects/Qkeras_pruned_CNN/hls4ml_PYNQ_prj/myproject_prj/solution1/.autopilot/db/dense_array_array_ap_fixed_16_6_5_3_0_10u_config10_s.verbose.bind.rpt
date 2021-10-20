@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'dense_array_array_ap_fixed_16_6_5_3_0_10u_config10_s'
 ================================================================
-* Date:           Thu Oct 14 16:40:55 2021
+* Date:           Wed Oct 20 11:53:24 2021
 
 * Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
 * Project:        myproject_prj
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |       75|       76| 0.375 us | 0.380 us |   75|   76|   none  |
+    |       74|       75| 0.370 us | 0.375 us |   74|   75|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                                                   |                                                       |  Latency (cycles) |  Latency (absolute) |  Interval |                   Pipeline                  |
         |                              Instance                             |                         Module                        |   min   |   max   |    min   |    max   | min | max |                     Type                    |
         +-------------------------------------------------------------------+-------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------------------------------------------+
-        |grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828  |dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s  |       46|       47| 0.230 us | 0.235 us |   40|   40| loop rewind(delay=0 initiation interval(s)) |
+        |grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828  |dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s  |       45|       46| 0.225 us | 0.230 us |   40|   40| loop rewind(delay=0 initiation interval(s)) |
         +-------------------------------------------------------------------+-------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------------------------------------------+
 
         * Loop: 
@@ -933,24 +933,24 @@ State 3 <SV = 2> <Delay = 2.18>
 ST_3 : Operation 839 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str26) nounwind" [firmware/nnet_utils/nnet_dense_stream.h:41]   --->   Operation 839 'specloopname' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 840 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str27)" [firmware/nnet_utils/nnet_dense_stream.h:42]   --->   Operation 840 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 841 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str10) nounwind" [firmware/nnet_utils/nnet_dense_stream.h:43]   --->   Operation 841 'specpipeline' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 842 [1/1] (0.00ns)   --->   "%empty_295 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str27, i32 %tmp)" [firmware/nnet_utils/nnet_dense_stream.h:44]   --->   Operation 842 'specregionend' 'empty_295' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 843 [1/1] (2.18ns)   --->   "%empty_296 = call { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } @_ssdm_op_Read.ap_fifo.volatile.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P(i16* %data_stream_V_data_0_V, i16* %data_stream_V_data_1_V, i16* %data_stream_V_data_2_V, i16* %data_stream_V_data_3_V, i16* %data_stream_V_data_4_V, i16* %data_stream_V_data_5_V, i16* %data_stream_V_data_6_V, i16* %data_stream_V_data_7_V, i16* %data_stream_V_data_8_V, i16* %data_stream_V_data_9_V, i16* %data_stream_V_data_10_V, i16* %data_stream_V_data_11_V, i16* %data_stream_V_data_12_V, i16* %data_stream_V_data_13_V, i16* %data_stream_V_data_14_V, i16* %data_stream_V_data_15_V)" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 843 'read' 'empty_296' <Predicate = true> <Delay = 2.18> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 0> <FIFO>
-ST_3 : Operation 844 [1/1] (0.00ns)   --->   "%data_0_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 0" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 844 'extractvalue' 'data_0_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 845 [1/1] (0.00ns)   --->   "%data_1_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 1" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 845 'extractvalue' 'data_1_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 846 [1/1] (0.00ns)   --->   "%data_2_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 2" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 846 'extractvalue' 'data_2_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 847 [1/1] (0.00ns)   --->   "%data_3_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 3" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 847 'extractvalue' 'data_3_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 848 [1/1] (0.00ns)   --->   "%data_4_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 4" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 848 'extractvalue' 'data_4_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 849 [1/1] (0.00ns)   --->   "%data_5_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 5" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 849 'extractvalue' 'data_5_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 850 [1/1] (0.00ns)   --->   "%data_6_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 6" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 850 'extractvalue' 'data_6_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 851 [1/1] (0.00ns)   --->   "%data_7_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 7" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 851 'extractvalue' 'data_7_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 852 [1/1] (0.00ns)   --->   "%data_8_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 8" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 852 'extractvalue' 'data_8_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 853 [1/1] (0.00ns)   --->   "%data_9_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 9" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 853 'extractvalue' 'data_9_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 854 [1/1] (0.00ns)   --->   "%data_10_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 10" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 854 'extractvalue' 'data_10_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 855 [1/1] (0.00ns)   --->   "%data_11_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 11" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 855 'extractvalue' 'data_11_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 856 [1/1] (0.00ns)   --->   "%data_12_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 12" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 856 'extractvalue' 'data_12_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 857 [1/1] (0.00ns)   --->   "%data_13_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 13" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 857 'extractvalue' 'data_13_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 858 [1/1] (0.00ns)   --->   "%data_14_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 14" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 858 'extractvalue' 'data_14_V' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 859 [1/1] (0.00ns)   --->   "%data_15_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_296, 15" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 859 'extractvalue' 'data_15_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 842 [1/1] (0.00ns)   --->   "%empty_296 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str27, i32 %tmp)" [firmware/nnet_utils/nnet_dense_stream.h:44]   --->   Operation 842 'specregionend' 'empty_296' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 843 [1/1] (2.18ns)   --->   "%empty_297 = call { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } @_ssdm_op_Read.ap_fifo.volatile.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P.i16P(i16* %data_stream_V_data_0_V, i16* %data_stream_V_data_1_V, i16* %data_stream_V_data_2_V, i16* %data_stream_V_data_3_V, i16* %data_stream_V_data_4_V, i16* %data_stream_V_data_5_V, i16* %data_stream_V_data_6_V, i16* %data_stream_V_data_7_V, i16* %data_stream_V_data_8_V, i16* %data_stream_V_data_9_V, i16* %data_stream_V_data_10_V, i16* %data_stream_V_data_11_V, i16* %data_stream_V_data_12_V, i16* %data_stream_V_data_13_V, i16* %data_stream_V_data_14_V, i16* %data_stream_V_data_15_V)" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 843 'read' 'empty_297' <Predicate = true> <Delay = 2.18> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 0> <FIFO>
+ST_3 : Operation 844 [1/1] (0.00ns)   --->   "%data_0_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 0" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 844 'extractvalue' 'data_0_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 845 [1/1] (0.00ns)   --->   "%data_1_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 1" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 845 'extractvalue' 'data_1_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 846 [1/1] (0.00ns)   --->   "%data_2_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 2" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 846 'extractvalue' 'data_2_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 847 [1/1] (0.00ns)   --->   "%data_3_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 3" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 847 'extractvalue' 'data_3_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 848 [1/1] (0.00ns)   --->   "%data_4_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 4" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 848 'extractvalue' 'data_4_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 849 [1/1] (0.00ns)   --->   "%data_5_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 5" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 849 'extractvalue' 'data_5_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 850 [1/1] (0.00ns)   --->   "%data_6_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 6" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 850 'extractvalue' 'data_6_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 851 [1/1] (0.00ns)   --->   "%data_7_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 7" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 851 'extractvalue' 'data_7_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 852 [1/1] (0.00ns)   --->   "%data_8_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 8" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 852 'extractvalue' 'data_8_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 853 [1/1] (0.00ns)   --->   "%data_9_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 9" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 853 'extractvalue' 'data_9_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 854 [1/1] (0.00ns)   --->   "%data_10_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 10" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 854 'extractvalue' 'data_10_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 855 [1/1] (0.00ns)   --->   "%data_11_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 11" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 855 'extractvalue' 'data_11_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 856 [1/1] (0.00ns)   --->   "%data_12_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 12" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 856 'extractvalue' 'data_12_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 857 [1/1] (0.00ns)   --->   "%data_13_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 13" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 857 'extractvalue' 'data_13_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 858 [1/1] (0.00ns)   --->   "%data_14_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 14" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 858 'extractvalue' 'data_14_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 859 [1/1] (0.00ns)   --->   "%data_15_V = extractvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %empty_297, 15" [firmware/nnet_utils/nnet_dense_stream.h:45]   --->   Operation 859 'extractvalue' 'data_15_V' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 860 [1/1] (1.42ns)   --->   "switch i5 %i_in_0, label %branch6384 [
     i5 0, label %hls_label_24.branch6000_crit_edge
     i5 1, label %branch6016
@@ -3070,8 +3070,8 @@ br_ln48            (br               ) [ 0000000]
 specloopname_ln41  (specloopname     ) [ 0000000]
 tmp                (specregionbegin  ) [ 0000000]
 specpipeline_ln43  (specpipeline     ) [ 0000000]
-empty_295          (specregionend    ) [ 0000000]
-empty_296          (read             ) [ 0000000]
+empty_296          (specregionend    ) [ 0000000]
+empty_297          (read             ) [ 0000000]
 data_0_V           (extractvalue     ) [ 0000000]
 data_1_V           (extractvalue     ) [ 0000000]
 data_2_V           (extractvalue     ) [ 0000000]
@@ -8982,7 +8982,7 @@ ret_ln66           (ret              ) [ 0000000]
 </bind>
 </comp>
 
-<comp id="1746" class="1004" name="empty_296_read_fu_1746">
+<comp id="1746" class="1004" name="empty_297_read_fu_1746">
 <pin_list>
 <pin id="1747" dir="0" index="0" bw="256" slack="0"/>
 <pin id="1748" dir="0" index="1" bw="16" slack="0"/>
@@ -9005,7 +9005,7 @@ ret_ln66           (ret              ) [ 0000000]
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="empty_296/3 "/>
+<opset="empty_297/3 "/>
 </bind>
 </comp>
 
@@ -9467,7 +9467,7 @@ ret_ln66           (ret              ) [ 0000000]
 <pin id="2227" dir="0" index="398" bw="16" slack="0"/>
 <pin id="2228" dir="0" index="399" bw="16" slack="0"/>
 <pin id="2229" dir="0" index="400" bw="16" slack="0"/>
-<pin id="2230" dir="0" index="401" bw="599" slack="0"/>
+<pin id="2230" dir="0" index="401" bw="499" slack="0"/>
 <pin id="2231" dir="1" index="402" bw="160" slack="0"/>
 </pin_list>
 <bind>
@@ -33723,7 +33723,7 @@ ret_ln66           (ret              ) [ 0000000]
 		i_in : 1
 		br_ln41 : 2
 	State 3
-		empty_295 : 1
+		empty_296 : 1
 		store_ln48 : 1
 		store_ln48 : 1
 		store_ln48 : 1
@@ -34148,13 +34148,13 @@ ret_ln66           (ret              ) [ 0000000]
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
 | Operation|                          Functional Unit                          |  DSP48E |  Delay  |    FF   |   LUT   |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
-|   call   | grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828 |   100   | 359.107 |  20276  |  10467  |
+|   call   | grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828 |    99   | 359.107 |  26187  |  10665  |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
 |    add   |                            i_in_fu_2240                           |    0    |    0    |    0    |    15   |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
 |   icmp   |                         icmp_ln41_fu_2234                         |    0    |    0    |    0    |    11   |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
-|   read   |                       empty_296_read_fu_1746                      |    0    |    0    |    0    |    0    |
+|   read   |                       empty_297_read_fu_1746                      |    0    |    0    |    0    |    0    |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
 |   write  |                      write_ln64_write_fu_1782                     |    0    |    0    |    0    |    0    |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
@@ -34185,7 +34185,7 @@ ret_ln66           (ret              ) [ 0000000]
 |          |                        tmp_data_8_V_fu_5942                       |    0    |    0    |    0    |    0    |
 |          |                        tmp_data_9_V_fu_5946                       |    0    |    0    |    0    |    0    |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
-|   Total  |                                                                   |   100   | 359.107 |  20276  |  10493  |
+|   Total  |                                                                   |    99   | 359.107 |  26187  |  10691  |
 |----------|-------------------------------------------------------------------|---------|---------|---------|---------|
 
 Memories:
@@ -35427,10 +35427,10 @@ N/A
 +-----------+--------+--------+--------+--------+
 |           | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |   100  |   359  |  20276 |  10493 |
+|  Function |   99   |   359  |  26187 |  10691 |
 |   Memory  |    -   |    -   |    -   |    -   |
 |Multiplexer|    -   |   709  |    -   |  3609  |
 |  Register |    -   |    -   |  12971 |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |   100  |  1068  |  33247 |  14102 |
+|   Total   |   99   |  1068  |  39158 |  14300 |
 +-----------+--------+--------+--------+--------+

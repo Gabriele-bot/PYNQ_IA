@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'myproject'" level="0">
-<item name = "Date">Thu Oct 14 16:40:58 2021
+<item name = "Date">Wed Oct 20 11:53:27 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">myproject_prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">194401, 196611, 1.230 ms, 1.244 ms, 32456, 196548, dataflow</column>
+<column name="">64300, 64494, 0.407 ms, 0.408 ms, 32456, 64289, dataflow</column>
 </table>
 </item>
 <item name = "Detail">

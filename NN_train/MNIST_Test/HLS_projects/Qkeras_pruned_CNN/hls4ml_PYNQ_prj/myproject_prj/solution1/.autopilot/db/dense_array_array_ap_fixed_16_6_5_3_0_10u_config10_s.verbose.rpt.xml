@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'dense_array_array_ap_fixed_16_6_5_3_0_10u_config10_s'" level="0">
-<item name = "Date">Thu Oct 14 16:41:18 2021
+<item name = "Date">Wed Oct 20 11:53:48 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">myproject_prj</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">75, 76, 0.375 us, 0.380 us, 75, 76, none</column>
+<column name="">74, 75, 0.370 us, 0.375 us, 74, 75, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828">dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s, 46, 47, 0.230 us, 0.235 us, 40, 40, loop rewind(delay=0 initiation interval(s))</column>
+<column name="grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828">dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s, 45, 46, 0.225 us, 0.230 us, 40, 40, loop rewind(delay=0 initiation interval(s))</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -51,19 +51,19 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 38, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">17, 100, 18326, 23552, -</column>
+<column name="Instance">14, 99, 24308, 23750, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 318, -</column>
 <column name="Register">-, -, 6581, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">6, 45, 23, 44, 0</specialColumn>
+<specialColumn name="Utilization (%)">5, 45, 29, 45, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828">dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s, 17, 100, 18326, 23552, 0</column>
+<column name="grp_dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_fu_1828">dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s, 14, 99, 24308, 23750, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">

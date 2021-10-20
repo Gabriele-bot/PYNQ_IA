@@ -29,7 +29,7 @@
 struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 9;
     static const unsigned n_out = 16;
-    static const unsigned reuse_factor = 144;
+    static const unsigned reuse_factor = 72;
     static const unsigned strategy = nnet::resource;
     typedef ap_fixed<16,6> accum_t;
     typedef bias2_t bias_t;
@@ -54,8 +54,8 @@ struct config2 : nnet::conv2d_config {
     static const unsigned stride_width = 1;
     static const unsigned out_height = OUT_HEIGHT_2;
     static const unsigned out_width = OUT_WIDTH_2;
-    static const unsigned reuse_factor = 144;
-    static const unsigned n_zeros = 31;
+    static const unsigned reuse_factor = 72;
+    static const unsigned n_zeros = 130;
     static const bool store_weights_in_bram = false;
     static const unsigned strategy = nnet::resource;
     static const unsigned min_height = 5;
@@ -93,7 +93,7 @@ struct config5 : nnet::pooling2d_config {
     static const unsigned pad_left = 0;
     static const unsigned pad_right = 0;
     static const nnet::Pool_Op pool_op = nnet::Max;
-    static const unsigned reuse = 20;
+    static const unsigned reuse = 36;
     typedef ap_fixed<16,6> accum_t;
 };
 
@@ -101,7 +101,7 @@ struct config5 : nnet::pooling2d_config {
 struct config6_mult : nnet::dense_config {
     static const unsigned n_in = 144;
     static const unsigned n_out = 16;
-    static const unsigned reuse_factor = 1152;
+    static const unsigned reuse_factor = 144;
     static const unsigned strategy = nnet::resource;
     typedef ap_fixed<16,6> accum_t;
     typedef bias6_t bias_t;
@@ -126,8 +126,8 @@ struct config6 : nnet::conv2d_config {
     static const unsigned stride_width = 1;
     static const unsigned out_height = OUT_HEIGHT_6;
     static const unsigned out_width = OUT_WIDTH_6;
-    static const unsigned reuse_factor = 1152;
-    static const unsigned n_zeros = 1090;
+    static const unsigned reuse_factor = 144;
+    static const unsigned n_zeros = 1729;
     static const bool store_weights_in_bram = false;
     static const unsigned strategy = nnet::resource;
     static const unsigned min_height = 5;
@@ -165,7 +165,7 @@ struct config9 : nnet::pooling2d_config {
     static const unsigned pad_left = 0;
     static const unsigned pad_right = 0;
     static const nnet::Pool_Op pool_op = nnet::Max;
-    static const unsigned reuse = 20;
+    static const unsigned reuse = 36;
     typedef ap_fixed<16,6> accum_t;
 };
 
@@ -176,8 +176,8 @@ struct config10 : nnet::dense_config {
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::resource;
     static const unsigned reuse_factor = 40;
-    static const unsigned n_zeros = 740;
-    static const unsigned n_nonzeros = 3260;
+    static const unsigned n_zeros = 3000;
+    static const unsigned n_nonzeros = 1000;
     static const bool store_weights_in_bram = false;
     typedef ap_fixed<16,6> accum_t;
     typedef bias10_t bias_t;

@@ -1148,7 +1148,7 @@
 					<Obj>
 						<type>0</type>
 						<id>76</id>
-						<name>empty_36</name>
+						<name>empty_37</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
 						<fileDirectory>/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj</fileDirectory>
 						<lineNumber>63</lineNumber>
@@ -37222,7 +37222,7 @@
 		<count>2</count>
 		<item_version>0</item_version>
 		<item>
-			<first>empty_36_read_fu_140</first>
+			<first>empty_37_read_fu_140</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

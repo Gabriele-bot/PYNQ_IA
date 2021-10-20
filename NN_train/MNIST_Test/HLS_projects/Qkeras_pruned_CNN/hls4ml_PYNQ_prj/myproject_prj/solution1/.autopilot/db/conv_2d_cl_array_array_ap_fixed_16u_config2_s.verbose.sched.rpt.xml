@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'conv_2d_cl_array_array_ap_fixed_16u_config2_s'" level="0">
-<item name = "Date">Thu Oct 14 16:40:40 2021
+<item name = "Date">Wed Oct 20 11:53:07 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">myproject_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 5.910 ns, 0.62 ns</column>
+<column name="ap_clk">5.00 ns, 6.325 ns, 0.62 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3920, 122304, 23.167 us, 0.723 ms, 3920, 122304, none</column>
+<column name="">3920, 64288, 24.794 us, 0.407 ms, 3920, 64288, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- ReadInputHeight_ReadInputWidth">3919, 122303, 5 ~ 156, -, -, 784, no</column>
-<column name=" + ReuseLoop">149, 149, 7, 1, 1, 144, yes</column>
+<column name="- ReadInputHeight_ReadInputWidth">3919, 64287, 5 ~ 82, -, -, 784, no</column>
+<column name=" + ReuseLoop">75, 75, 5, 1, 1, 72, yes</column>
 </table>
 </item>
 </section>

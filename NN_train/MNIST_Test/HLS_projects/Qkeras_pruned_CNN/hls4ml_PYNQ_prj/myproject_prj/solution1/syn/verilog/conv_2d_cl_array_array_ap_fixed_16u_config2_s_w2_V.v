@@ -6,9 +6,9 @@
 (* rom_style = "distributed" *) module conv_2d_cl_array_array_ap_fixed_16u_config2_s_w2_V_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 6;
-parameter AWIDTH = 8;
-parameter MEM_SIZE = 144;
+parameter DWIDTH = 8;
+parameter AWIDTH = 7;
+parameter MEM_SIZE = 72;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -43,9 +43,9 @@ module conv_2d_cl_array_array_ap_fixed_16u_config2_s_w2_V(
     ce0,
     q0);
 
-parameter DataWidth = 32'd6;
-parameter AddressRange = 32'd144;
-parameter AddressWidth = 32'd8;
+parameter DataWidth = 32'd8;
+parameter AddressRange = 32'd72;
+parameter AddressWidth = 32'd7;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

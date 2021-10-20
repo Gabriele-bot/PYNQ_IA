@@ -6,9 +6,9 @@
 module conv_2d_cl_array_array_ap_fixed_16u_config6_s_w6_V_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 11;
-parameter AWIDTH = 11;
-parameter MEM_SIZE = 1152;
+parameter DWIDTH = 80;
+parameter AWIDTH = 8;
+parameter MEM_SIZE = 144;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -43,9 +43,9 @@ module conv_2d_cl_array_array_ap_fixed_16u_config6_s_w6_V(
     ce0,
     q0);
 
-parameter DataWidth = 32'd11;
-parameter AddressRange = 32'd1152;
-parameter AddressWidth = 32'd11;
+parameter DataWidth = 32'd80;
+parameter AddressRange = 32'd144;
+parameter AddressWidth = 32'd8;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

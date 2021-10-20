@@ -10405,23 +10405,23 @@ struct array {
 # 41 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 3
 # 9 "firmware/defines.h" 2
 # 29 "firmware/defines.h"
-typedef ap_fixed<16,6> layer0_default_t;
-typedef nnet::array<ap_fixed<16,6>, 1*1> input_t;
+typedef ap_fixed<8,3> layer0_default_t;
+typedef nnet::array<ap_fixed<8,3>, 1*1> input_t;
 typedef ap_fixed<16,6> model_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer2_t;
-typedef ap_fixed<6,2> weight2_t;
-typedef ap_fixed<6,2> bias2_t;
+typedef ap_fixed<4,2> weight2_t;
+typedef ap_fixed<7,1> bias2_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer4_t;
 typedef ap_fixed<16,6> maxp_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer5_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer6_t;
-typedef ap_fixed<6,2> weight6_t;
-typedef ap_fixed<6,2> bias6_t;
+typedef ap_fixed<5,1> weight6_t;
+typedef ap_fixed<6,1> bias6_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer8_t;
 typedef ap_fixed<16,6> maxp_1_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer9_t;
 typedef nnet::array<ap_fixed<16,6>, 10*1> layer10_t;
-typedef ap_fixed<6,1> weight10_t;
+typedef ap_fixed<5,1> weight10_t;
 typedef ap_fixed<6,1> bias10_t;
 typedef ap_fixed<16,6> softmax_default_t;
 typedef nnet::array<ap_fixed<16,6>, 10*1> result_t;
@@ -10439,7 +10439,7 @@ void myproject(
 
 static const unsigned N_IN = 784;
 static const unsigned N_OUT = 10;
-typedef ap_fixed<16,6> input_axi_t;
+typedef ap_fixed<8,3> input_axi_t;
 typedef ap_fixed<16,6> output_axi_t;
 
 void myproject_axi(

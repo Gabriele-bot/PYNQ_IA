@@ -5,7 +5,7 @@
 
 static const unsigned N_IN = 784;
 static const unsigned N_OUT = 10;
-typedef ap_fixed<16,6> input_axi_t;
+typedef ap_fixed<8,3> input_axi_t;
 typedef ap_fixed<16,6> output_axi_t;
 
 void myproject_axi(

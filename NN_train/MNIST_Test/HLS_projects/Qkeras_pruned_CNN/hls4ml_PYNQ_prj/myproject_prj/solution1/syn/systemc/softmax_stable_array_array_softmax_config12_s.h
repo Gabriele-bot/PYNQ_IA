@@ -117,16 +117,16 @@ struct softmax_stable_array_array_softmax_config12_s : public sc_module {
 
     softmax_stable_array_array_softmax_config12_s_exp_table8* exp_table8_U;
     softmax_stable_array_array_softmax_config12_s_invert_table9* invert_table9_U;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1017;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1018;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1019;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1020;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1021;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1022;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1023;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1024;
-    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1025;
     myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1026;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1027;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1028;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1029;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1030;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1031;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1032;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1033;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1034;
+    myproject_axi_mul_12s_12s_24_2_1<1,2,12,12,24>* myproject_axi_mul_12s_12s_24_2_1_U1035;
     sc_signal< sc_lv<1> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_pp0_stage0;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter0;

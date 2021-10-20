@@ -13,13 +13,13 @@
 
 #include "myproject.h"
 #include "myproject_axi_mux_104_16_1_1.h"
-#include "fifo_w16_d784_A.h"
+#include "fifo_w8_d784_A.h"
 #include "fifo_w16_d10_A.h"
 #include "myproject_axi_AXILiteS_s_axi.h"
 
 namespace ap_rtl {
 
-template<unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 13,
+template<unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 12,
          unsigned int C_S_AXI_AXILITES_DATA_WIDTH = 32>
 struct myproject_axi : public sc_module {
     // Port declarations 19
@@ -56,9 +56,9 @@ struct myproject_axi : public sc_module {
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
     myproject_axi_AXILiteS_s_axi<C_S_AXI_AXILITES_ADDR_WIDTH,C_S_AXI_AXILITES_DATA_WIDTH>* myproject_axi_AXILiteS_s_axi_U;
-    myproject* grp_myproject_fu_229;
-    myproject_axi_mux_104_16_1_1<1,1,16,16,16,16,16,16,16,16,16,16,4,16>* myproject_axi_mux_104_16_1_1_U1194;
-    fifo_w16_d784_A* in_local_V_data_0_V_fifo_U;
+    myproject* grp_myproject_fu_227;
+    myproject_axi_mux_104_16_1_1<1,1,16,16,16,16,16,16,16,16,16,16,4,16>* myproject_axi_mux_104_16_1_1_U1203;
+    fifo_w8_d784_A* in_local_V_data_0_V_fifo_U;
     fifo_w16_d10_A* out_local_V_data_0_V_fifo_U;
     fifo_w16_d10_A* out_local_V_data_1_V_fifo_U;
     fifo_w16_d10_A* out_local_V_data_2_V_fifo_U;
@@ -72,18 +72,18 @@ struct myproject_axi : public sc_module {
     sc_signal< sc_logic > ap_rst_n_inv;
     sc_signal< sc_lv<10> > in_V_address0;
     sc_signal< sc_logic > in_V_ce0;
-    sc_signal< sc_lv<16> > in_V_q0;
+    sc_signal< sc_lv<8> > in_V_q0;
     sc_signal< sc_lv<4> > out_V_address0;
     sc_signal< sc_logic > out_V_ce0;
     sc_signal< sc_logic > out_V_we0;
-    sc_signal< sc_lv<10> > i_fu_272_p2;
-    sc_signal< sc_lv<10> > i_reg_425;
+    sc_signal< sc_lv<10> > i_fu_268_p2;
+    sc_signal< sc_lv<10> > i_reg_421;
     sc_signal< sc_lv<8> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_lv<1> > icmp_ln21_fu_266_p2;
-    sc_signal< sc_lv<16> > ctype_data_V_reg_435;
+    sc_signal< sc_lv<1> > icmp_ln21_fu_262_p2;
+    sc_signal< sc_lv<8> > ctype_data_V_reg_431;
     sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_lv<16> > tmp_data_V_0_reg_440;
+    sc_signal< sc_lv<16> > tmp_data_V_0_reg_436;
     sc_signal< sc_logic > ap_CS_fsm_state6;
     sc_signal< sc_lv<16> > out_local_V_data_0_V_dout;
     sc_signal< sc_logic > out_local_V_data_0_V_empty_n;
@@ -116,62 +116,62 @@ struct myproject_axi : public sc_module {
     sc_signal< sc_logic > out_local_V_data_9_V_empty_n;
     sc_signal< sc_logic > out_local_V_data_9_V_read;
     sc_signal< sc_logic > io_acc_block_signal_op64;
-    sc_signal< sc_lv<16> > tmp_data_V_1_reg_445;
-    sc_signal< sc_lv<16> > tmp_data_V_2_reg_450;
-    sc_signal< sc_lv<16> > tmp_data_V_3_reg_455;
-    sc_signal< sc_lv<16> > tmp_data_V_4_reg_460;
-    sc_signal< sc_lv<16> > tmp_data_V_5_reg_465;
-    sc_signal< sc_lv<16> > tmp_data_V_6_reg_470;
-    sc_signal< sc_lv<16> > tmp_data_V_7_reg_475;
-    sc_signal< sc_lv<16> > tmp_data_V_8_reg_480;
-    sc_signal< sc_lv<16> > tmp_data_V_98_reg_485;
-    sc_signal< sc_lv<4> > j_fu_329_p2;
-    sc_signal< sc_lv<4> > j_reg_493;
+    sc_signal< sc_lv<16> > tmp_data_V_1_reg_441;
+    sc_signal< sc_lv<16> > tmp_data_V_2_reg_446;
+    sc_signal< sc_lv<16> > tmp_data_V_3_reg_451;
+    sc_signal< sc_lv<16> > tmp_data_V_4_reg_456;
+    sc_signal< sc_lv<16> > tmp_data_V_5_reg_461;
+    sc_signal< sc_lv<16> > tmp_data_V_6_reg_466;
+    sc_signal< sc_lv<16> > tmp_data_V_7_reg_471;
+    sc_signal< sc_lv<16> > tmp_data_V_8_reg_476;
+    sc_signal< sc_lv<16> > tmp_data_V_98_reg_481;
+    sc_signal< sc_lv<4> > j_fu_325_p2;
+    sc_signal< sc_lv<4> > j_reg_489;
     sc_signal< sc_logic > ap_CS_fsm_state7;
-    sc_signal< sc_lv<16> > tmp_fu_335_p12;
-    sc_signal< sc_lv<16> > tmp_reg_498;
-    sc_signal< sc_lv<1> > icmp_ln34_fu_323_p2;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer0_V_data_V_read;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_0_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_0_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_1_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_1_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_2_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_2_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_3_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_3_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_4_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_4_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_5_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_5_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_6_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_6_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_7_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_7_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_8_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_8_V_write;
-    sc_signal< sc_lv<16> > grp_myproject_fu_229_layer12_out_V_data_9_V_din;
-    sc_signal< sc_logic > grp_myproject_fu_229_layer12_out_V_data_9_V_write;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_start;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_done;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_ready;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_idle;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_continue;
-    sc_signal< sc_lv<10> > i_0_reg_206;
+    sc_signal< sc_lv<16> > tmp_fu_331_p12;
+    sc_signal< sc_lv<16> > tmp_reg_494;
+    sc_signal< sc_lv<1> > icmp_ln34_fu_319_p2;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer0_V_data_V_read;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_0_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_0_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_1_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_1_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_2_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_2_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_3_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_3_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_4_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_4_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_5_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_5_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_6_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_6_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_7_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_7_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_8_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_8_V_write;
+    sc_signal< sc_lv<16> > grp_myproject_fu_227_layer12_out_V_data_9_V_din;
+    sc_signal< sc_logic > grp_myproject_fu_227_layer12_out_V_data_9_V_write;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_start;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_done;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_ready;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_idle;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_continue;
+    sc_signal< sc_lv<10> > i_0_reg_204;
     sc_signal< sc_logic > ap_CS_fsm_state1;
     sc_signal< sc_logic > ap_CS_fsm_state4;
     sc_signal< sc_logic > in_local_V_data_0_V_full_n;
     sc_signal< sc_logic > in_local_V_data_0_V_write;
-    sc_signal< sc_lv<4> > j3_0_reg_217;
+    sc_signal< sc_lv<4> > j3_0_reg_215;
     sc_signal< sc_logic > ap_CS_fsm_state8;
-    sc_signal< sc_logic > grp_myproject_fu_229_ap_start_reg;
+    sc_signal< sc_logic > grp_myproject_fu_227_ap_start_reg;
     sc_signal< sc_logic > ap_CS_fsm_state5;
-    sc_signal< sc_logic > ap_sync_grp_myproject_fu_229_ap_ready;
-    sc_signal< sc_logic > ap_sync_grp_myproject_fu_229_ap_done;
+    sc_signal< sc_logic > ap_sync_grp_myproject_fu_227_ap_ready;
+    sc_signal< sc_logic > ap_sync_grp_myproject_fu_227_ap_done;
     sc_signal< bool > ap_block_state5_on_subcall_done;
-    sc_signal< sc_logic > ap_sync_reg_grp_myproject_fu_229_ap_ready;
-    sc_signal< sc_logic > ap_sync_reg_grp_myproject_fu_229_ap_done;
-    sc_signal< sc_lv<16> > in_local_V_data_0_V_dout;
+    sc_signal< sc_logic > ap_sync_reg_grp_myproject_fu_227_ap_ready;
+    sc_signal< sc_logic > ap_sync_reg_grp_myproject_fu_227_ap_done;
+    sc_signal< sc_lv<8> > in_local_V_data_0_V_dout;
     sc_signal< sc_logic > in_local_V_data_0_V_empty_n;
     sc_signal< sc_logic > in_local_V_data_0_V_read;
     sc_signal< sc_logic > out_local_V_data_0_V_full_n;
@@ -194,8 +194,8 @@ struct myproject_axi : public sc_module {
     sc_signal< sc_logic > out_local_V_data_8_V_write;
     sc_signal< sc_logic > out_local_V_data_9_V_full_n;
     sc_signal< sc_logic > out_local_V_data_9_V_write;
-    sc_signal< sc_lv<64> > zext_ln25_fu_278_p1;
-    sc_signal< sc_lv<64> > zext_ln35_fu_351_p1;
+    sc_signal< sc_lv<64> > zext_ln25_fu_274_p1;
+    sc_signal< sc_lv<64> > zext_ln35_fu_347_p1;
     sc_signal< sc_lv<8> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -239,19 +239,19 @@ struct myproject_axi : public sc_module {
     void thread_ap_CS_fsm_state8();
     void thread_ap_block_state5_on_subcall_done();
     void thread_ap_rst_n_inv();
-    void thread_ap_sync_grp_myproject_fu_229_ap_done();
-    void thread_ap_sync_grp_myproject_fu_229_ap_ready();
-    void thread_grp_myproject_fu_229_ap_continue();
-    void thread_grp_myproject_fu_229_ap_start();
-    void thread_i_fu_272_p2();
-    void thread_icmp_ln21_fu_266_p2();
-    void thread_icmp_ln34_fu_323_p2();
+    void thread_ap_sync_grp_myproject_fu_227_ap_done();
+    void thread_ap_sync_grp_myproject_fu_227_ap_ready();
+    void thread_grp_myproject_fu_227_ap_continue();
+    void thread_grp_myproject_fu_227_ap_start();
+    void thread_i_fu_268_p2();
+    void thread_icmp_ln21_fu_262_p2();
+    void thread_icmp_ln34_fu_319_p2();
     void thread_in_V_address0();
     void thread_in_V_ce0();
     void thread_in_local_V_data_0_V_read();
     void thread_in_local_V_data_0_V_write();
     void thread_io_acc_block_signal_op64();
-    void thread_j_fu_329_p2();
+    void thread_j_fu_325_p2();
     void thread_out_V_address0();
     void thread_out_V_ce0();
     void thread_out_V_we0();
@@ -275,8 +275,8 @@ struct myproject_axi : public sc_module {
     void thread_out_local_V_data_8_V_write();
     void thread_out_local_V_data_9_V_read();
     void thread_out_local_V_data_9_V_write();
-    void thread_zext_ln25_fu_278_p1();
-    void thread_zext_ln35_fu_351_p1();
+    void thread_zext_ln25_fu_274_p1();
+    void thread_zext_ln35_fu_347_p1();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };

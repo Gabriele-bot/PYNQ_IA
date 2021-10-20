@@ -38,7 +38,7 @@ namespace ap_rtl {
 
 struct myproject : public sc_module {
     // Port declarations 40
-    sc_in< sc_lv<16> > layer0_V_data_V_dout;
+    sc_in< sc_lv<8> > layer0_V_data_V_dout;
     sc_in< sc_logic > layer0_V_data_V_empty_n;
     sc_out< sc_logic > layer0_V_data_V_read;
     sc_out< sc_lv<16> > layer12_out_V_data_0_V_din;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 14 16:45:18 2021" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct 20 23:03:52 2021" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="top" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -159,14 +159,14 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="2110141642" FULLNAME="/myproject_axi_0" HWVERSION="1.0" INSTANCE="myproject_axi_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myproject_axi" VLNV="xilinx.com:hls:myproject_axi:1.0">
+    <MODULE COREREVISION="2" FULLNAME="/CNN_MNIST_0" HWVERSION="1.0" INSTANCE="CNN_MNIST_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CNN_MNIST" VLNV="xilinx.com:hls:CNN_MNIST:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="read-write" INTERFACE="s_axi_AXILiteS" NAME="Reg" RANGE="65536" USAGE="register">
           <REGISTERS>
             <REGISTER NAME="Memory_in_V">
               <PROPERTY NAME="DESCRIPTION" VALUE="Memory in_V"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2048"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1024"/>
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
@@ -174,7 +174,7 @@
             </REGISTER>
             <REGISTER NAME="Memory_out_V">
               <PROPERTY NAME="DESCRIPTION" VALUE="Memory out_V"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4096"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2048"/>
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
@@ -184,100 +184,100 @@
         </ADDRESSBLOCK>
       </ADDRESSBLOCKS>
       <PARAMETERS>
-        <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="13"/>
+        <PARAMETER NAME="C_S_AXI_AXILITES_ADDR_WIDTH" VALUE="12"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="top_myproject_axi_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_CNN_MNIST_0_0"/>
         <PARAMETER NAME="clk_period" VALUE="5"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="196777"/>
+        <PARAMETER NAME="latency" VALUE="66676"/>
         <PARAMETER NAME="II" VALUE="x"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_BASEADDR" VALUE="0x43C00000"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_HIGHADDR" VALUE="0x43C0FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="12" NAME="s_axi_AXILiteS_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWADDR">
+        <PORT DIR="I" LEFT="11" NAME="s_axi_AXILiteS_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_AWVALID" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_AWVALID" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_AWREADY" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_AWREADY" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_AXILiteS_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WDATA">
+        <PORT DIR="I" LEFT="31" NAME="s_axi_AXILiteS_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_AXILiteS_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WSTRB">
+        <PORT DIR="I" LEFT="3" NAME="s_axi_AXILiteS_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WSTRB">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_WVALID" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_WVALID" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_WREADY" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_WREADY" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BRESP">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_BVALID" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BVALID">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_BVALID" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_BREADY" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BREADY">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_BREADY" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="12" NAME="s_axi_AXILiteS_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARADDR">
+        <PORT DIR="I" LEFT="11" NAME="s_axi_AXILiteS_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_ARVALID" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_ARVALID" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_ARREADY" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_ARREADY" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s_axi_AXILiteS_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RDATA">
+        <PORT DIR="O" LEFT="31" NAME="s_axi_AXILiteS_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RRESP">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_RVALID" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RVALID">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_RVALID" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_RREADY" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RREADY">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_RREADY" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
@@ -295,7 +295,7 @@
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M00_AXI" DATAWIDTH="32" NAME="s_axi_AXILiteS" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="13"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="12"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
@@ -320,9 +320,9 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="top_processing_system7_0_2_FCLK_CLK0"/>
-          <PARAMETER NAME="NUM_READ_THREADS" VALUE="4"/>
-          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="4"/>
+          <PARAMETER NAME="CLK_DOMAIN"/>
+          <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
           <PARAMETER NAME="WUSER_BITS_PER_BYTE" VALUE="0"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
@@ -1495,7 +1495,7 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="ap_clk"/>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="ap_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -1736,10 +1736,10 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_S_AXI_AXILITES_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S_AXI_AXILITES_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="myproject_axi_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s_axi_AXILiteS"/>
+        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_S_AXI_AXILITES_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S_AXI_AXILITES_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="CNN_MNIST_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s_axi_AXILiteS"/>
       </MEMORYMAP>
       <PERIPHERALS>
-        <PERIPHERAL INSTANCE="myproject_axi_0"/>
+        <PERIPHERAL INSTANCE="CNN_MNIST_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="22" FULLNAME="/ps7_0_axi_periph" HWVERSION="2.1" INSTANCE="ps7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -2095,6 +2095,93 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_AWADDR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_awprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_AWVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_AWREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_AWREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_WDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_WSTRB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_WVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_WREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_WREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_BRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_BVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_BREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_BREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_ARADDR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_arprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_ARVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_ARREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_ARREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_RDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_RRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_RVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="CNN_MNIST_0_s_axi_AXILiteS_RREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="s_axi_AXILiteS_RREADY"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="11" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_AWID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_AWID"/>
@@ -2285,93 +2372,6 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_RREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWADDR">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_AWADDR"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_AWVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_AWREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_AWREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_WDATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WSTRB">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_WSTRB"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_WVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_WREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_WREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BRESP">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_BRESP"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_BVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_BREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_BREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARADDR">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_ARADDR"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_ARVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_ARREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_ARREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_RDATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RRESP">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_RRESP"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_RVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="myproject_axi_0_s_axi_AXILiteS_RREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="s_axi_AXILiteS_RREADY"/>
-          </CONNECTIONS>
-        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="processing_system7_0_M_AXI_GP0" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -2483,7 +2483,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="myproject_axi_0" PORT="ap_rst_n"/>
+            <CONNECTION INSTANCE="CNN_MNIST_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

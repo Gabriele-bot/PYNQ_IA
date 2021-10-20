@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 1194
+set id 1203
 set name myproject_axi_mux_104_16_1_1
 set corename simcore_mux
 set op mux
@@ -122,15 +122,15 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipemux, check your
 
 
 # FIFO definition:
-set ID 1196
-set FifoName fifo_w16_d784_A
+set ID 1205
+set FifoName fifo_w8_d784_A
 set InstName in_local_V_data_0_V_U
 set CoreName ap_simcore_fifo
 set NumOfStage 2
 set RegisteredInput 0
 set DualClock 0
 set Depth 784
-set DataWd 16
+set DataWd 8
 set AddrWd 10
 set FullThresh 0
 set EmptyThresh 0
@@ -191,7 +191,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1197
+set ID 1206
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_0_V_U
 set CoreName ap_simcore_fifo
@@ -260,7 +260,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1198
+set ID 1207
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_1_V_U
 set CoreName ap_simcore_fifo
@@ -329,7 +329,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1199
+set ID 1208
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_2_V_U
 set CoreName ap_simcore_fifo
@@ -398,7 +398,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1200
+set ID 1209
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_3_V_U
 set CoreName ap_simcore_fifo
@@ -467,7 +467,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1201
+set ID 1210
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_4_V_U
 set CoreName ap_simcore_fifo
@@ -536,7 +536,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1202
+set ID 1211
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_5_V_U
 set CoreName ap_simcore_fifo
@@ -605,7 +605,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1203
+set ID 1212
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_6_V_U
 set CoreName ap_simcore_fifo
@@ -674,7 +674,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1204
+set ID 1213
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_7_V_U
 set CoreName ap_simcore_fifo
@@ -743,7 +743,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1205
+set ID 1214
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_8_V_U
 set CoreName ap_simcore_fifo
@@ -812,7 +812,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 1206
+set ID 1215
 set FifoName fifo_w16_d10_A
 set InstName out_local_V_data_9_V_U
 set CoreName ap_simcore_fifo
@@ -891,19 +891,19 @@ set axilite_register_dict [dict create]
 set port_AXILiteS {
 in_V { 
 	dir I
-	width 16
+	width 8
 	depth 784
 	mode ap_memory
-	offset 2048
-	offset_end 4095
+	offset 1024
+	offset_end 2047
 }
 out_V { 
 	dir O
 	width 16
 	depth 10
 	mode ap_memory
-	offset 4096
-	offset_end 4127
+	offset 2048
+	offset_end 2079
 }
 }
 dict set axilite_register_dict AXILiteS $port_AXILiteS
@@ -913,7 +913,7 @@ dict set axilite_register_dict AXILiteS $port_AXILiteS
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 1207 \
+			id 1216 \
 			corename myproject_axi_AXILiteS_axilite \
 			name myproject_axi_AXILiteS_s_axi \
 			ports {$port_AXILiteS} \

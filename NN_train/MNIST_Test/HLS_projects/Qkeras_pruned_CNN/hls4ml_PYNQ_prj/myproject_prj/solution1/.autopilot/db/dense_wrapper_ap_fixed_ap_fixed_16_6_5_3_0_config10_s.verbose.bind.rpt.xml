@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s'" level="0">
-<item name = "Date">Thu Oct 14 16:40:51 2021
+<item name = "Date">Wed Oct 20 11:53:20 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">myproject_prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">46, 47, 0.230 us, 0.235 us, 40, 40, loop rewind(delay=0 initiation interval(s))</column>
+<column name="">45, 46, 0.225 us, 0.230 us, 40, 40, loop rewind(delay=0 initiation interval(s))</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- ReuseLoop">46, 46, 8, 1, 1, 40, yes</column>
+<column name="- ReuseLoop">45, 45, 7, 1, 1, 40, yes</column>
 </table>
 </item>
 </section>

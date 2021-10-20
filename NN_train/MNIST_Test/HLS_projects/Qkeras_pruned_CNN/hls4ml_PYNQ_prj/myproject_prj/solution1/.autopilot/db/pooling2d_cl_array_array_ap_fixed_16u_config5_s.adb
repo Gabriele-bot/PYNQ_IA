@@ -4844,7 +4844,7 @@
             <Obj>
               <type>0</type>
               <id>287</id>
-              <name>empty_173</name>
+              <name>empty_174</name>
               <fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>148</lineNumber>
@@ -64573,7 +64573,7 @@
       <count>194</count>
       <item_version>0</item_version>
       <item>
-        <first>empty_173_read_fu_548</first>
+        <first>empty_174_read_fu_548</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

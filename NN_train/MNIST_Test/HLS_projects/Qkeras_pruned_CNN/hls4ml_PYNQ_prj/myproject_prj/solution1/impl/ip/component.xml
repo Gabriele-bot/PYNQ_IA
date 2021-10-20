@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>hls</spirit:library>
-  <spirit:name>myproject_axi</spirit:name>
+  <spirit:name>CNN_MNIST</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
@@ -153,7 +153,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_AXILITES.ADDR_WIDTH">13</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_AXILITES.ADDR_WIDTH">12</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
@@ -242,7 +242,7 @@
           <spirit:name>Memory_in_V</spirit:name>
           <spirit:displayName>Memory_in_V</spirit:displayName>
           <spirit:description>Memory in_V</spirit:description>
-          <spirit:addressOffset>2048</spirit:addressOffset>
+          <spirit:addressOffset>1024</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-write</spirit:access>
           <spirit:reset>
@@ -253,7 +253,7 @@
           <spirit:name>Memory_out_V</spirit:name>
           <spirit:displayName>Memory_out_V</spirit:displayName>
           <spirit:description>Memory out_V</spirit:description>
-          <spirit:addressOffset>4096</spirit:addressOffset>
+          <spirit:addressOffset>2048</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-write</spirit:access>
           <spirit:reset>
@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>117cd5ab</spirit:value>
+            <spirit:value>365fd3d4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -293,7 +293,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>06e8b6d4</spirit:value>
+            <spirit:value>b587ee8d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -309,7 +309,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9e37b9b2</spirit:value>
+            <spirit:value>6755b170</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -325,7 +325,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5fcae7e5</spirit:value>
+            <spirit:value>fcbb4edb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -339,7 +339,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b31dcf39</spirit:value>
+            <spirit:value>c34df00b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -375,7 +375,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4e44edb2</spirit:value>
+            <spirit:value>309c5df3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -400,7 +400,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">12</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -546,7 +546,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">12</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -674,7 +674,7 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>C_S_AXI_AXILITES_ADDR_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH">13</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH">12</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_AXILITES_DATA_WIDTH</spirit:name>
@@ -695,11 +695,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20.v</spirit:name>
+        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20_rom.dat</spirit:name>
+        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx_rom.dat</spirit:name>
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
@@ -713,14 +713,6 @@
       <spirit:file>
         <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx_rom.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_w6_V.v</spirit:name>
@@ -763,6 +755,14 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/fifo_w8_d78_A.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/fifo_w8_d784_A.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d1_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -779,10 +779,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/fifo_w16_d78_A.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d121_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -792,10 +788,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d676_A.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/fifo_w16_d784_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -811,19 +803,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/myproject_axi_mul_16s_4s_20_2_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/myproject_axi_mul_16s_5s_20_2_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_16s_5s_21_2_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_mul_6s_16s_20_3_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_mul_16s_6s_21_3_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -831,7 +815,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mux_94_16_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/myproject_axi_mux_94_8_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -955,12 +939,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20.v</spirit:name>
+        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20_rom.dat</spirit:name>
+        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx_rom.dat</spirit:name>
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
@@ -976,15 +960,6 @@
         <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx_rom.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/conv_2d_cl_array_array_ap_fixed_16u_config6_s_w6_V.v</spirit:name>
@@ -1035,6 +1010,16 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/fifo_w8_d78_A.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/fifo_w8_d784_A.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d1_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1055,11 +1040,6 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/fifo_w16_d78_A.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d121_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1071,11 +1051,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/fifo_w16_d676_A.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/fifo_w16_d784_A.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1095,22 +1070,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/myproject_axi_mul_16s_4s_20_2_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/myproject_axi_mul_16s_5s_20_2_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_16s_5s_21_2_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_mul_6s_16s_20_3_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mul_mul_16s_6s_21_3_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1120,7 +1085,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/myproject_axi_mux_94_16_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/myproject_axi_mux_94_8_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1273,7 +1238,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1282,10 +1247,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config6_s.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1321,6 +1282,14 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/fifo_w8_d78_A.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/fifo_w8_d784_A.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d1_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1337,10 +1306,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/fifo_w16_d78_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d121_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1350,10 +1315,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d676_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/fifo_w16_d784_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1369,19 +1330,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/myproject_axi_mul_16s_4s_20_2_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/myproject_axi_mul_16s_5s_20_2_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_16s_5s_21_2_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_mul_6s_16s_20_3_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_mul_16s_6s_21_3_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1389,7 +1342,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mux_94_16_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/myproject_axi_mux_94_8_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1487,7 +1440,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/myproject_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f6fc9620</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_2d3696b7</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1498,7 +1451,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx20.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config2_s_outidx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1509,11 +1462,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config6_s.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/conv_2d_cl_array_array_ap_fixed_16u_config6_s_outidx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1558,6 +1506,16 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/fifo_w8_d78_A.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/fifo_w8_d784_A.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d1_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1578,11 +1536,6 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/fifo_w16_d78_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d121_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1594,11 +1547,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/fifo_w16_d676_A.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/fifo_w16_d784_A.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1618,22 +1566,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/myproject_axi_mul_16s_4s_20_2_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/myproject_axi_mul_16s_5s_20_2_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_16s_5s_21_2_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_mul_6s_16s_20_3_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mul_mul_16s_6s_21_3_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1643,7 +1581,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/myproject_axi_mux_94_16_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/myproject_axi_mux_94_8_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1820,9 +1758,9 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/myproject_axi_v1_0.tcl</spirit:name>
+        <spirit:name>xgui/CNN_MNIST_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4e44edb2</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_309c5df3</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1855,7 +1793,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">196777</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">66676</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
@@ -1870,28 +1808,42 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/VIVADO_HLS_IP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>Myproject_axi</xilinx:displayName>
+      <xilinx:displayName>CNN_MNIST</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2110141642</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-14T14:44:54Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>xilinx.com:hls:myproject_axi:1.0</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2021-10-20T21:03:39Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@27adf6a_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c660919_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f1fb3d2_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@39cd180f_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ddacbe3_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dcc24d1_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@76fe41ec_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2725ec0b_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2af47ab2_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a75ca1d_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2be6c444_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d21b767_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5340b3aa_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6052eb59_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@acf66c0_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50548ad7_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d3612cc_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73da9fe6_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ec2bc0b_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@359473bf_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f9d7fbf_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d19e426_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@480b16c5_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fe9cd93_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@604288f9_ARCHIVE_LOCATION">/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/myproject_prj/solution1/impl/ip</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ba681aec"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="dea1454e"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d6bfdedb"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="65a68737"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="8fa157a2"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="113a4c04"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="1853f241"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="57ea45b7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4b755453"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="6095d023"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="4d7d93c5"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="76fb5dcf"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

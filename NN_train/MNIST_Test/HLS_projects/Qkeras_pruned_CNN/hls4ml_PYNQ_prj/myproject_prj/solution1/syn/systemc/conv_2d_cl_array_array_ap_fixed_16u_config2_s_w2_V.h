@@ -18,9 +18,9 @@ using namespace sc_dt;
 
 struct conv_2d_cl_array_array_ap_fixed_16u_config2_s_w2_V_ram : public sc_core::sc_module {
 
-  static const unsigned DataWidth = 6;
-  static const unsigned AddressRange = 144;
-  static const unsigned AddressWidth = 8;
+  static const unsigned DataWidth = 8;
+  static const unsigned AddressRange = 72;
+  static const unsigned AddressWidth = 7;
 
 //latency = 1
 //input_reg = 1
@@ -36,131 +36,51 @@ sc_lv<DataWidth> ram[AddressRange];
 
 
    SC_CTOR(conv_2d_cl_array_array_ap_fixed_16u_config2_s_w2_V_ram) {
-        ram[0] = "0b000001";
-        ram[1] = "0b000001";
-        ram[2] = "0b000001";
-        ram[3] = "0b010011";
-        for (unsigned i = 4; i < 13 ; i = i + 1) {
-            ram[i] = "0b000001";
+        for (unsigned i = 0; i < 8 ; i = i + 1) {
+            ram[i] = "0b00000000";
         }
-        ram[13] = "0b001111";
-        for (unsigned i = 14; i < 19 ; i = i + 1) {
-            ram[i] = "0b000001";
+        ram[8] = "0b11000000";
+        ram[9] = "0b01000000";
+        ram[10] = "0b00000000";
+        ram[11] = "0b00000000";
+        ram[12] = "0b00000000";
+        ram[13] = "0b00000000";
+        ram[14] = "0b00000100";
+        for (unsigned i = 15; i < 21 ; i = i + 1) {
+            ram[i] = "0b00000000";
         }
-        ram[19] = "0b000000";
-        ram[20] = "0b111111";
-        ram[21] = "0b000001";
-        ram[22] = "0b111010";
-        ram[23] = "0b111111";
-        ram[24] = "0b000000";
-        ram[25] = "0b110100";
-        ram[26] = "0b000000";
-        ram[27] = "0b111111";
-        ram[28] = "0b000000";
-        ram[29] = "0b000000";
-        ram[30] = "0b000000";
-        ram[31] = "0b000000";
-        ram[32] = "0b000001";
-        ram[33] = "0b000001";
-        ram[34] = "0b010010";
-        ram[35] = "0b000001";
-        ram[36] = "0b000001";
-        ram[37] = "0b000001";
-        ram[38] = "0b110110";
-        ram[39] = "0b000001";
-        ram[40] = "0b000001";
-        ram[41] = "0b111111";
-        ram[42] = "0b000001";
-        ram[43] = "0b010000";
-        ram[44] = "0b110000";
-        ram[45] = "0b001101";
-        ram[46] = "0b000000";
-        ram[47] = "0b000000";
-        ram[48] = "0b000001";
-        ram[49] = "0b000001";
-        ram[50] = "0b000001";
-        ram[51] = "0b000000";
-        ram[52] = "0b000001";
-        ram[53] = "0b001111";
-        ram[54] = "0b111111";
-        ram[55] = "0b110010";
-        ram[56] = "0b111111";
-        ram[57] = "0b000000";
-        ram[58] = "0b001101";
-        ram[59] = "0b000001";
-        ram[60] = "0b000001";
-        ram[61] = "0b000001";
-        ram[62] = "0b000001";
+        ram[21] = "0b00000101";
+        ram[22] = "0b00000000";
+        ram[23] = "0b00000000";
+        ram[24] = "0b00000000";
+        ram[25] = "0b00000000";
+        ram[26] = "0b01000000";
+        for (unsigned i = 27; i < 32 ; i = i + 1) {
+            ram[i] = "0b00000000";
+        }
+        ram[32] = "0b01010000";
+        for (unsigned i = 33; i < 43 ; i = i + 1) {
+            ram[i] = "0b00000000";
+        }
+        ram[43] = "0b01010000";
+        ram[44] = "0b00000100";
+        ram[45] = "0b00000000";
+        ram[46] = "0b10110101";
+        ram[47] = "0b00000100";
+        ram[48] = "0b00000000";
+        ram[49] = "0b00000000";
+        ram[50] = "0b00000000";
+        ram[51] = "0b01000000";
+        for (unsigned i = 52; i < 59 ; i = i + 1) {
+            ram[i] = "0b00000000";
+        }
+        ram[59] = "0b11000000";
+        ram[60] = "0b00000000";
+        ram[61] = "0b00000000";
+        ram[62] = "0b01000000";
         for (unsigned i = 63; i < 72 ; i = i + 1) {
-            ram[i] = "0b000000";
+            ram[i] = "0b00000000";
         }
-        ram[72] = "0b111111";
-        ram[73] = "0b111111";
-        ram[74] = "0b111111";
-        ram[75] = "0b111111";
-        ram[76] = "0b000000";
-        ram[77] = "0b000001";
-        ram[78] = "0b110101";
-        ram[79] = "0b010010";
-        ram[80] = "0b000001";
-        ram[81] = "0b000001";
-        ram[82] = "0b000001";
-        ram[83] = "0b000001";
-        ram[84] = "0b000000";
-        ram[85] = "0b010001";
-        ram[86] = "0b000001";
-        ram[87] = "0b111111";
-        ram[88] = "0b110000";
-        ram[89] = "0b110100";
-        ram[90] = "0b001100";
-        ram[91] = "0b000000";
-        ram[92] = "0b110100";
-        ram[93] = "0b000001";
-        ram[94] = "0b000001";
-        ram[95] = "0b110100";
-        ram[96] = "0b000000";
-        ram[97] = "0b000000";
-        ram[98] = "0b001101";
-        ram[99] = "0b000001";
-        ram[100] = "0b000001";
-        ram[101] = "0b111111";
-        ram[102] = "0b001101";
-        ram[103] = "0b000001";
-        ram[104] = "0b111111";
-        ram[105] = "0b000001";
-        ram[106] = "0b000001";
-        ram[107] = "0b101111";
-        ram[108] = "0b000001";
-        ram[109] = "0b001101";
-        ram[110] = "0b110101";
-        ram[111] = "0b000000";
-        ram[112] = "0b001100";
-        ram[113] = "0b001011";
-        ram[114] = "0b101101";
-        ram[115] = "0b111111";
-        ram[116] = "0b000000";
-        ram[117] = "0b111111";
-        ram[118] = "0b111111";
-        ram[119] = "0b101110";
-        ram[120] = "0b000000";
-        ram[121] = "0b000000";
-        ram[122] = "0b000000";
-        ram[123] = "0b001101";
-        ram[124] = "0b010010";
-        ram[125] = "0b110110";
-        ram[126] = "0b001100";
-        for (unsigned i = 127; i < 135 ; i = i + 1) {
-            ram[i] = "0b000001";
-        }
-        ram[135] = "0b001101";
-        ram[136] = "0b000000";
-        ram[137] = "0b110000";
-        ram[138] = "0b000001";
-        ram[139] = "0b111111";
-        ram[140] = "0b111110";
-        ram[141] = "0b000001";
-        ram[142] = "0b110010";
-        ram[143] = "0b111110";
 
 
 SC_METHOD(prc_write_0);
@@ -186,9 +106,9 @@ void prc_write_0()
 SC_MODULE(conv_2d_cl_array_array_ap_fixed_16u_config2_s_w2_V) {
 
 
-static const unsigned DataWidth = 6;
-static const unsigned AddressRange = 144;
-static const unsigned AddressWidth = 8;
+static const unsigned DataWidth = 8;
+static const unsigned AddressRange = 72;
+static const unsigned AddressWidth = 7;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;

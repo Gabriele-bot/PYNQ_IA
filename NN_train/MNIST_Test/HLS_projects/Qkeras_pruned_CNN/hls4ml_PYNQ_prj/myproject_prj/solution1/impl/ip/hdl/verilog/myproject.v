@@ -51,7 +51,7 @@ module myproject (
 );
 
 
-input  [15:0] layer0_V_data_V_dout;
+input  [7:0] layer0_V_data_V_dout;
 input   layer0_V_data_V_empty_n;
 output   layer0_V_data_V_read;
 output  [15:0] layer12_out_V_data_0_V_din;

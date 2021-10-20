@@ -26,23 +26,23 @@
 #define N_LAYER_10 10
 
 //hls-fpga-machine-learning insert layer-precision
-typedef ap_fixed<16,6> layer0_default_t;
-typedef nnet::array<ap_fixed<16,6>, 1*1> input_t;
+typedef ap_fixed<8,3> layer0_default_t;
+typedef nnet::array<ap_fixed<8,3>, 1*1> input_t;
 typedef ap_fixed<16,6> model_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer2_t;
-typedef ap_fixed<6,2> weight2_t;
-typedef ap_fixed<6,2> bias2_t;
+typedef ap_fixed<4,2> weight2_t;
+typedef ap_fixed<7,1> bias2_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer4_t;
 typedef ap_fixed<16,6> maxp_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer5_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer6_t;
-typedef ap_fixed<6,2> weight6_t;
-typedef ap_fixed<6,2> bias6_t;
+typedef ap_fixed<5,1> weight6_t;
+typedef ap_fixed<6,1> bias6_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer8_t;
 typedef ap_fixed<16,6> maxp_1_default_t;
 typedef nnet::array<ap_fixed<16,6>, 16*1> layer9_t;
 typedef nnet::array<ap_fixed<16,6>, 10*1> layer10_t;
-typedef ap_fixed<6,1> weight10_t;
+typedef ap_fixed<5,1> weight10_t;
 typedef ap_fixed<6,1> bias10_t;
 typedef ap_fixed<16,6> softmax_default_t;
 typedef nnet::array<ap_fixed<16,6>, 10*1> result_t;

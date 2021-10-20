@@ -5,7 +5,7 @@
 `timescale 1ns/1ps
 module myproject_axi_AXILiteS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 13,
+    C_S_AXI_ADDR_WIDTH = 12,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -30,29 +30,31 @@ module myproject_axi_AXILiteS_s_axi
     input  wire                          RREADY,
     input  wire [9:0]                    in_V_address0,
     input  wire                          in_V_ce0,
-    output wire [15:0]                   in_V_q0,
+    output wire [7:0]                    in_V_q0,
     input  wire [3:0]                    out_V_address0,
     input  wire                          out_V_ce0,
     input  wire                          out_V_we0,
     input  wire [15:0]                   out_V_d0
 );
 //------------------------Address Info-------------------
-// 0x0800 ~
-// 0x0fff : Memory 'in_V' (784 * 16b)
-//          Word n : bit [15: 0] - in_V[2n]
-//                   bit [31:16] - in_V[2n+1]
-// 0x1000 ~
-// 0x101f : Memory 'out_V' (10 * 16b)
-//          Word n : bit [15: 0] - out_V[2n]
-//                   bit [31:16] - out_V[2n+1]
+// 0x400 ~
+// 0x7ff : Memory 'in_V' (784 * 8b)
+//         Word n : bit [ 7: 0] - in_V[4n]
+//                  bit [15: 8] - in_V[4n+1]
+//                  bit [23:16] - in_V[4n+2]
+//                  bit [31:24] - in_V[4n+3]
+// 0x800 ~
+// 0x81f : Memory 'out_V' (10 * 16b)
+//         Word n : bit [15: 0] - out_V[2n]
+//                  bit [31:16] - out_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_IN_V_BASE  = 13'h0800,
-    ADDR_IN_V_HIGH  = 13'h0fff,
-    ADDR_OUT_V_BASE = 13'h1000,
-    ADDR_OUT_V_HIGH = 13'h101f,
+    ADDR_IN_V_BASE  = 12'h400,
+    ADDR_IN_V_HIGH  = 12'h7ff,
+    ADDR_OUT_V_BASE = 12'h800,
+    ADDR_OUT_V_HIGH = 12'h81f,
     WRIDLE          = 2'd0,
     WRDATA          = 2'd1,
     WRRESP          = 2'd2,
@@ -60,7 +62,7 @@ localparam
     RDIDLE          = 2'd0,
     RDDATA          = 2'd1,
     RDRESET         = 2'd2,
-    ADDR_BITS         = 13;
+    ADDR_BITS         = 12;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -75,13 +77,13 @@ localparam
     wire                          ar_hs;
     wire [ADDR_BITS-1:0]          raddr;
     // memory signals
-    wire [8:0]                    int_in_V_address0;
+    wire [7:0]                    int_in_V_address0;
     wire                          int_in_V_ce0;
     wire                          int_in_V_we0;
     wire [3:0]                    int_in_V_be0;
     wire [31:0]                   int_in_V_d0;
     wire [31:0]                   int_in_V_q0;
-    wire [8:0]                    int_in_V_address1;
+    wire [7:0]                    int_in_V_address1;
     wire                          int_in_V_ce1;
     wire                          int_in_V_we1;
     wire [3:0]                    int_in_V_be1;
@@ -89,7 +91,7 @@ localparam
     wire [31:0]                   int_in_V_q1;
     reg                           int_in_V_read;
     reg                           int_in_V_write;
-    reg  [0:0]                    int_in_V_shift;
+    reg  [1:0]                    int_in_V_shift;
     wire [2:0]                    int_out_V_address0;
     wire                          int_out_V_ce0;
     wire                          int_out_V_we0;
@@ -110,7 +112,7 @@ localparam
 // int_in_V
 myproject_axi_AXILiteS_s_axi_ram #(
     .BYTES    ( 4 ),
-    .DEPTH    ( 392 )
+    .DEPTH    ( 196 )
 ) int_in_V (
     .clk0     ( ACLK ),
     .address0 ( int_in_V_address0 ),
@@ -250,13 +252,13 @@ end
 
 //------------------------Memory logic-------------------
 // in_V
-assign int_in_V_address0  = in_V_address0 >> 1;
+assign int_in_V_address0  = in_V_address0 >> 2;
 assign int_in_V_ce0       = in_V_ce0;
 assign int_in_V_we0       = 1'b0;
 assign int_in_V_be0       = 1'b0;
 assign int_in_V_d0        = 1'b0;
-assign in_V_q0            = int_in_V_q0 >> (int_in_V_shift * 16);
-assign int_in_V_address1  = ar_hs? raddr[10:2] : waddr[10:2];
+assign in_V_q0            = int_in_V_q0 >> (int_in_V_shift * 8);
+assign int_in_V_address1  = ar_hs? raddr[9:2] : waddr[9:2];
 assign int_in_V_ce1       = ar_hs | (int_in_V_write & WVALID);
 assign int_in_V_we1       = int_in_V_write & WVALID;
 assign int_in_V_be1       = WSTRB;
@@ -300,7 +302,7 @@ end
 always @(posedge ACLK) begin
     if (ACLK_EN) begin
         if (in_V_ce0)
-            int_in_V_shift <= in_V_address0[0];
+            int_in_V_shift <= in_V_address0[1:0];
     end
 end
 

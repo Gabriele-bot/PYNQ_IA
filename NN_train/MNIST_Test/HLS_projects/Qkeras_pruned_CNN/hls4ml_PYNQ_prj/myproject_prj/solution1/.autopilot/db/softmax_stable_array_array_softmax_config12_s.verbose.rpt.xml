@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'softmax_stable_array_array_softmax_config12_s'" level="0">
-<item name = "Date">Thu Oct 14 16:41:20 2021
+<item name = "Date">Wed Oct 20 11:53:51 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">myproject_prj</item>
@@ -61,16 +61,16 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1017">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1018">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1019">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1020">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1021">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1022">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1023">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1024">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
-<column name="myproject_axi_mul_12s_12s_24_2_1_U1025">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
 <column name="myproject_axi_mul_12s_12s_24_2_1_U1026">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1027">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1028">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1029">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1030">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1031">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1032">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1033">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1034">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
+<column name="myproject_axi_mul_12s_12s_24_2_1_U1035">myproject_axi_mul_12s_12s_24_2_1, 0, 1, 51, 2, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">

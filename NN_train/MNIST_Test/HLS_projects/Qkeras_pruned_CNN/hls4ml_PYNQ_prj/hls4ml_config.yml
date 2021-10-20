@@ -7,25 +7,25 @@ HLSConfig:
         result: ap_fixed<3,2>
       ReuseFactor: 1
     layer0:
-      Precision: ap_fixed<16,6>
+      Precision: ap_fixed<8,3>
     maxp:
       Precision: ap_fixed<16,6>
     maxp_1:
       Precision: ap_fixed<16,6>
     q_conv2d:
       Precision:
-        bias: ap_fixed<6,2>
-        weight: ap_fixed<6,2>
-      ReuseFactor: 144
+        bias: ap_fixed<7,1>
+        weight: ap_fixed<4,2>
+      ReuseFactor: 72
     q_conv2d_1:
       Precision:
-        bias: ap_fixed<6,2>
-        weight: ap_fixed<6,2>
-      ReuseFactor: 1152
+        bias: ap_fixed<6,1>
+        weight: ap_fixed<5,1>
+      ReuseFactor: 144
     q_dense:
       Precision:
         bias: ap_fixed<6,1>
-        weight: ap_fixed<6,1>
+        weight: ap_fixed<5,1>
       ReuseFactor: 40
     q_relu:
       Precision:
@@ -40,7 +40,7 @@ HLSConfig:
       table_size: 1024
   Model:
     Precision: ap_fixed<16,6>
-    ReuseFactor: 20
+    ReuseFactor: 36
     Strategy: Resource
   SkipOptimizers:
   - reshape_stream
@@ -49,5 +49,5 @@ Interface: s_axilite
 KerasModel: !keras_model '/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/keras_model.h5'
 OutputDir: /home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj
 ProjectName: myproject
-Stamp: 5E7Ba801
+Stamp: 43CaDcd6
 XilinxPart: xc7z020clg400-1

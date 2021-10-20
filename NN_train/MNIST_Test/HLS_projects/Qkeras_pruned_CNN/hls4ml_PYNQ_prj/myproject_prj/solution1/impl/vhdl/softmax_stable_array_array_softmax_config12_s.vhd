@@ -671,7 +671,7 @@ begin
         ce0 => invert_table9_ce0,
         q0 => invert_table9_q0);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1017 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1026 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -686,7 +686,7 @@ begin
         ce => grp_fu_302_ce,
         dout => grp_fu_302_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1018 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1027 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -701,7 +701,7 @@ begin
         ce => grp_fu_303_ce,
         dout => grp_fu_303_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1019 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1028 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -716,7 +716,7 @@ begin
         ce => grp_fu_304_ce,
         dout => grp_fu_304_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1020 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1029 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -731,7 +731,7 @@ begin
         ce => grp_fu_305_ce,
         dout => grp_fu_305_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1021 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1030 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -746,7 +746,7 @@ begin
         ce => grp_fu_306_ce,
         dout => grp_fu_306_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1022 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1031 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -761,7 +761,7 @@ begin
         ce => grp_fu_307_ce,
         dout => grp_fu_307_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1023 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1032 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -776,7 +776,7 @@ begin
         ce => grp_fu_308_ce,
         dout => grp_fu_308_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1024 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1033 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -791,7 +791,7 @@ begin
         ce => grp_fu_309_ce,
         dout => grp_fu_309_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1025 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1034 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -806,7 +806,7 @@ begin
         ce => grp_fu_310_ce,
         dout => grp_fu_310_p2);
 
-    myproject_axi_mul_12s_12s_24_2_1_U1026 : component myproject_axi_mul_12s_12s_24_2_1
+    myproject_axi_mul_12s_12s_24_2_1_U1035 : component myproject_axi_mul_12s_12s_24_2_1
     generic map (
         ID => 1,
         NUM_STAGE => 2,

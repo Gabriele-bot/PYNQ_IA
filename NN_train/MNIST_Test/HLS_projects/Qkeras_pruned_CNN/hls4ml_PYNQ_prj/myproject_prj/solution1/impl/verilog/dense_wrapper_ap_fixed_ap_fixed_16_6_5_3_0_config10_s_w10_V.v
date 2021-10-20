@@ -6,7 +6,7 @@
 module dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_w10_V_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 599;
+parameter DWIDTH = 499;
 parameter AWIDTH = 6;
 parameter MEM_SIZE = 40;
 
@@ -43,7 +43,7 @@ module dense_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config10_s_w10_V(
     ce0,
     q0);
 
-parameter DataWidth = 32'd599;
+parameter DataWidth = 32'd499;
 parameter AddressRange = 32'd40;
 parameter AddressWidth = 32'd6;
 input reset;
