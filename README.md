@@ -19,7 +19,7 @@ The files are organized as follows
 
 The tests are performed on a PYNQ-Z2 board equipped with **`xc7z020clg400-1`** ZYNQ FPGA.  
 
-### Resurces [jet tagging]
+### Resources [jet tagging]
 
 Here are presented the resources estimated by vivado and the actual utilization on the optimized model.
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
@@ -28,7 +28,7 @@ Here are presented the resources estimated by vivado and the actual utilization 
 |Quntized+Pruned    |18      |91     |20    |114    |
 |FPGA implementation|3       |87     |17    |34     |  
 
-### Resurces [MNIST classification -CNN-]
+### Resources [MNIST classification -CNN-]
 
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
 |-------------------|--------|-------|------|-------|
@@ -36,7 +36,7 @@ Here are presented the resources estimated by vivado and the actual utilization 
 |Quntized+Pruned    |87      |56     |47    |92     |
 |FPGA implementation|27      |5      |26    |56     |
 
-### Resurces [MNIST classification -DNN-]
+### Resources [MNIST classification -DNN-]
 
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
 |-------------------|--------|-------|------|-------|
