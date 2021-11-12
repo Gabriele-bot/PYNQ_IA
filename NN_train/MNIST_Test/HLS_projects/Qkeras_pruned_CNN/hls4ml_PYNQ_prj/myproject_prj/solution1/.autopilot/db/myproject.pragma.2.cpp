@@ -24290,1628 +24290,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 20 "firmware/myproject.cpp" 2
 
 # 1 "firmware/myproject.h" 1
-# 24 "firmware/myproject.h"
-# 1 "/usr/include/x86_64-linux-gnu/gmp.h" 1 3 4
-# 35 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-# 1 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 1 3 4
-# 41 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 3 4
-# 41 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 3
-# 36 "/usr/include/x86_64-linux-gnu/gmp.h" 2 3 4
-# 55 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-# 1 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
-# 56 "/usr/include/x86_64-linux-gnu/gmp.h" 2 3 4
-# 1 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 4
-# 38 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
-# 1 "/usr/include/limits.h" 1 3 4
-# 26 "/usr/include/limits.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
-# 27 "/usr/include/limits.h" 2 3 4
-# 183 "/usr/include/limits.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/posix1_lim.h" 1 3 4
-# 160 "/usr/include/x86_64-linux-gnu/bits/posix1_lim.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/local_lim.h" 1 3 4
-# 38 "/usr/include/x86_64-linux-gnu/bits/local_lim.h" 3 4
-# 1 "/usr/include/linux/limits.h" 1 3 4
-# 39 "/usr/include/x86_64-linux-gnu/bits/local_lim.h" 2 3 4
-# 161 "/usr/include/x86_64-linux-gnu/bits/posix1_lim.h" 2 3 4
-# 184 "/usr/include/limits.h" 2 3 4
-
-
-
-# 1 "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h" 1 3 4
-# 188 "/usr/include/limits.h" 2 3 4
-
-
-
-# 1 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 1 3 4
-# 64 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/uio_lim.h" 1 3 4
-# 65 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 2 3 4
-# 192 "/usr/include/limits.h" 2 3 4
-# 39 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 4
-# 57 "/usr/include/x86_64-linux-gnu/gmp.h" 2 3 4
-# 141 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-typedef unsigned long int mp_limb_t;
-typedef long int mp_limb_signed_t;
-
-
-typedef unsigned long int mp_bitcnt_t;
-
-
-
-
-typedef struct
-{
-  int _mp_alloc;
-
-  int _mp_size;
-
-
-  mp_limb_t *_mp_d;
-} __mpz_struct;
-
-
-
-
-typedef __mpz_struct MP_INT;
-typedef __mpz_struct mpz_t[1];
-
-typedef mp_limb_t * mp_ptr;
-typedef const mp_limb_t * mp_srcptr;
-
-
-
-
-
-
-
-typedef long int mp_size_t;
-typedef long int mp_exp_t;
-
-
-typedef struct
-{
-  __mpz_struct _mp_num;
-  __mpz_struct _mp_den;
-} __mpq_struct;
-
-typedef __mpq_struct MP_RAT;
-typedef __mpq_struct mpq_t[1];
-
-typedef struct
-{
-  int _mp_prec;
-
-
-
-  int _mp_size;
-
-
-  mp_exp_t _mp_exp;
-  mp_limb_t *_mp_d;
-} __mpf_struct;
-
-
-typedef __mpf_struct mpf_t[1];
-
-
-typedef enum
-{
-  GMP_RAND_ALG_DEFAULT = 0,
-  GMP_RAND_ALG_LC = GMP_RAND_ALG_DEFAULT
-} gmp_randalg_t;
-
-
-typedef struct
-{
-  mpz_t _mp_seed;
-  gmp_randalg_t _mp_alg;
-  union {
-    void *_mp_lc;
-  } _mp_algdata;
-} __gmp_randstate_struct;
-typedef __gmp_randstate_struct gmp_randstate_t[1];
-
-
-
-typedef const __mpz_struct *mpz_srcptr;
-typedef __mpz_struct *mpz_ptr;
-typedef const __mpf_struct *mpf_srcptr;
-typedef __mpf_struct *mpf_ptr;
-typedef const __mpq_struct *mpq_srcptr;
-typedef __mpq_struct *mpq_ptr;
-# 468 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-extern "C" {
-using std::FILE;
-
-
-
-               void __gmp_set_memory_functions (void *(*) (size_t),
-          void *(*) (void *, size_t, size_t),
-          void (*) (void *, size_t)) throw ();
-
-
-               void __gmp_get_memory_functions (void *(**) (size_t),
-          void *(**) (void *, size_t, size_t),
-          void (**) (void *, size_t)) throw ();
-
-
-               extern const int __gmp_bits_per_limb;
-
-
-               extern int __gmp_errno;
-
-
-               extern const char * const __gmp_version;
-
-
-
-
-
-
-               void __gmp_randinit (gmp_randstate_t, gmp_randalg_t, ...);
-
-
-               void __gmp_randinit_default (gmp_randstate_t);
-
-
-               void __gmp_randinit_lc_2exp (gmp_randstate_t, mpz_srcptr, unsigned long int, mp_bitcnt_t);
-
-
-               int __gmp_randinit_lc_2exp_size (gmp_randstate_t, mp_bitcnt_t);
-
-
-               void __gmp_randinit_mt (gmp_randstate_t);
-
-
-               void __gmp_randinit_set (gmp_randstate_t, const __gmp_randstate_struct *);
-
-
-               void __gmp_randseed (gmp_randstate_t, mpz_srcptr);
-
-
-               void __gmp_randseed_ui (gmp_randstate_t, unsigned long int);
-
-
-               void __gmp_randclear (gmp_randstate_t);
-
-
-               unsigned long __gmp_urandomb_ui (gmp_randstate_t, unsigned long);
-
-
-               unsigned long __gmp_urandomm_ui (gmp_randstate_t, unsigned long);
-
-
-
-
-
-               int __gmp_asprintf (char **, const char *, ...);
-
-
-
-               int __gmp_fprintf (FILE *, const char *, ...);
-# 550 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-               int __gmp_printf (const char *, ...);
-
-
-               int __gmp_snprintf (char *, size_t, const char *, ...);
-
-
-               int __gmp_sprintf (char *, const char *, ...);
-
-
-
-               int __gmp_vasprintf (char **, const char *, va_list);
-
-
-
-
-               int __gmp_vfprintf (FILE *, const char *, va_list);
-
-
-
-
-               int __gmp_vprintf (const char *, va_list);
-
-
-
-
-               int __gmp_vsnprintf (char *, size_t, const char *, va_list);
-
-
-
-
-               int __gmp_vsprintf (char *, const char *, va_list);
-
-
-
-
-
-
-
-               int __gmp_fscanf (FILE *, const char *, ...);
-
-
-
-               int __gmp_scanf (const char *, ...);
-
-
-               int __gmp_sscanf (const char *, const char *, ...);
-
-
-
-               int __gmp_vfscanf (FILE *, const char *, va_list);
-
-
-
-
-               int __gmp_vscanf (const char *, va_list);
-
-
-
-
-               int __gmp_vsscanf (const char *, const char *, va_list);
-
-
-
-
-
-
-
-               void *__gmpz_realloc (mpz_ptr, mp_size_t);
-
-
-
-               void __gmpz_abs (mpz_ptr, mpz_srcptr);
-
-
-
-               void __gmpz_add (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_add_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_addmul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_addmul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_and (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_array_init (mpz_ptr, mp_size_t, mp_size_t);
-
-
-               void __gmpz_bin_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_bin_uiui (mpz_ptr, unsigned long int, unsigned long int);
-
-
-               void __gmpz_cdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_cdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_cdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_cdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               unsigned long int __gmpz_cdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_cdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_cdiv_r_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_cdiv_r_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               unsigned long int __gmpz_cdiv_ui (mpz_srcptr, unsigned long int) __attribute__ ((__pure__));
-
-
-               void __gmpz_clear (mpz_ptr);
-
-
-               void __gmpz_clears (mpz_ptr, ...);
-
-
-               void __gmpz_clrbit (mpz_ptr, mp_bitcnt_t);
-
-
-               int __gmpz_cmp (mpz_srcptr, mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_cmp_d (mpz_srcptr, double) __attribute__ ((__pure__));
-
-
-               int __gmpz_cmp_si (mpz_srcptr, signed long int) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_cmp_ui (mpz_srcptr, unsigned long int) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_cmpabs (mpz_srcptr, mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_cmpabs_d (mpz_srcptr, double) __attribute__ ((__pure__));
-
-
-               int __gmpz_cmpabs_ui (mpz_srcptr, unsigned long int) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_com (mpz_ptr, mpz_srcptr);
-
-
-               void __gmpz_combit (mpz_ptr, mp_bitcnt_t);
-
-
-               int __gmpz_congruent_p (mpz_srcptr, mpz_srcptr, mpz_srcptr) __attribute__ ((__pure__));
-
-
-               int __gmpz_congruent_2exp_p (mpz_srcptr, mpz_srcptr, mp_bitcnt_t) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_congruent_ui_p (mpz_srcptr, unsigned long, unsigned long) __attribute__ ((__pure__));
-
-
-               void __gmpz_divexact (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_divexact_ui (mpz_ptr, mpz_srcptr, unsigned long);
-
-
-               int __gmpz_divisible_p (mpz_srcptr, mpz_srcptr) __attribute__ ((__pure__));
-
-
-               int __gmpz_divisible_ui_p (mpz_srcptr, unsigned long) __attribute__ ((__pure__));
-
-
-               int __gmpz_divisible_2exp_p (mpz_srcptr, mp_bitcnt_t) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_dump (mpz_srcptr);
-
-
-               void *__gmpz_export (void *, size_t *, int, size_t, int, size_t, mpz_srcptr);
-
-
-               void __gmpz_fac_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_2fac_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_mfac_uiui (mpz_ptr, unsigned long int, unsigned long int);
-
-
-               void __gmpz_primorial_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_fdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_fdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_fdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_fdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               unsigned long int __gmpz_fdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_fdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_fdiv_r_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_fdiv_r_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               unsigned long int __gmpz_fdiv_ui (mpz_srcptr, unsigned long int) __attribute__ ((__pure__));
-
-
-               void __gmpz_fib_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_fib2_ui (mpz_ptr, mpz_ptr, unsigned long int);
-
-
-               int __gmpz_fits_sint_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_fits_slong_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpz_fits_sshort_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-               int __gmpz_fits_uint_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-
-               int __gmpz_fits_ulong_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-
-               int __gmpz_fits_ushort_p (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-               void __gmpz_gcd (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               unsigned long int __gmpz_gcd_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_gcdext (mpz_ptr, mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               double __gmpz_get_d (mpz_srcptr) __attribute__ ((__pure__));
-
-
-               double __gmpz_get_d_2exp (signed long int *, mpz_srcptr);
-
-
-                            long int __gmpz_get_si (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               char *__gmpz_get_str (char *, int, mpz_srcptr);
-
-
-
-               unsigned long int __gmpz_get_ui (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-
-               mp_limb_t __gmpz_getlimbn (mpz_srcptr, mp_size_t) throw () __attribute__ ((__pure__));
-
-
-
-               mp_bitcnt_t __gmpz_hamdist (mpz_srcptr, mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_import (mpz_ptr, size_t, int, size_t, int, size_t, const void *);
-
-
-               void __gmpz_init (mpz_ptr);
-
-
-               void __gmpz_init2 (mpz_ptr, mp_bitcnt_t);
-
-
-               void __gmpz_inits (mpz_ptr, ...);
-
-
-               void __gmpz_init_set (mpz_ptr, mpz_srcptr);
-
-
-               void __gmpz_init_set_d (mpz_ptr, double);
-
-
-               void __gmpz_init_set_si (mpz_ptr, signed long int);
-
-
-               int __gmpz_init_set_str (mpz_ptr, const char *, int);
-
-
-               void __gmpz_init_set_ui (mpz_ptr, unsigned long int);
-
-
-
-               size_t __gmpz_inp_raw (mpz_ptr, FILE *);
-
-
-
-
-               size_t __gmpz_inp_str (mpz_ptr, FILE *, int);
-
-
-
-               int __gmpz_invert (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_ior (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               int __gmpz_jacobi (mpz_srcptr, mpz_srcptr) __attribute__ ((__pure__));
-
-
-
-
-               int __gmpz_kronecker_si (mpz_srcptr, long) __attribute__ ((__pure__));
-
-
-               int __gmpz_kronecker_ui (mpz_srcptr, unsigned long) __attribute__ ((__pure__));
-
-
-               int __gmpz_si_kronecker (long, mpz_srcptr) __attribute__ ((__pure__));
-
-
-               int __gmpz_ui_kronecker (unsigned long, mpz_srcptr) __attribute__ ((__pure__));
-
-
-               void __gmpz_lcm (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_lcm_ui (mpz_ptr, mpz_srcptr, unsigned long);
-
-
-
-
-               void __gmpz_lucnum_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_lucnum2_ui (mpz_ptr, mpz_ptr, unsigned long int);
-
-
-               int __gmpz_millerrabin (mpz_srcptr, int) __attribute__ ((__pure__));
-
-
-               void __gmpz_mod (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-
-
-               void __gmpz_mul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_mul_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               void __gmpz_mul_si (mpz_ptr, mpz_srcptr, long int);
-
-
-               void __gmpz_mul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-
-               void __gmpz_neg (mpz_ptr, mpz_srcptr);
-
-
-
-               void __gmpz_nextprime (mpz_ptr, mpz_srcptr);
-
-
-
-               size_t __gmpz_out_raw (FILE *, mpz_srcptr);
-
-
-
-
-               size_t __gmpz_out_str (FILE *, int, mpz_srcptr);
-
-
-
-               int __gmpz_perfect_power_p (mpz_srcptr) __attribute__ ((__pure__));
-
-
-
-               int __gmpz_perfect_square_p (mpz_srcptr) __attribute__ ((__pure__));
-
-
-
-
-               mp_bitcnt_t __gmpz_popcount (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-               void __gmpz_pow_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_powm (mpz_ptr, mpz_srcptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_powm_sec (mpz_ptr, mpz_srcptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_powm_ui (mpz_ptr, mpz_srcptr, unsigned long int, mpz_srcptr);
-
-
-               int __gmpz_probab_prime_p (mpz_srcptr, int) __attribute__ ((__pure__));
-
-
-               void __gmpz_random (mpz_ptr, mp_size_t);
-
-
-               void __gmpz_random2 (mpz_ptr, mp_size_t);
-
-
-               void __gmpz_realloc2 (mpz_ptr, mp_bitcnt_t);
-
-
-               mp_bitcnt_t __gmpz_remove (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               int __gmpz_root (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_rootrem (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_rrandomb (mpz_ptr, gmp_randstate_t, mp_bitcnt_t);
-
-
-               mp_bitcnt_t __gmpz_scan0 (mpz_srcptr, mp_bitcnt_t) throw () __attribute__ ((__pure__));
-
-
-               mp_bitcnt_t __gmpz_scan1 (mpz_srcptr, mp_bitcnt_t) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_set (mpz_ptr, mpz_srcptr);
-
-
-               void __gmpz_set_d (mpz_ptr, double);
-
-
-               void __gmpz_set_f (mpz_ptr, mpf_srcptr);
-
-
-
-               void __gmpz_set_q (mpz_ptr, mpq_srcptr);
-
-
-
-               void __gmpz_set_si (mpz_ptr, signed long int);
-
-
-               int __gmpz_set_str (mpz_ptr, const char *, int);
-
-
-               void __gmpz_set_ui (mpz_ptr, unsigned long int);
-
-
-               void __gmpz_setbit (mpz_ptr, mp_bitcnt_t);
-
-
-
-               size_t __gmpz_size (mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-
-               size_t __gmpz_sizeinbase (mpz_srcptr, int) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_sqrt (mpz_ptr, mpz_srcptr);
-
-
-               void __gmpz_sqrtrem (mpz_ptr, mpz_ptr, mpz_srcptr);
-
-
-               void __gmpz_sub (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_sub_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_ui_sub (mpz_ptr, unsigned long int, mpz_srcptr);
-
-
-               void __gmpz_submul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_submul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_swap (mpz_ptr, mpz_ptr) throw ();
-
-
-               unsigned long int __gmpz_tdiv_ui (mpz_srcptr, unsigned long int) __attribute__ ((__pure__));
-
-
-               void __gmpz_tdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_tdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_tdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_tdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               unsigned long int __gmpz_tdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               void __gmpz_tdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               void __gmpz_tdiv_r_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-
-               unsigned long int __gmpz_tdiv_r_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-
-               int __gmpz_tstbit (mpz_srcptr, mp_bitcnt_t) throw () __attribute__ ((__pure__));
-
-
-               void __gmpz_ui_pow_ui (mpz_ptr, unsigned long int, unsigned long int);
-
-
-               void __gmpz_urandomb (mpz_ptr, gmp_randstate_t, mp_bitcnt_t);
-
-
-               void __gmpz_urandomm (mpz_ptr, gmp_randstate_t, mpz_srcptr);
-
-
-
-               void __gmpz_xor (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-
-               mp_srcptr __gmpz_limbs_read (mpz_srcptr);
-
-
-               mp_ptr __gmpz_limbs_write (mpz_ptr, mp_size_t);
-
-
-               mp_ptr __gmpz_limbs_modify (mpz_ptr, mp_size_t);
-
-
-               void __gmpz_limbs_finish (mpz_ptr, mp_size_t);
-
-
-               mpz_srcptr __gmpz_roinit_n (mpz_ptr, mp_srcptr, mp_size_t);
-
-
-
-
-
-
-
-               void __gmpq_abs (mpq_ptr, mpq_srcptr);
-
-
-
-               void __gmpq_add (mpq_ptr, mpq_srcptr, mpq_srcptr);
-
-
-               void __gmpq_canonicalize (mpq_ptr);
-
-
-               void __gmpq_clear (mpq_ptr);
-
-
-               void __gmpq_clears (mpq_ptr, ...);
-
-
-               int __gmpq_cmp (mpq_srcptr, mpq_srcptr) __attribute__ ((__pure__));
-
-
-               int __gmpq_cmp_si (mpq_srcptr, long, unsigned long) __attribute__ ((__pure__));
-
-
-               int __gmpq_cmp_ui (mpq_srcptr, unsigned long int, unsigned long int) __attribute__ ((__pure__));
-
-
-               int __gmpq_cmp_z (mpq_srcptr, mpz_srcptr) __attribute__ ((__pure__));
-
-
-               void __gmpq_div (mpq_ptr, mpq_srcptr, mpq_srcptr);
-
-
-               void __gmpq_div_2exp (mpq_ptr, mpq_srcptr, mp_bitcnt_t);
-
-
-               int __gmpq_equal (mpq_srcptr, mpq_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpq_get_num (mpz_ptr, mpq_srcptr);
-
-
-               void __gmpq_get_den (mpz_ptr, mpq_srcptr);
-
-
-               double __gmpq_get_d (mpq_srcptr) __attribute__ ((__pure__));
-
-
-               char *__gmpq_get_str (char *, int, mpq_srcptr);
-
-
-               void __gmpq_init (mpq_ptr);
-
-
-               void __gmpq_inits (mpq_ptr, ...);
-
-
-
-               size_t __gmpq_inp_str (mpq_ptr, FILE *, int);
-
-
-
-               void __gmpq_inv (mpq_ptr, mpq_srcptr);
-
-
-               void __gmpq_mul (mpq_ptr, mpq_srcptr, mpq_srcptr);
-
-
-               void __gmpq_mul_2exp (mpq_ptr, mpq_srcptr, mp_bitcnt_t);
-
-
-
-               void __gmpq_neg (mpq_ptr, mpq_srcptr);
-
-
-
-
-               size_t __gmpq_out_str (FILE *, int, mpq_srcptr);
-
-
-
-               void __gmpq_set (mpq_ptr, mpq_srcptr);
-
-
-               void __gmpq_set_d (mpq_ptr, double);
-
-
-               void __gmpq_set_den (mpq_ptr, mpz_srcptr);
-
-
-               void __gmpq_set_f (mpq_ptr, mpf_srcptr);
-
-
-               void __gmpq_set_num (mpq_ptr, mpz_srcptr);
-
-
-               void __gmpq_set_si (mpq_ptr, signed long int, unsigned long int);
-
-
-               int __gmpq_set_str (mpq_ptr, const char *, int);
-
-
-               void __gmpq_set_ui (mpq_ptr, unsigned long int, unsigned long int);
-
-
-               void __gmpq_set_z (mpq_ptr, mpz_srcptr);
-
-
-               void __gmpq_sub (mpq_ptr, mpq_srcptr, mpq_srcptr);
-
-
-               void __gmpq_swap (mpq_ptr, mpq_ptr) throw ();
-
-
-
-
-
-               void __gmpf_abs (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_add (mpf_ptr, mpf_srcptr, mpf_srcptr);
-
-
-               void __gmpf_add_ui (mpf_ptr, mpf_srcptr, unsigned long int);
-
-               void __gmpf_ceil (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_clear (mpf_ptr);
-
-
-               void __gmpf_clears (mpf_ptr, ...);
-
-
-               int __gmpf_cmp (mpf_srcptr, mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_cmp_z (mpf_srcptr, mpz_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_cmp_d (mpf_srcptr, double) __attribute__ ((__pure__));
-
-
-               int __gmpf_cmp_si (mpf_srcptr, signed long int) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_cmp_ui (mpf_srcptr, unsigned long int) throw () __attribute__ ((__pure__));
-
-
-               void __gmpf_div (mpf_ptr, mpf_srcptr, mpf_srcptr);
-
-
-               void __gmpf_div_2exp (mpf_ptr, mpf_srcptr, mp_bitcnt_t);
-
-
-               void __gmpf_div_ui (mpf_ptr, mpf_srcptr, unsigned long int);
-
-
-               void __gmpf_dump (mpf_srcptr);
-
-
-               int __gmpf_eq (mpf_srcptr, mpf_srcptr, mp_bitcnt_t) __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_sint_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_slong_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_sshort_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_uint_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_ulong_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               int __gmpf_fits_ushort_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpf_floor (mpf_ptr, mpf_srcptr);
-
-
-               double __gmpf_get_d (mpf_srcptr) __attribute__ ((__pure__));
-
-
-               double __gmpf_get_d_2exp (signed long int *, mpf_srcptr);
-
-
-               mp_bitcnt_t __gmpf_get_default_prec (void) throw () __attribute__ ((__pure__));
-
-
-               mp_bitcnt_t __gmpf_get_prec (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               long __gmpf_get_si (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               char *__gmpf_get_str (char *, mp_exp_t *, int, size_t, mpf_srcptr);
-
-
-               unsigned long __gmpf_get_ui (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpf_init (mpf_ptr);
-
-
-               void __gmpf_init2 (mpf_ptr, mp_bitcnt_t);
-
-
-               void __gmpf_inits (mpf_ptr, ...);
-
-
-               void __gmpf_init_set (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_init_set_d (mpf_ptr, double);
-
-
-               void __gmpf_init_set_si (mpf_ptr, signed long int);
-
-
-               int __gmpf_init_set_str (mpf_ptr, const char *, int);
-
-
-               void __gmpf_init_set_ui (mpf_ptr, unsigned long int);
-
-
-
-               size_t __gmpf_inp_str (mpf_ptr, FILE *, int);
-
-
-
-               int __gmpf_integer_p (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpf_mul (mpf_ptr, mpf_srcptr, mpf_srcptr);
-
-
-               void __gmpf_mul_2exp (mpf_ptr, mpf_srcptr, mp_bitcnt_t);
-
-
-               void __gmpf_mul_ui (mpf_ptr, mpf_srcptr, unsigned long int);
-
-
-               void __gmpf_neg (mpf_ptr, mpf_srcptr);
-
-
-
-               size_t __gmpf_out_str (FILE *, int, size_t, mpf_srcptr);
-
-
-
-               void __gmpf_pow_ui (mpf_ptr, mpf_srcptr, unsigned long int);
-
-
-               void __gmpf_random2 (mpf_ptr, mp_size_t, mp_exp_t);
-
-
-               void __gmpf_reldiff (mpf_ptr, mpf_srcptr, mpf_srcptr);
-
-
-               void __gmpf_set (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_set_d (mpf_ptr, double);
-
-
-               void __gmpf_set_default_prec (mp_bitcnt_t) throw ();
-
-
-               void __gmpf_set_prec (mpf_ptr, mp_bitcnt_t);
-
-
-               void __gmpf_set_prec_raw (mpf_ptr, mp_bitcnt_t) throw ();
-
-
-               void __gmpf_set_q (mpf_ptr, mpq_srcptr);
-
-
-               void __gmpf_set_si (mpf_ptr, signed long int);
-
-
-               int __gmpf_set_str (mpf_ptr, const char *, int);
-
-
-               void __gmpf_set_ui (mpf_ptr, unsigned long int);
-
-
-               void __gmpf_set_z (mpf_ptr, mpz_srcptr);
-
-
-               size_t __gmpf_size (mpf_srcptr) throw () __attribute__ ((__pure__));
-
-
-               void __gmpf_sqrt (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_sqrt_ui (mpf_ptr, unsigned long int);
-
-
-               void __gmpf_sub (mpf_ptr, mpf_srcptr, mpf_srcptr);
-
-
-               void __gmpf_sub_ui (mpf_ptr, mpf_srcptr, unsigned long int);
-
-
-               void __gmpf_swap (mpf_ptr, mpf_ptr) throw ();
-
-
-               void __gmpf_trunc (mpf_ptr, mpf_srcptr);
-
-
-               void __gmpf_ui_div (mpf_ptr, unsigned long int, mpf_srcptr);
-
-
-               void __gmpf_ui_sub (mpf_ptr, unsigned long int, mpf_srcptr);
-
-
-               void __gmpf_urandomb (mpf_t, gmp_randstate_t, mp_bitcnt_t);
-# 1461 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-               mp_limb_t __gmpn_add (mp_ptr, mp_srcptr, mp_size_t, mp_srcptr, mp_size_t);
-
-
-
-
-               mp_limb_t __gmpn_add_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t) throw ();
-
-
-
-               mp_limb_t __gmpn_add_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_addmul_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-
-               int __gmpn_cmp (mp_srcptr, mp_srcptr, mp_size_t) throw () __attribute__ ((__pure__));
-
-
-
-
-               int __gmpn_zero_p (mp_srcptr, mp_size_t) throw () __attribute__ ((__pure__));
-
-
-
-               void __gmpn_divexact_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-
-
-
-               mp_limb_t __gmpn_divexact_by3c (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-
-
-
-               mp_limb_t __gmpn_divrem (mp_ptr, mp_size_t, mp_ptr, mp_size_t, mp_srcptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_divrem_1 (mp_ptr, mp_size_t, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-               mp_limb_t __gmpn_divrem_2 (mp_ptr, mp_size_t, mp_ptr, mp_size_t, mp_srcptr);
-
-
-               mp_limb_t __gmpn_div_qr_1 (mp_ptr, mp_limb_t *, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-               mp_limb_t __gmpn_div_qr_2 (mp_ptr, mp_ptr, mp_srcptr, mp_size_t, mp_srcptr);
-
-
-               mp_size_t __gmpn_gcd (mp_ptr, mp_ptr, mp_size_t, mp_ptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_gcd_1 (mp_srcptr, mp_size_t, mp_limb_t) __attribute__ ((__pure__));
-
-
-               mp_limb_t __gmpn_gcdext_1 (mp_limb_signed_t *, mp_limb_signed_t *, mp_limb_t, mp_limb_t);
-
-
-               mp_size_t __gmpn_gcdext (mp_ptr, mp_ptr, mp_size_t *, mp_ptr, mp_size_t, mp_ptr, mp_size_t);
-
-
-               size_t __gmpn_get_str (unsigned char *, int, mp_ptr, mp_size_t);
-
-
-               mp_bitcnt_t __gmpn_hamdist (mp_srcptr, mp_srcptr, mp_size_t) throw () __attribute__ ((__pure__));
-
-
-               mp_limb_t __gmpn_lshift (mp_ptr, mp_srcptr, mp_size_t, unsigned int);
-
-
-               mp_limb_t __gmpn_mod_1 (mp_srcptr, mp_size_t, mp_limb_t) __attribute__ ((__pure__));
-
-
-               mp_limb_t __gmpn_mul (mp_ptr, mp_srcptr, mp_size_t, mp_srcptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_mul_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-               void __gmpn_mul_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-
-               void __gmpn_sqr (mp_ptr, mp_srcptr, mp_size_t);
-
-
-
-               mp_limb_t __gmpn_neg (mp_ptr, mp_srcptr, mp_size_t);
-
-
-
-               void __gmpn_com (mp_ptr, mp_srcptr, mp_size_t);
-
-
-               int __gmpn_perfect_square_p (mp_srcptr, mp_size_t) __attribute__ ((__pure__));
-
-
-               int __gmpn_perfect_power_p (mp_srcptr, mp_size_t) __attribute__ ((__pure__));
-
-
-               mp_bitcnt_t __gmpn_popcount (mp_srcptr, mp_size_t) throw () __attribute__ ((__pure__));
-
-
-               mp_size_t __gmpn_pow_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t, mp_ptr);
-
-
-
-               mp_limb_t __gmpn_preinv_mod_1 (mp_srcptr, mp_size_t, mp_limb_t, mp_limb_t) __attribute__ ((__pure__));
-
-
-               void __gmpn_random (mp_ptr, mp_size_t);
-
-
-               void __gmpn_random2 (mp_ptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_rshift (mp_ptr, mp_srcptr, mp_size_t, unsigned int);
-
-
-               mp_bitcnt_t __gmpn_scan0 (mp_srcptr, mp_bitcnt_t) __attribute__ ((__pure__));
-
-
-               mp_bitcnt_t __gmpn_scan1 (mp_srcptr, mp_bitcnt_t) __attribute__ ((__pure__));
-
-
-               mp_size_t __gmpn_set_str (mp_ptr, const unsigned char *, size_t, int);
-
-
-               size_t __gmpn_sizeinbase (mp_srcptr, mp_size_t, int);
-
-
-               mp_size_t __gmpn_sqrtrem (mp_ptr, mp_ptr, mp_srcptr, mp_size_t);
-
-
-
-               mp_limb_t __gmpn_sub (mp_ptr, mp_srcptr, mp_size_t, mp_srcptr, mp_size_t);
-
-
-
-
-               mp_limb_t __gmpn_sub_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t) throw ();
-
-
-
-               mp_limb_t __gmpn_sub_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_submul_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t);
-
-
-               void __gmpn_tdiv_qr (mp_ptr, mp_ptr, mp_size_t, mp_srcptr, mp_size_t, mp_srcptr, mp_size_t);
-
-
-               void __gmpn_and_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_andn_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_nand_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_ior_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_iorn_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_nior_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_xor_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_xnor_n (mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-
-               void __gmpn_copyi (mp_ptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_copyd (mp_ptr, mp_srcptr, mp_size_t);
-
-               void __gmpn_zero (mp_ptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_cnd_add_n (mp_limb_t, mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-               mp_limb_t __gmpn_cnd_sub_n (mp_limb_t, mp_ptr, mp_srcptr, mp_srcptr, mp_size_t);
-
-
-               mp_limb_t __gmpn_sec_add_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_add_1_itch (mp_size_t) __attribute__ ((__pure__));
-
-
-               mp_limb_t __gmpn_sec_sub_1 (mp_ptr, mp_srcptr, mp_size_t, mp_limb_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_sub_1_itch (mp_size_t) __attribute__ ((__pure__));
-
-
-               void __gmpn_cnd_swap (mp_limb_t, volatile mp_limb_t *, volatile mp_limb_t *, mp_size_t);
-
-
-               void __gmpn_sec_mul (mp_ptr, mp_srcptr, mp_size_t, mp_srcptr, mp_size_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_mul_itch (mp_size_t, mp_size_t) __attribute__ ((__pure__));
-
-
-               void __gmpn_sec_sqr (mp_ptr, mp_srcptr, mp_size_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_sqr_itch (mp_size_t) __attribute__ ((__pure__));
-
-
-               void __gmpn_sec_powm (mp_ptr, mp_srcptr, mp_size_t, mp_srcptr, mp_bitcnt_t, mp_srcptr, mp_size_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_powm_itch (mp_size_t, mp_bitcnt_t, mp_size_t) __attribute__ ((__pure__));
-
-
-               void __gmpn_sec_tabselect (volatile mp_limb_t *, volatile const mp_limb_t *, mp_size_t, mp_size_t, mp_size_t);
-
-
-               mp_limb_t __gmpn_sec_div_qr (mp_ptr, mp_ptr, mp_size_t, mp_srcptr, mp_size_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_div_qr_itch (mp_size_t, mp_size_t) __attribute__ ((__pure__));
-
-               void __gmpn_sec_div_r (mp_ptr, mp_size_t, mp_srcptr, mp_size_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_div_r_itch (mp_size_t, mp_size_t) __attribute__ ((__pure__));
-
-
-               int __gmpn_sec_invert (mp_ptr, mp_ptr, mp_srcptr, mp_size_t, mp_bitcnt_t, mp_ptr);
-
-               mp_size_t __gmpn_sec_invert_itch (mp_size_t) __attribute__ ((__pure__));
-# 1707 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-extern __inline__ __attribute__ ((__gnu_inline__)) void
-__gmpz_abs (mpz_ptr __gmp_w, mpz_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    __gmpz_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_size = ((__gmp_w->_mp_size) >= 0 ? (__gmp_w->_mp_size) : -(__gmp_w->_mp_size));
-}
-# 1731 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpz_fits_uint_p (mpz_srcptr __gmp_z) throw ()
-{
-  mp_size_t __gmp_n = __gmp_z->_mp_size; mp_ptr __gmp_p = __gmp_z->_mp_d; return (__gmp_n == 0 || (__gmp_n == 1 && __gmp_p[0] <= (2147483647 *2U +1U)));;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpz_fits_ulong_p (mpz_srcptr __gmp_z) throw ()
-{
-  mp_size_t __gmp_n = __gmp_z->_mp_size; mp_ptr __gmp_p = __gmp_z->_mp_d; return (__gmp_n == 0 || (__gmp_n == 1 && __gmp_p[0] <= (9223372036854775807L *2UL +1UL)));;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpz_fits_ushort_p (mpz_srcptr __gmp_z) throw ()
-{
-  mp_size_t __gmp_n = __gmp_z->_mp_size; mp_ptr __gmp_p = __gmp_z->_mp_d; return (__gmp_n == 0 || (__gmp_n == 1 && __gmp_p[0] <= (32767 *2 +1)));;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-unsigned long
-__gmpz_get_ui (mpz_srcptr __gmp_z) throw ()
-{
-  mp_ptr __gmp_p = __gmp_z->_mp_d;
-  mp_size_t __gmp_n = __gmp_z->_mp_size;
-  mp_limb_t __gmp_l = __gmp_p[0];
-
-
-
-
-
-
-  return (__gmp_n != 0 ? __gmp_l : 0);
-# 1787 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpz_getlimbn (mpz_srcptr __gmp_z, mp_size_t __gmp_n) throw ()
-{
-  mp_limb_t __gmp_result = 0;
-  if (__builtin_expect ((__gmp_n >= 0 && __gmp_n < ((__gmp_z->_mp_size) >= 0 ? (__gmp_z->_mp_size) : -(__gmp_z->_mp_size))) != 0, 1))
-    __gmp_result = __gmp_z->_mp_d[__gmp_n];
-  return __gmp_result;
-}
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__)) void
-__gmpz_neg (mpz_ptr __gmp_w, mpz_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    __gmpz_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_size = - __gmp_w->_mp_size;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpz_perfect_square_p (mpz_srcptr __gmp_a)
-{
-  mp_size_t __gmp_asize;
-  int __gmp_result;
-
-  __gmp_asize = __gmp_a->_mp_size;
-  __gmp_result = (__gmp_asize >= 0);
-  if (__builtin_expect ((__gmp_asize > 0) != 0, 1))
-    __gmp_result = __gmpn_perfect_square_p (__gmp_a->_mp_d, __gmp_asize);
-  return __gmp_result;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_bitcnt_t
-__gmpz_popcount (mpz_srcptr __gmp_u) throw ()
-{
-  mp_size_t __gmp_usize;
-  mp_bitcnt_t __gmp_result;
-
-  __gmp_usize = __gmp_u->_mp_size;
-  __gmp_result = (__gmp_usize < 0 ? (9223372036854775807L *2UL +1UL) : 0);
-  if (__builtin_expect ((__gmp_usize > 0) != 0, 1))
-    __gmp_result = __gmpn_popcount (__gmp_u->_mp_d, __gmp_usize);
-  return __gmp_result;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-void
-__gmpz_set_q (mpz_ptr __gmp_w, mpq_srcptr __gmp_u)
-{
-  __gmpz_tdiv_q (__gmp_w, (&((__gmp_u)->_mp_num)), (&((__gmp_u)->_mp_den)));
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-size_t
-__gmpz_size (mpz_srcptr __gmp_z) throw ()
-{
-  return ((__gmp_z->_mp_size) >= 0 ? (__gmp_z->_mp_size) : -(__gmp_z->_mp_size));
-}
-
-
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__)) void
-__gmpq_abs (mpq_ptr __gmp_w, mpq_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    __gmpq_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_num._mp_size = ((__gmp_w->_mp_num._mp_size) >= 0 ? (__gmp_w->_mp_num._mp_size) : -(__gmp_w->_mp_num._mp_size));
-}
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__)) void
-__gmpq_neg (mpq_ptr __gmp_w, mpq_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    __gmpq_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_num._mp_size = - __gmp_w->_mp_num._mp_size;
-}
-# 2129 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpn_add (mp_ptr __gmp_wp, mp_srcptr __gmp_xp, mp_size_t __gmp_xsize, mp_srcptr __gmp_yp, mp_size_t __gmp_ysize)
-{
-  mp_limb_t __gmp_c;
-  do { mp_size_t __gmp_i; mp_limb_t __gmp_x; __gmp_i = (__gmp_ysize); if (__gmp_i != 0) { if (__gmpn_add_n (__gmp_wp, __gmp_xp, __gmp_yp, __gmp_i)) { do { if (__gmp_i >= (__gmp_xsize)) { (__gmp_c) = 1; goto __gmp_done; } __gmp_x = (__gmp_xp)[__gmp_i]; } while ((((__gmp_wp)[__gmp_i++] = (__gmp_x + 1) & ((~ (static_cast<mp_limb_t> (0))) >> 0)) == 0)); } } if ((__gmp_wp) != (__gmp_xp)) do { mp_size_t __gmp_j; ; for (__gmp_j = (__gmp_i); __gmp_j < (__gmp_xsize); __gmp_j++) (__gmp_wp)[__gmp_j] = (__gmp_xp)[__gmp_j]; } while (0); (__gmp_c) = 0; __gmp_done: ; } while (0);
-  return __gmp_c;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpn_add_1 (mp_ptr __gmp_dst, mp_srcptr __gmp_src, mp_size_t __gmp_size, mp_limb_t __gmp_n) throw ()
-{
-  mp_limb_t __gmp_c;
-  do { mp_size_t __gmp_i; mp_limb_t __gmp_x, __gmp_r; __gmp_x = (__gmp_src)[0]; __gmp_r = __gmp_x + (__gmp_n); (__gmp_dst)[0] = __gmp_r; if (((__gmp_r) < ((__gmp_n)))) { (__gmp_c) = 1; for (__gmp_i = 1; __gmp_i < (__gmp_size);) { __gmp_x = (__gmp_src)[__gmp_i]; __gmp_r = __gmp_x + 1; (__gmp_dst)[__gmp_i] = __gmp_r; ++__gmp_i; if (!((__gmp_r) < (1))) { if ((__gmp_src) != (__gmp_dst)) do { mp_size_t __gmp_j; ; for (__gmp_j = (__gmp_i); __gmp_j < (__gmp_size); __gmp_j++) (__gmp_dst)[__gmp_j] = (__gmp_src)[__gmp_j]; } while (0); (__gmp_c) = 0; break; } } } else { if ((__gmp_src) != (__gmp_dst)) do { mp_size_t __gmp_j; ; for (__gmp_j = (1); __gmp_j < (__gmp_size); __gmp_j++) (__gmp_dst)[__gmp_j] = (__gmp_src)[__gmp_j]; } while (0); (__gmp_c) = 0; } } while (0);
-  return __gmp_c;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpn_cmp (mp_srcptr __gmp_xp, mp_srcptr __gmp_yp, mp_size_t __gmp_size) throw ()
-{
-  int __gmp_result;
-  do { mp_size_t __gmp_i; mp_limb_t __gmp_x, __gmp_y; (__gmp_result) = 0; __gmp_i = (__gmp_size); while (--__gmp_i >= 0) { __gmp_x = (__gmp_xp)[__gmp_i]; __gmp_y = (__gmp_yp)[__gmp_i]; if (__gmp_x != __gmp_y) { (__gmp_result) = (__gmp_x > __gmp_y ? 1 : -1); break; } } } while (0);
-  return __gmp_result;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-int
-__gmpn_zero_p (mp_srcptr __gmp_p, mp_size_t __gmp_n) throw ()
-{
-
-    do {
-      if (__gmp_p[--__gmp_n] != 0)
- return 0;
-    } while (__gmp_n != 0);
-  return 1;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpn_sub (mp_ptr __gmp_wp, mp_srcptr __gmp_xp, mp_size_t __gmp_xsize, mp_srcptr __gmp_yp, mp_size_t __gmp_ysize)
-{
-  mp_limb_t __gmp_c;
-  do { mp_size_t __gmp_i; mp_limb_t __gmp_x; __gmp_i = (__gmp_ysize); if (__gmp_i != 0) { if (__gmpn_sub_n (__gmp_wp, __gmp_xp, __gmp_yp, __gmp_i)) { do { if (__gmp_i >= (__gmp_xsize)) { (__gmp_c) = 1; goto __gmp_done; } __gmp_x = (__gmp_xp)[__gmp_i]; } while ((((__gmp_wp)[__gmp_i++] = (__gmp_x - 1) & ((~ (static_cast<mp_limb_t> (0))) >> 0)), __gmp_x == 0)); } } if ((__gmp_wp) != (__gmp_xp)) do { mp_size_t __gmp_j; ; for (__gmp_j = (__gmp_i); __gmp_j < (__gmp_xsize); __gmp_j++) (__gmp_wp)[__gmp_j] = (__gmp_xp)[__gmp_j]; } while (0); (__gmp_c) = 0; __gmp_done: ; } while (0);
-  return __gmp_c;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpn_sub_1 (mp_ptr __gmp_dst, mp_srcptr __gmp_src, mp_size_t __gmp_size, mp_limb_t __gmp_n) throw ()
-{
-  mp_limb_t __gmp_c;
-  do { mp_size_t __gmp_i; mp_limb_t __gmp_x, __gmp_r; __gmp_x = (__gmp_src)[0]; __gmp_r = __gmp_x - (__gmp_n); (__gmp_dst)[0] = __gmp_r; if (((__gmp_x) < ((__gmp_n)))) { (__gmp_c) = 1; for (__gmp_i = 1; __gmp_i < (__gmp_size);) { __gmp_x = (__gmp_src)[__gmp_i]; __gmp_r = __gmp_x - 1; (__gmp_dst)[__gmp_i] = __gmp_r; ++__gmp_i; if (!((__gmp_x) < (1))) { if ((__gmp_src) != (__gmp_dst)) do { mp_size_t __gmp_j; ; for (__gmp_j = (__gmp_i); __gmp_j < (__gmp_size); __gmp_j++) (__gmp_dst)[__gmp_j] = (__gmp_src)[__gmp_j]; } while (0); (__gmp_c) = 0; break; } } } else { if ((__gmp_src) != (__gmp_dst)) do { mp_size_t __gmp_j; ; for (__gmp_j = (1); __gmp_j < (__gmp_size); __gmp_j++) (__gmp_dst)[__gmp_j] = (__gmp_src)[__gmp_j]; } while (0); (__gmp_c) = 0; } } while (0);
-  return __gmp_c;
-}
-
-
-
-
-extern __inline__ __attribute__ ((__gnu_inline__))
-
-mp_limb_t
-__gmpn_neg (mp_ptr __gmp_rp, mp_srcptr __gmp_up, mp_size_t __gmp_n)
-{
-  while (*__gmp_up == 0)
-    {
-      *__gmp_rp = 0;
-      if (!--__gmp_n)
- return 0;
-      ++__gmp_up; ++__gmp_rp;
-    }
-
-  *__gmp_rp = (- *__gmp_up) & ((~ (static_cast<mp_limb_t> (0))) >> 0);
-
-  if (--__gmp_n)
-    __gmpn_com (++__gmp_rp, ++__gmp_up, __gmp_n);
-
-  return 1;
-}
-
-
-
-}
-# 2278 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-                  std::ostream& operator<< (std::ostream &, mpz_srcptr);
-                  std::ostream& operator<< (std::ostream &, mpq_srcptr);
-                  std::ostream& operator<< (std::ostream &, mpf_srcptr);
-                  std::istream& operator>> (std::istream &, mpz_ptr);
-                  std::istream& operator>> (std::istream &, mpq_ptr);
-                  std::istream& operator>> (std::istream &, mpf_ptr);
-# 2309 "/usr/include/x86_64-linux-gnu/gmp.h" 3 4
-enum
-{
-  GMP_ERROR_NONE = 0,
-  GMP_ERROR_UNSUPPORTED_ARGUMENT = 1,
-  GMP_ERROR_DIVISION_BY_ZERO = 2,
-  GMP_ERROR_SQRT_OF_NEGATIVE = 4,
-  GMP_ERROR_INVALID_ARGUMENT = 8
-};
-# 25 "firmware/myproject.h" 2
-
-
-
+# 23 "firmware/myproject.h"
 # 1 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_int.h" 1
 # 54 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_int.h"
 # 1 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_common.h" 1
@@ -32119,7 +30498,7 @@ inline bool operator!=(
 }
 # 399 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_fixed.h" 2
 # 368 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_int.h" 2
-# 29 "firmware/myproject.h" 2
+# 24 "firmware/myproject.h" 2
 
 # 1 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/hls_stream.h" 1
 # 66 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/hls_stream.h"
@@ -32334,7 +30713,7 @@ public:
 };
 
 }
-# 31 "firmware/myproject.h" 2
+# 26 "firmware/myproject.h" 2
 
 # 1 "firmware/defines.h" 1
 
@@ -32429,34 +30808,36 @@ _ssdm_Unroll(0,0,0, "");
 # 41 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 3
 # 41 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdio" 3
 # 9 "firmware/defines.h" 2
-# 29 "firmware/defines.h"
-typedef ap_fixed<8,3> layer0_default_t;
-typedef nnet::array<ap_fixed<8,3>, 1*1> input_t;
-typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<16,6>, 16*1> layer2_t;
+# 30 "firmware/defines.h"
+typedef ap_ufixed<8,3> layer0_default_t;
+typedef nnet::array<ap_ufixed<8,3>, 1*1> input_t;
+typedef ap_fixed<10,6> model_default_t;
+typedef nnet::array<ap_fixed<9,3>, 16*1> layer2_t;
 typedef ap_fixed<4,2> weight2_t;
 typedef ap_fixed<7,1> bias2_t;
+typedef nnet::array<ap_fixed<10,6,AP_RND,AP_SAT>, 16*1> layer3_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer4_t;
-typedef ap_fixed<16,6> maxp_default_t;
-typedef nnet::array<ap_fixed<16,6>, 16*1> layer5_t;
-typedef nnet::array<ap_fixed<16,6>, 16*1> layer6_t;
+typedef ap_fixed<3,2> maxp_default_t;
+typedef nnet::array<ap_fixed<3,2>, 16*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 16*1> layer6_t;
 typedef ap_fixed<5,1> weight6_t;
 typedef ap_fixed<6,1> bias6_t;
+typedef nnet::array<ap_fixed<10,6,AP_RND,AP_SAT>, 16*1> layer7_t;
 typedef nnet::array<ap_fixed<3,2,AP_RND,AP_SAT>, 16*1> layer8_t;
-typedef ap_fixed<16,6> maxp_1_default_t;
-typedef nnet::array<ap_fixed<16,6>, 16*1> layer9_t;
-typedef nnet::array<ap_fixed<16,6>, 10*1> layer10_t;
-typedef ap_fixed<5,1> weight10_t;
-typedef ap_fixed<6,1> bias10_t;
-typedef ap_fixed<16,6> softmax_default_t;
-typedef nnet::array<ap_fixed<16,6>, 10*1> result_t;
-# 33 "firmware/myproject.h" 2
-
+typedef ap_fixed<3,2> maxp_1_default_t;
+typedef nnet::array<ap_fixed<3,2>, 16*1> layer9_t;
+typedef nnet::array<ap_fixed<10,6>, 10*1> layer11_t;
+typedef ap_fixed<5,1> weight11_t;
+typedef ap_fixed<6,1> bias11_t;
+typedef nnet::array<ap_fixed<10,6,AP_RND,AP_SAT>, 10*1> layer12_t;
+typedef ap_fixed<8,2> softmax_default_t;
+typedef nnet::array<ap_fixed<8,2>, 10*1> result_t;
+# 28 "firmware/myproject.h" 2
 
 
 void myproject(
     hls::stream<input_t> &layer0,
-    hls::stream<result_t> &layer12_out,
+    hls::stream<result_t> &layer13_out,
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 );
@@ -58825,6 +57206,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 }
 # 63 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/algorithm" 2 3
 # 28 "firmware/nnet_utils/nnet_helpers.h" 2
+
 # 1 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/map" 1 3
 # 58 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/map" 3
 # 58 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/map" 3
@@ -61265,12 +59647,12 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 62 "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/map" 2 3
-# 29 "firmware/nnet_utils/nnet_helpers.h" 2
+# 30 "firmware/nnet_utils/nnet_helpers.h" 2
 
 
 
 namespace nnet {
-# 279 "firmware/nnet_utils/nnet_helpers.h"
+# 280 "firmware/nnet_utils/nnet_helpers.h"
 template<class src_T, class dst_T, size_t OFFSET, size_t SIZE>
 void copy_data(std::vector<src_T> src, dst_T dst[SIZE]) {
     typename std::vector<src_T>::const_iterator in_begin = src.cbegin() + OFFSET;
@@ -61292,6 +59674,21 @@ void copy_data(std::vector<src_T> src, hls::stream<dst_T> &dst) {
             dst.write(dst_pack);
         }
     }
+}
+
+template<class src_T, class dst_T, size_t OFFSET, size_t SIZE>
+void copy_data_axi(std::vector<src_T> src, dst_T dst[SIZE]) {
+    for(auto i = 0; i < SIZE; i++)
+     if(i == SIZE - 1)
+     {
+      dst[i].data = src[i];
+      dst[i].last = 1;
+     }
+     else
+     {
+      dst[i].data = src[i];
+      dst[i].last = 0;
+     }
 }
 
 template<class res_T, size_t SIZE>
@@ -61418,23 +59815,23 @@ constexpr int pow2(int x){
 # 24 "firmware/nnet_utils/nnet_activation.h" 2
 
 # 1 "firmware/nnet_utils/nnet_common.h" 1
-# 29 "firmware/nnet_utils/nnet_common.h"
+# 30 "firmware/nnet_utils/nnet_common.h"
 namespace nnet {
 
 
 enum io_type {io_parallel = 0, io_serial, io_stream};
 enum strategy { latency, resource };
-# 43 "firmware/nnet_utils/nnet_common.h"
+# 44 "firmware/nnet_utils/nnet_common.h"
  template<class T, int N, class Op>
  T reduce(const T* x, Op op)
  {
      static constexpr int leftN = pow2(floorlog2(N - 1)) > 0 ? pow2(floorlog2(N - 1)) : 0;
 _ssdm_SpecConstant(&leftN);
-# 46 "firmware/nnet_utils/nnet_common.h"
+# 47 "firmware/nnet_utils/nnet_common.h"
 
      static constexpr int rightN = N - leftN > 0 ? N - leftN : 0;
 _ssdm_SpecConstant(&rightN);
-# 47 "firmware/nnet_utils/nnet_common.h"
+# 48 "firmware/nnet_utils/nnet_common.h"
 
      if (N == 1){
          return x[0];
@@ -62449,15 +60846,15 @@ void broadcast_stream(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     BroadcastLoop: for (int i = 0; i < CONFIG_T::in_height * CONFIG_T::in_width * CONFIG_T::n_chan / data_T::size; i++) {
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  data_T in_data = data.read();
- for (int j = 0; j < CONFIG_T::n_dupl; j++) {
+        for (int j = 0; j < CONFIG_T::n_dupl; j++) {
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  res_T out_data;
 _ssdm_DataPack( &out_data, 0, 0, "", "", "");
  for (int k = 0; k < res_T::size; k++) {
 _ssdm_Unroll(0,0,0, "");
  out_data[k] = in_data[k];
-          }
-   res.write(out_data);
+            }
+            res.write(out_data);
         }
     }
 }
@@ -63376,6 +61773,106 @@ _ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
 
 }
 
+template<class data_T, class res_T, typename CONFIG_T>
+void pointwise_conv_2d_cl(
+    data_T data[CONFIG_T::in_height*CONFIG_T::in_width*CONFIG_T::n_chan],
+    res_T res[CONFIG_T::out_height*CONFIG_T::out_width*CONFIG_T::n_filt],
+    typename CONFIG_T::weight_t weights[CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
+{
+
+    typename CONFIG_T::accum_t mult[CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan];
+    typename CONFIG_T::accum_t acc[CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::n_filt];
+
+_ssdm_SpecArrayPartition( &mult, 0, "COMPLETE", 0, "");
+_ssdm_SpecArrayPartition( &acc, 0, "COMPLETE", 0, "");
+
+
+_ssdm_SpecFuncInstantiation(&weights,&biases, "");
+
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+_ssdm_SpecArrayPartition( &biases, 0, "COMPLETE", 0, "");
+
+
+ const int multiplier_limit = compute_multiplier_limit_conv2d<CONFIG_T>(weights);
+_ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
+
+
+ ConvOutHeight: for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
+        ConvOutWidth: for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
+            ConvFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+                ConvChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++) {
+
+                    int index_mult = oh*CONFIG_T::out_width*CONFIG_T::n_filt*CONFIG_T::n_chan
+                                   + ow*CONFIG_T::n_filt*CONFIG_T::n_chan
+                                   + ff*CONFIG_T::n_chan
+                                   + cc;
+
+                    int index_weight = cc*CONFIG_T::n_filt + ff;
+
+                    if ((oh*CONFIG_T::stride_height) < CONFIG_T::pad_top
+                    || (oh*CONFIG_T::stride_height) >= (CONFIG_T::pad_top+CONFIG_T::in_height)
+                    || (ow*CONFIG_T::stride_width) < CONFIG_T::pad_left
+                    || (ow*CONFIG_T::stride_width) >= (CONFIG_T::pad_left+CONFIG_T::in_width)) {
+                        mult[index_mult] = 0;
+                    } else {
+                        int index_data = (oh*CONFIG_T::stride_height-CONFIG_T::pad_top)*CONFIG_T::in_width*CONFIG_T::n_chan
+                                       + (ow*CONFIG_T::stride_width-CONFIG_T::pad_left)*CONFIG_T::n_chan
+                                       + cc;
+                        mult[index_mult] = data[index_data] * weights[index_weight];
+                    }
+
+                }
+            }
+        }
+    }
+
+
+
+    for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
+        for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
+            for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+                acc[oh*CONFIG_T::out_width*CONFIG_T::n_filt + ow*CONFIG_T::n_filt + ff]=biases[ff];
+            }
+        }
+    }
+
+
+
+    AccumOutHeight: for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
+        AccumOutWidth: for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
+            AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+
+                AccumChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++) {
+
+                    int index_mult = oh*CONFIG_T::out_width*CONFIG_T::n_filt*CONFIG_T::n_chan
+                                    + ow*CONFIG_T::n_filt*CONFIG_T::n_chan
+                                    + ff*CONFIG_T::n_chan
+                                    + cc;
+                    int index_acc = oh*CONFIG_T::out_width*CONFIG_T::n_filt
+                                    + ow*CONFIG_T::n_filt
+                                    + ff;
+
+                    acc[index_acc] += mult[index_mult];
+
+                }
+            }
+        }
+    }
+
+
+    for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
+        for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
+              for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+                int index = oh*CONFIG_T::out_width*CONFIG_T::n_filt + ow*CONFIG_T::n_filt + ff;
+                res[index] = (res_T)(acc[index]);
+            }
+        }
+    }
+
+}
+
 }
 # 25 "firmware/nnet_utils/nnet_conv2d.h" 2
 # 1 "firmware/nnet_utils/nnet_conv2d_resource.h" 1
@@ -63438,6 +61935,16 @@ _ssdm_InlineSelf(0, "");
 };
 
 template<class x_T, class w_T, class y_T>
+class data_binary : public Product<x_T, w_T, y_T>{
+    public:
+    static y_T product(x_T a, w_T w){
+
+_ssdm_InlineSelf(0, "");
+ return a == 0 ? (w_T) -w : w;
+    }
+};
+
+template<class x_T, class w_T, class y_T>
 class weight_ternary : public Product<x_T, w_T, y_T>{
     public:
     static y_T product(x_T a, w_T w){
@@ -63447,45 +61954,6 @@ _ssdm_InlineSelf(0, "");
         else if(w == -1) return (x_T) -a;
         else return (x_T) a;
     }
-};
-
-template<class x_T, class w_T, class y_T>
-   class mult_dsp : public Product<x_T, w_T, y_T>{
- public:
-    template<typename T> constexpr
-      static T const& max(T const& a, T const& b) {
-      return a > b ? a : b;
-    }
-    static y_T product(x_T a, w_T w){
-      y_T res;
-_ssdm_InlineSelf(0, "");
- if(a.width < 18 && w.width < 18)
- {
-   constexpr int bias = max<int>(18 - a.width, 18 - w.width);
-   ap_fixed<bias + a.width, bias + a.iwidth> a_ext = a;
-   ap_fixed<bias + w.width, bias + w.iwidth> w_ext = w;
-   res = a_ext * w_ext;
- }
-      else if (a.width < 18)
- {
-   constexpr int bias = 18 - a.width;
-   ap_fixed<bias + a.width, bias + a.iwidth> a_ext = a;
-   res = a_ext * w;
- }
-      else if (w.width < 18)
- {
-   constexpr int bias = 18 - w.width;
-   ap_fixed<bias + w.width, bias + w.iwidth> w_ext = w;
-   res = a * w_ext;
- }
-      else
- res = a * w;
-      return res;
-    }
-    static void limit(unsigned multiplier_limit){
-_ssdm_InlineSelf(0, "");
-_ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
- }
 };
 
 template<class x_T, class w_T, class y_T>
@@ -63509,8 +61977,7 @@ class weight_exponential : public Product<x_T, w_T, y_T>{
 
 _ssdm_InlineSelf(0, "");
 
- y_T ay = a;
-        y_T y = ay << w.weight;
+ y_T y = a << w.weight;
 
         return w.sign == 1 ? (y_T) y : (y_T) -y;
     }
@@ -63523,6 +61990,13 @@ inline typename std::enable_if<std::is_same<data_T, ap_uint<1>>::value
         && std::is_same<typename CONFIG_T::weight_t, ap_uint<1>>::value, ap_int<nnet::ceillog2(CONFIG_T::n_in) + 2>>::type
 cast(typename CONFIG_T::accum_t x){
   return (ap_int<nnet::ceillog2(CONFIG_T::n_in) + 2>) (x - CONFIG_T::n_in / 2) * 2;
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+inline typename std::enable_if<std::is_same<data_T, ap_uint<1>>::value
+        && ! std::is_same<typename CONFIG_T::weight_t, ap_uint<1>>::value, res_T>::type
+cast(typename CONFIG_T::accum_t x){
+  return (res_T) x;
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
@@ -64229,6 +62703,66 @@ void conv_2d_cl(
 
 
 
+# 1 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_shift_reg.h" 1
+# 83 "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_shift_reg.h"
+template<typename __SHIFT_T__, unsigned int __SHIFT_DEPTH__ = 32>
+class ap_shift_reg
+{
+  public:
+
+    inline __attribute__((always_inline)) ap_shift_reg() { }
+    inline __attribute__((always_inline)) ap_shift_reg(const char* name) { }
+
+  private:
+
+    ap_shift_reg(const ap_shift_reg< __SHIFT_T__, __SHIFT_DEPTH__ >& shreg)
+    {
+        for (unsigned i = 0; i < __SHIFT_DEPTH__; ++i)
+            Array[i] = shreg.Array[i];
+    }
+
+    ap_shift_reg& operator = (const ap_shift_reg< __SHIFT_T__,
+        __SHIFT_DEPTH__ >& shreg)
+    {
+        for (unsigned i = 0; i < __SHIFT_DEPTH__; ++i)
+            Array[i] = shreg.Array[i];
+        return *this;
+    }
+
+  public:
+
+    inline __attribute__((always_inline)) __SHIFT_T__ shift(__SHIFT_T__ DataIn,
+        unsigned int Addr = __SHIFT_DEPTH__ - 1, bool Enable = true)
+    {
+
+        __SHIFT_T__ DataOut;
+        _ssdm_op_MemShiftRead(&Array[Addr], &DataOut, &DataIn, Enable);
+        return DataOut;
+
+
+
+
+
+
+    }
+
+
+    inline __attribute__((always_inline)) __SHIFT_T__ read(unsigned int Addr = __SHIFT_DEPTH__ - 1) const
+    {
+
+        __SHIFT_T__ DataOut;
+        __SHIFT_T__ DataIn;
+        _ssdm_op_MemShiftRead(&Array[Addr], &DataOut, &DataIn, false);
+        return DataOut;
+
+
+
+    }
+
+  protected:
+    __SHIFT_T__ Array[__SHIFT_DEPTH__] ;
+};
+# 5 "firmware/nnet_utils/nnet_conv2d_stream.h" 2
 
 # 1 "firmware/nnet_utils/nnet_conv_stream.h" 1
 
@@ -64237,7 +62771,14 @@ void conv_2d_cl(
 
 
 
+
+
 namespace nnet {
+
+enum class conv_implementation { linebuffer=0, encoded=1};
+
+
+
 
 template<unsigned K, unsigned S, unsigned W>
 unsigned scale_index_K_gte_S(const unsigned idx) {
@@ -64344,7 +62885,7 @@ _ssdm_Unroll(0,0,0, "");
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
-void compute_output(
+void compute_output_encoded(
     const data_T& in_elem,
     hls::stream<typename data_T::value_type> data_window[CONFIG_T::kernel_size * CONFIG_T::n_chan],
     hls::stream<res_T> &res,
@@ -64371,8 +62912,255 @@ _ssdm_Unroll(0,0,0, "");
     }
 }
 
+
+
+
+
+
+template <class data_T, typename CONFIG_T>
+void kernel_shift_1d(
+    const data_T& in_elem,
+    typename data_T::value_type kernel_window[CONFIG_T::filt_width * CONFIG_T::n_chan]
+) {
+_ssdm_InlineSelf(0, "");
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+
+
+ static const int filt_width = CONFIG_T::filt_width - 1;
+_ssdm_SpecConstant(&filt_width);
+# 162 "firmware/nnet_utils/nnet_conv_stream.h"
+
+    KernelShiftWidth: for (int i_iw = 0; i_iw < filt_width; i_iw++) {
+_ssdm_Unroll(0,0,0, "");
+ KernelShiftChannel: for (unsigned i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+
+            kernel_window[i_iw * CONFIG_T::n_chan + i_ic] = kernel_window[(i_iw + 1) * CONFIG_T::n_chan + i_ic];
+        }
+    }
+
+
+    static const int lastheight = (CONFIG_T::filt_width - 1) * CONFIG_T::n_chan;
+_ssdm_SpecConstant(&lastheight);
+# 172 "firmware/nnet_utils/nnet_conv_stream.h"
+
+    KernelPushChannel: for (int i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+_ssdm_Unroll(0,0,0, "");
+ kernel_window[lastheight + i_ic] = in_elem[i_ic];
+    }
 }
-# 6 "firmware/nnet_utils/nnet_conv2d_stream.h" 2
+
+template <class data_T, typename CONFIG_T>
+void kernel_shift_2d(
+    typename data_T::value_type shift_buffer[CONFIG_T::filt_height][CONFIG_T::n_chan],
+    typename data_T::value_type kernel_window[CONFIG_T::filt_width * CONFIG_T::filt_height * CONFIG_T::n_chan]
+) {
+_ssdm_InlineSelf(0, "");
+
+
+ static const int filt_width = CONFIG_T::filt_width - 1;
+_ssdm_SpecConstant(&filt_width);
+# 187 "firmware/nnet_utils/nnet_conv_stream.h"
+
+    KernelShiftWidth: for (int i_iw = 0; i_iw < filt_width; i_iw++) {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ KernelShiftHeight: for (unsigned i_ih = 0; i_ih < CONFIG_T::filt_height; i_ih++) {
+            KernelShiftChannel: for (unsigned i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+
+                kernel_window[i_ih * CONFIG_T::filt_width * CONFIG_T::n_chan + i_iw * CONFIG_T::n_chan + i_ic] = kernel_window[i_ih * CONFIG_T::filt_width * CONFIG_T::n_chan + (i_iw + 1) * CONFIG_T::n_chan + i_ic];
+            }
+        }
+    }
+
+
+    static const int lastheight = (CONFIG_T::filt_width - 1) * CONFIG_T::n_chan;
+_ssdm_SpecConstant(&lastheight);
+# 199 "firmware/nnet_utils/nnet_conv_stream.h"
+
+    KernelPushHeight: for (int i_ih = 0; i_ih < CONFIG_T::filt_height; i_ih++) {
+_ssdm_Unroll(0,0,0, "");
+ KernelPushChannel: for (int i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+            kernel_window[lastheight + i_ih * CONFIG_T::filt_width * CONFIG_T::n_chan + i_ic] = shift_buffer[i_ih][i_ic];
+        }
+    }
+}
+
+template <class data_T, typename CONFIG_T>
+void shift_line_buffer(const data_T& in_elem,
+                    ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::filt_height - 1 > 1 ? CONFIG_T::filt_height - 1 : 1)][CONFIG_T::n_chan],
+                    typename data_T::value_type kernel_window[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan]
+) {
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+
+ typename data_T::value_type shift_buffer[CONFIG_T::filt_height][CONFIG_T::n_chan];
+_ssdm_SpecArrayPartition( shift_buffer, 0, "COMPLETE", 0, "");
+
+ UpdateBuffer: for (int i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+_ssdm_Unroll(0,0,0, "");
+
+
+ shift_buffer[CONFIG_T::filt_height - 1][i_ic] = in_elem[i_ic];
+    }
+
+    LineBufferDataIn: for (int i_ic = 0; i_ic < CONFIG_T::n_chan; i_ic++) {
+
+        LineBufferShift: for (unsigned i_ih = 1; i_ih < CONFIG_T::filt_height; i_ih++) {
+_ssdm_Unroll(0,0,0, "");
+ typename data_T::value_type pop_elem = line_buffer[i_ih - 1][i_ic].shift(shift_buffer[CONFIG_T::filt_height - i_ih][i_ic]);
+            shift_buffer[CONFIG_T::filt_height - i_ih - 1][i_ic] = pop_elem;
+        }
+    }
+    kernel_shift_2d<data_T, CONFIG_T>(shift_buffer, kernel_window);
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void compute_output_buffer_2d(
+    const data_T& in_elem,
+    ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::filt_height - 1 > 1 ? CONFIG_T::filt_height - 1 : 1)][CONFIG_T::n_chan],
+    hls::stream<res_T> &res_stream,
+    typename CONFIG_T::weight_t weights[CONFIG_T::kernel_size * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+) {
+_ssdm_InlineSelf(0, "");
+
+
+ const static int lShiftX = CONFIG_T::filt_width - 1;
+_ssdm_SpecConstant(&lShiftX);
+# 249 "firmware/nnet_utils/nnet_conv_stream.h"
+
+    const static int lShiftY = CONFIG_T::filt_height - 1;
+_ssdm_SpecConstant(&lShiftY);
+# 250 "firmware/nnet_utils/nnet_conv_stream.h"
+
+
+
+    static int pX = 0;
+    static int pY = 0;
+
+    static int sX = 0;
+    static int sY = 0;
+
+    static typename data_T::value_type kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
+_ssdm_SpecArrayPartition( &kernel_data, 1, "COMPLETE", 0, "");
+
+ typename res_T::value_type res_out[CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( res_out, 0, "COMPLETE", 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+
+
+ nnet::shift_line_buffer<data_T, CONFIG_T>(in_elem, line_buffer, kernel_data);
+
+
+    if ( (sX - lShiftX) == 0 && (sY - lShiftY) == 0 && pY > lShiftY - 1 && pX > lShiftX - 1) {
+
+
+_ssdm_InlineRegion(0, "");
+ if (CONFIG_T::strategy == nnet::latency) {
+            dense_latency<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(kernel_data, res_out, weights, biases);
+        } else {
+            dense_resource<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(kernel_data, res_out, weights, biases);
+        }
+
+
+        CastLoop: for (unsigned i_ic = 0; i_ic < CONFIG_T::n_filt; i_ic++) {
+_ssdm_Unroll(0,0,0, "");
+ res_pack[i_ic] = res_out[i_ic];
+        }
+
+
+        res_stream.write(res_pack);
+    }
+
+
+    if (pX + 1 == CONFIG_T::in_width)
+    {
+        pX = 0;
+        sX = 0;
+        if (pY + 1 == CONFIG_T::in_height) {
+            pY = 0;
+            sY = 0;
+        } else {
+            pY = pY + 1;
+
+            sY = ((sY - lShiftY) == 0) ? sY - CONFIG_T::stride_height + 1 : sY + 1;
+        }
+    } else {
+        pX = pX + 1;
+
+        sX = ((sX - lShiftX) == 0) ? sX - CONFIG_T::stride_width + 1 : sX + 1;
+    }
+}
+
+
+template<class data_T, class res_T, typename CONFIG_T>
+void compute_output_buffer_1d(
+    const data_T& in_elem,
+    hls::stream<res_T> &res_stream,
+    typename CONFIG_T::weight_t weights[CONFIG_T::kernel_size * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+) {
+_ssdm_InlineSelf(0, "");
+
+
+ const static int lShiftX = CONFIG_T::filt_width - 1;
+_ssdm_SpecConstant(&lShiftX);
+# 323 "firmware/nnet_utils/nnet_conv_stream.h"
+
+
+
+    static int pX = 0;
+    static int sX = 0;
+
+    static typename data_T::value_type kernel_data[CONFIG_T::filt_width * CONFIG_T::n_chan];
+_ssdm_SpecArrayPartition( &kernel_data, 1, "COMPLETE", 0, "");
+
+ typename res_T::value_type res_out[CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( res_out, 0, "COMPLETE", 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+
+
+ nnet::kernel_shift_1d<data_T, CONFIG_T>(in_elem, kernel_data);
+
+
+    if ( (sX - lShiftX) == 0 && pX > lShiftX - 1 ) {
+
+
+_ssdm_InlineRegion(0, "");
+ if (CONFIG_T::strategy == nnet::latency) {
+            dense_latency<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(kernel_data, res_out, weights, biases);
+        } else {
+            dense_resource<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(kernel_data, res_out, weights, biases);
+        }
+
+
+        CastLoop: for (unsigned i_ic = 0; i_ic < CONFIG_T::n_filt; i_ic++) {
+_ssdm_Unroll(0,0,0, "");
+ res_pack[i_ic] = res_out[i_ic];
+        }
+
+
+        res_stream.write(res_pack);
+    }
+
+
+    if (pX + 1 == CONFIG_T::in_width)
+    {
+        pX = 0;
+        sX = 0;
+    } else {
+        pX = pX + 1;
+
+        sX = ((sX - lShiftX) == 0) ? sX - CONFIG_T::stride_width + 1 : sX + 1;
+    }
+}
+
+}
+# 7 "firmware/nnet_utils/nnet_conv2d_stream.h" 2
 
 
 namespace nnet {
@@ -64395,14 +63183,14 @@ _ssdm_Unroll(0,0,0, "");
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
-void conv_2d_cl(
+void conv_2d_encoded_cl(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res,
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
 {
-    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_conv2d_stream.h", 34, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::filt_height == CONFIG_T::filt_width) ? void (0) : __assert_fail ("CONFIG_T::filt_height == CONFIG_T::filt_width", "firmware/nnet_utils/nnet_conv2d_stream.h", 35, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_conv2d_stream.h", 35, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::filt_height == CONFIG_T::filt_width) ? void (0) : __assert_fail ("CONFIG_T::filt_height == CONFIG_T::filt_width", "firmware/nnet_utils/nnet_conv2d_stream.h", 36, __extension__ __PRETTY_FUNCTION__));
 
     hls::stream<typename data_T::value_type> data_window[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
     const int win_depth = CONFIG_T::filt_height * CONFIG_T::out_width;
@@ -64426,51 +63214,55 @@ _ssdm_SpecLoopFlatten(0, "");
 _ssdm_op_SpecPipeline(CONFIG_T::reuse_factor, 1, 1, 0, "");
  }
             compute_scaled_indices_2d<data_T, CONFIG_T>(i_ih, i_iw, pixel_idx);
-            compute_output<data_T, res_T, CONFIG_T>(data.read(), data_window, res, res_pack, outputs_ready, weights, biases, pixel_idx);
+            compute_output_encoded<data_T, res_T, CONFIG_T>(data.read(), data_window, res, res_pack, outputs_ready, weights, biases, pixel_idx);
         }
     }
 }
 
-template<class data_T, class res_T, typename CONFIG_T>
-void single_output_conv_2d_cl(
+
+template <class data_T, class res_T, typename CONFIG_T>
+void conv_2d_buffer_cl(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res,
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
 {
-    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_conv2d_stream.h", 71, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::filt_height == CONFIG_T::in_height && CONFIG_T::filt_width == CONFIG_T::in_width) ? void (0) : __assert_fail ("CONFIG_T::filt_height == CONFIG_T::in_height && CONFIG_T::filt_width == CONFIG_T::in_width", "firmware/nnet_utils/nnet_conv2d_stream.h", 72, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::out_height == 1 && CONFIG_T::out_width == 1) ? void (0) : __assert_fail ("CONFIG_T::out_height == 1 && CONFIG_T::out_width == 1", "firmware/nnet_utils/nnet_conv2d_stream.h", 73, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_conv2d_stream.h", 73, __extension__ __PRETTY_FUNCTION__));
 
-    typename data_T::value_type data_window[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
-_ssdm_SpecArrayPartition( &data_window, 1, "COMPLETE", 0, "");
- typename res_T::value_type res_elem[CONFIG_T::n_filt];
-_ssdm_SpecArrayPartition( &res_elem, 1, "COMPLETE", 0, "");
- res_T res_pack;
-_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+    static ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::filt_height - 1 > 1 ? CONFIG_T::filt_height - 1 : 1)][CONFIG_T::n_chan];
+_ssdm_SpecArrayPartition( &line_buffer, 2, "COMPLETE", 0, "");
 
- ReadInputImage: for (unsigned i = 0; i < CONFIG_T::in_height * CONFIG_T::in_width; i++) {
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- data_T in_elem = data.read();
-        CopyDataChan: for (unsigned c = 0; c < CONFIG_T::n_chan; c++) {
-_ssdm_Unroll(0,0,0, "");
- data_window[i * CONFIG_T::n_chan + c] = in_elem[c];
+ ReadInputHeight: for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
+        ReadInputWidth: for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
+_ssdm_SpecLoopFlatten(0, "");
+ if(CONFIG_T::strategy == nnet::latency) {
+_ssdm_op_SpecPipeline(CONFIG_T::reuse_factor, 1, 1, 0, "");
+ }
+            if (CONFIG_T::filt_height > 1) {
+                compute_output_buffer_2d<data_T, res_T, CONFIG_T>(data.read(), line_buffer, res, weights, biases);
+            } else {
+                compute_output_buffer_1d<data_T, res_T, CONFIG_T>(data.read(), res, weights, biases);
+            }
         }
     }
+}
 
+template <class data_T, class res_T, typename CONFIG_T>
+void conv_2d_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res,
+    typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
+{
 _ssdm_InlineRegion(0, "");
- if (CONFIG_T::strategy == nnet::latency) {
-        dense_latency<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(data_window, res_elem, weights, biases);
-    } else {
-        dense_resource<typename data_T::value_type, typename res_T::value_type, typename CONFIG_T::mult_config>(data_window, res_elem, weights, biases);
+ switch(CONFIG_T::implementation){
+        case conv_implementation::linebuffer:
+            conv_2d_buffer_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+            break;
+        case conv_implementation::encoded:
+            conv_2d_encoded_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+            break;
     }
-
-    CastLoop: for (unsigned jj = 0; jj < CONFIG_T::n_filt; jj++) {
-_ssdm_Unroll(0,0,0, "");
- res_pack[jj] = res_elem[jj];
-    }
-
-    res.write(res_pack);
 }
 
 }
@@ -64720,7 +63512,8 @@ struct pooling1d_config{
 
   static const unsigned n_in = 10;
   static const unsigned pool_width = 2;
-  static const unsigned n_out = n_in / pool_width;
+  static const unsigned stride_width = 2;
+  static const unsigned n_out = (n_in - pool_width) / stride_width + 1;
   static const unsigned pad_left = 0;
   static const unsigned pad_right = 0;
 
@@ -64771,6 +63564,25 @@ _ssdm_op_SpecResourceLimit(limit, "", "", "pool_op", "");
         res[(ii/CONFIG_T::stride_width)* CONFIG_T::n_filt + ff] *= rescale;
       }
    }
+  }
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void global_pooling1d_cl(data_T data[CONFIG_T::n_in * CONFIG_T::n_filt], res_T res[CONFIG_T::n_filt]) {
+  (static_cast <bool> (CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling.h", 147, __extension__ __PRETTY_FUNCTION__));
+  (static_cast <bool> (CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling.h", 148, __extension__ __PRETTY_FUNCTION__));
+
+
+  const int limit = pool_op_limit_1d<CONFIG_T>();
+_ssdm_op_SpecResourceLimit(limit, "", "", "pool_op", "");
+
+ for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+    data_T pool[CONFIG_T::n_in];
+    for(int jj = 0; jj < CONFIG_T::n_in; jj++) {
+      pool[jj] = data[jj * CONFIG_T::n_filt + ff];
+    }
+
+  res[ff] = pool_op<data_T, CONFIG_T::n_in, CONFIG_T::pool_op>(pool);
   }
 }
 
@@ -65787,6 +64599,8 @@ struct __promote<half> { typedef half type; };
 
 
 
+
+
 namespace nnet {
 
 
@@ -65816,7 +64630,7 @@ void init_pool_table(
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
-void compute_pool_2d(
+void compute_pool_encoded_2d(
     const unsigned h_idx,
     const unsigned w_idx,
     const data_T& in_elem,
@@ -65901,12 +64715,12 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
-void pooling2d_cl(
+void pooling2d_encoded_cl(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res
 ) {
-    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 127, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 128, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 129, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 130, __extension__ __PRETTY_FUNCTION__));
 
     res_T res_pack;
 _ssdm_DataPack( &res_pack, 0, 0, "", "", "");
@@ -65926,14 +64740,127 @@ _ssdm_SpecLoopFlatten(0, "");
  if (res_T::size / CONFIG_T::n_filt == 1) {
 _ssdm_op_SpecPipeline(pack_factor, 1, 1, 0, "");
  }
-            compute_pool_2d<data_T, res_T, CONFIG_T>(i_ih, i_iw, data.read(), data_window, res, res_pack, outputs_ready);
+            compute_pool_encoded_2d<data_T, res_T, CONFIG_T>(i_ih, i_iw, data.read(), data_window, res, res_pack, outputs_ready);
         }
     }
 }
 
 
+
+
 template<class data_T, class res_T, typename CONFIG_T>
-void compute_pool_1d(
+void compute_pool_buffer_2d(
+    const data_T& in_elem,
+    ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::pool_height - 1 > 1 ? CONFIG_T::pool_height - 1 : 1)][CONFIG_T::n_filt],
+    hls::stream<res_T> &res
+) {
+_ssdm_InlineSelf(0, "");
+ const static int lShiftX = CONFIG_T::pool_width - 1;
+_ssdm_SpecConstant(&lShiftX);
+# 165 "firmware/nnet_utils/nnet_pooling_stream.h"
+
+    const static int lShiftY = CONFIG_T::pool_height - 1;
+_ssdm_SpecConstant(&lShiftY);
+# 166 "firmware/nnet_utils/nnet_pooling_stream.h"
+
+    static int pX = 0;
+    static int pY = 0;
+    static int sX = 0;
+    static int sY = 0;
+
+    typename data_T::value_type pool_window[CONFIG_T::pool_height * CONFIG_T::pool_width];
+_ssdm_SpecArrayPartition( pool_window, 1, "COMPLETE", 0, "");
+
+ static typename data_T::value_type kernel_data[CONFIG_T::pool_height * CONFIG_T::pool_width * CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( &kernel_data, 0, "COMPLETE", 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+
+
+ nnet::shift_line_buffer<data_T, CONFIG_T>(in_elem, line_buffer, kernel_data);
+
+
+    if ((sX - lShiftX) == 0 && (sY - lShiftY) == 0 && pY > lShiftY - 1 && pX > lShiftX - 1) {
+        FiltLoop: for(unsigned i_ic = 0; i_ic < CONFIG_T::n_filt; i_ic++) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+
+ PoolLoop: for(unsigned i_ihw = 0; i_ihw < CONFIG_T::pool_height * CONFIG_T::pool_width; i_ihw++) {
+                pool_window[i_ihw] = kernel_data[i_ihw * CONFIG_T::n_filt + i_ic];
+            }
+
+
+            res_pack[i_ic] = reduce_pool<typename data_T::value_type, CONFIG_T::pool_height * CONFIG_T::pool_width, CONFIG_T>(pool_window);
+        }
+
+
+        res.write(res_pack);
+    }
+
+
+    if (pX + 1 == CONFIG_T::in_width)
+    {
+        pX = 0;
+        sX = 0;
+        if (pY + 1 == CONFIG_T::in_height) {
+            pY = 0;
+            sY = 0;
+        } else {
+            pY = pY + 1;
+
+            sY = ((sY - lShiftY) == 0) ? sY - CONFIG_T::stride_height + 1 : sY + 1;
+        }
+    } else {
+        pX = pX + 1;
+
+        sX = ((sX - lShiftX) == 0) ? sX - CONFIG_T::stride_width + 1 : sX + 1;
+    }
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void pooling2d_buffer_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res
+) {
+    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 227, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 228, __extension__ __PRETTY_FUNCTION__));
+
+    static ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::pool_height - 1 > 1 ? CONFIG_T::pool_height - 1 : 1)][CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( &line_buffer, 2, "COMPLETE", 0, "");
+
+ ReadInputHeight: for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
+        ReadInputWidth: for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
+_ssdm_SpecLoopFlatten(0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ compute_pool_buffer_2d<data_T, res_T, CONFIG_T>(data.read(), line_buffer, res);
+        }
+    }
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void pooling2d_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res
+) {
+_ssdm_InlineRegion(0, "");
+ switch(CONFIG_T::implementation){
+        case conv_implementation::linebuffer:
+            pooling2d_buffer_cl<data_T, res_T, CONFIG_T>(data, res);
+            break;
+        case conv_implementation::encoded:
+            pooling2d_encoded_cl<data_T, res_T, CONFIG_T>(data, res);
+            break;
+        }
+}
+
+
+
+
+
+template<class data_T, class res_T, typename CONFIG_T>
+void compute_pool_encoded_1d(
     const unsigned w_idx,
     const data_T& in_elem,
     hls::stream<typename data_T::value_type> data_window[CONFIG_T::pool_width * CONFIG_T::n_filt],
@@ -66008,12 +64935,12 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 }
 
 template<class data_T, class res_T, typename CONFIG_T>
-void pooling1d_cl(
+void pooling1d_encoded_cl(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res
 ) {
-    (static_cast <bool> (CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 234, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 235, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 343, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 344, __extension__ __PRETTY_FUNCTION__));
 
     res_T res_pack;
 _ssdm_DataPack( &res_pack, 0, 0, "", "", "");
@@ -66032,7 +64959,98 @@ _ssdm_SpecLoopFlatten(0, "");
  if (res_T::size / CONFIG_T::n_filt == 1) {
 _ssdm_op_SpecPipeline(pack_factor, 1, 1, 0, "");
  }
-        compute_pool_1d<data_T, res_T, CONFIG_T>(i_iw, data.read(), data_window, res, res_pack, outputs_ready);
+        compute_pool_encoded_1d<data_T, res_T, CONFIG_T>(i_iw, data.read(), data_window, res, res_pack, outputs_ready);
+    }
+}
+
+
+
+
+template<class data_T, class res_T, typename CONFIG_T>
+void compute_pool_buffer_1d(
+    const data_T& in_elem,
+    hls::stream<res_T> &res
+) {
+_ssdm_InlineSelf(0, "");
+ const static int lShiftX = CONFIG_T::pool_width - 1;
+_ssdm_SpecConstant(&lShiftX);
+# 376 "firmware/nnet_utils/nnet_pooling_stream.h"
+
+
+    static int pX = 0;
+    static int sX = 0;
+
+    typename data_T::value_type pool_window[CONFIG_T::pool_width];
+_ssdm_SpecArrayPartition( &pool_window, 1, "COMPLETE", 0, "");
+
+ static typename data_T::value_type kernel_data[CONFIG_T::pool_width * CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( &kernel_data, 0, "COMPLETE", 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+
+
+
+ nnet::kernel_shift_1d<data_T, CONFIG_T>(in_elem, kernel_data);
+
+
+    if ( (sX - lShiftX) == 0 && pX > lShiftX - 1) {
+        FiltLoop: for(unsigned i_ic = 0; i_ic < CONFIG_T::n_filt; i_ic++) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+
+ PoolLoop: for(unsigned i_iw = 0; i_iw < CONFIG_T::pool_width; i_iw++) {
+                pool_window[i_iw] = kernel_data[i_iw * CONFIG_T::n_filt + i_ic];
+            }
+
+
+            res_pack[i_ic] = reduce_pool<typename data_T::value_type, CONFIG_T::pool_width, CONFIG_T>(pool_window);
+        }
+
+
+        res.write(res_pack);
+    }
+
+
+    if (pX + 1 == CONFIG_T::n_in)
+    {
+        pX = 0;
+        sX = 0;
+    } else {
+        pX = pX + 1;
+
+        sX = ((sX - lShiftX) == 0) ? sX - CONFIG_T::stride_width + 1 : sX + 1;
+    }
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void pooling1d_buffer_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res
+) {
+    (static_cast <bool> (CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 429, __extension__ __PRETTY_FUNCTION__));
+
+    ReadInputWidth: for (unsigned i_iw = 0; i_iw < CONFIG_T::n_in; i_iw++) {
+_ssdm_SpecLoopFlatten(0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ compute_pool_buffer_1d<data_T, res_T, CONFIG_T>(data.read(), res);
+    }
+}
+
+
+template<class data_T, class res_T, typename CONFIG_T>
+void pooling1d_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res
+) {
+_ssdm_InlineRegion(0, "");
+ switch(CONFIG_T::implementation){
+        case conv_implementation::linebuffer:
+            pooling1d_buffer_cl<data_T, res_T, CONFIG_T>(data, res);
+            break;
+        case conv_implementation::encoded:
+            pooling1d_encoded_cl<data_T, res_T, CONFIG_T>(data, res);
+            break;
     }
 }
 
@@ -66057,8 +65075,6 @@ _ssdm_InlineSelf(0, "");
 
 template<class data_T, class res_T, typename CONFIG_T>
 void compute_global_pool(
-    const unsigned h_idx,
-    const unsigned w_idx,
     const data_T& in_elem,
     typename CONFIG_T::accum_t data_window[CONFIG_T::n_filt]
 ) {
@@ -66081,8 +65097,8 @@ void global_pooling2d_cl(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res
 ) {
-    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 303, __extension__ __PRETTY_FUNCTION__));
-    (static_cast <bool> (CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 304, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 498, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 499, __extension__ __PRETTY_FUNCTION__));
 
     typename CONFIG_T::accum_t data_window[CONFIG_T::n_filt];
 _ssdm_SpecArrayPartition( &data_window, 1, "COMPLETE", 0, "");
@@ -66100,7 +65116,7 @@ _ssdm_Unroll(0,0,0, "");
     ReadInputHeight: for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
         ReadInputWidth: for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width / (data_T::size / CONFIG_T::n_filt); i_iw++) {
 _ssdm_SpecLoopFlatten(0, "");
- compute_global_pool<data_T, res_T, CONFIG_T>(i_ih, i_iw, data.read(), data_window);
+ compute_global_pool<data_T, res_T, CONFIG_T>(data.read(), data_window);
         }
     }
 
@@ -66132,33 +65148,87 @@ _ssdm_Unroll(0,0,0, "");
 
 }
 
+template<class data_T, class res_T, typename CONFIG_T>
+void global_pooling1d_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res
+) {
+    (static_cast <bool> (CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0) ? void (0) : __assert_fail ("CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0", "firmware/nnet_utils/nnet_pooling_stream.h", 554, __extension__ __PRETTY_FUNCTION__));
+    (static_cast <bool> (CONFIG_T::pool_width == CONFIG_T::stride_width) ? void (0) : __assert_fail ("CONFIG_T::pool_width == CONFIG_T::stride_width", "firmware/nnet_utils/nnet_pooling_stream.h", 555, __extension__ __PRETTY_FUNCTION__));
+
+    typename CONFIG_T::accum_t data_window[CONFIG_T::n_filt];
+_ssdm_SpecArrayPartition( &data_window, 1, "COMPLETE", 0, "");
+
+ typename CONFIG_T::accum_t init = 0;
+    if (CONFIG_T::pool_op == Max) {
+        init = hls::numeric_limits<typename CONFIG_T::accum_t>::min();
+    }
+
+    PoolInitLoop: for (unsigned i_init = 0; i_init < CONFIG_T::n_filt; i_init++) {
+_ssdm_Unroll(0,0,0, "");
+ data_window[i_init] = init;
+    }
+
+    ReadInput: for (unsigned i_iw = 0; i_iw < CONFIG_T::n_in / (data_T::size / CONFIG_T::n_filt); i_iw++) {
+_ssdm_SpecLoopFlatten(0, "");
+ compute_global_pool<data_T, res_T, CONFIG_T>(data.read(), data_window);
+    }
+
+    if (CONFIG_T::pool_op == Max) {
+        MaxPoolRes: for (unsigned i_res = 0; i_res < CONFIG_T::n_filt / res_T::size; i_res++) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+ MaxPoolPack: for (unsigned i_pack = 0; i_pack < res_T::size; i_pack++) {
+_ssdm_Unroll(0,0,0, "");
+ res_pack[i_pack] = data_window[i_pack];
+            }
+            res.write(res_pack);
+        }
+    } else {
+        AvgPoolRes: for (unsigned i_res = 0; i_res < CONFIG_T::n_filt / res_T::size; i_res++) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ res_T res_pack;
+_ssdm_DataPack( &res_pack, 0, 0, "", "", "");
+ AvgPoolPack: for (unsigned i_pack = 0; i_pack < res_T::size; i_pack++) {
+_ssdm_Unroll(0,0,0, "");
+ res_pack[i_pack] = data_window[i_pack] / CONFIG_T::n_in;
+            }
+            res.write(res_pack);
+        }
+    }
+
+}
+
 }
 # 18 "firmware/parameters.h" 2
 
 
 # 1 "firmware/weights/w2.h" 1
 # 12 "firmware/weights/w2.h"
-weight2_t w2[144] = {0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 1.25, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, -1.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, -1.25, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, -1.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00};
+weight2_t w2[144] = {0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, -1.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.50, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, -1.00, 0.00, 0.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, -0.25, 0.00, 0.00, -1.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00};
 # 21 "firmware/parameters.h" 2
 # 1 "firmware/weights/b2.h" 1
 # 12 "firmware/weights/b2.h"
-bias2_t b2[16] = {0.125000, 0.125000, -0.015625, 0.000000, 0.015625, -0.312500, 0.000000, -0.093750, -0.078125, 0.062500, 0.015625, 0.015625, 0.125000, 0.000000, 0.000000, 0.000000};
+bias2_t b2[16] = {0.093750, 0.125000, -0.031250, 0.000000, 0.015625, -0.328125, 0.000000, -0.093750, -0.078125, 0.062500, 0.015625, -0.031250, 0.125000, 0.000000, 0.000000, 0.000000};
 # 22 "firmware/parameters.h" 2
 # 1 "firmware/weights/w6.h" 1
 # 12 "firmware/weights/w6.h"
-weight6_t w6[2304] = {0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.1250, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.3125, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.0625, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.8125, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.1250, 0.0000, 0.5625, 0.2500, 0.0000, 0.0000, 0.3750, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.5000, -0.0625, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, -0.0625, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.3750, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.1875, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, -0.6875, 0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.5625, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.0625, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.1875, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0625, 0.0625, 0.0000, 0.3125, 0.0000, 0.0000, 0.0625, 0.0625, 0.0625, 0.5000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0625, 0.1875, 0.1875, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0625, 0.0625, 0.1250, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.3750, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.1875, -0.1875, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.5625, -0.4375, -0.3750, 0.0000, -0.5000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0625, 0.3125, 0.0000, 0.0625, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.1875, 0.0625, 0.0000, -0.5000, -0.2500, -0.6250, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.5000, 0.0000, 0.1250, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.1875, 0.4375, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, 0.0000, -0.4375, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, -0.5000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.3125, 0.0000, 0.0000, 0.0625, -0.1250, -0.3125, -0.2500, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, -0.2500, 0.0000, 0.0000, 0.0625, -0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.1250, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, 0.0625, 0.3125, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.2500, 0.0000, 0.0625, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0625, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.2500, 0.0000, 0.0625, -0.5625, -0.1875, 0.0000, -0.1250, -0.0625, 0.0000, 0.0000, -0.3750, -0.2500, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.1250, 0.0000, -0.6250, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.4375, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0625, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.1250, 0.0000, -0.6250, 0.0000, -0.2500, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.3750, 0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.3125, 0.0625, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.4375, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.3750, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.6250, 0.0000, -0.1250, -0.1250, 0.0000, 0.3125, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.3125, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.1250, -0.2500, 0.0000, 0.0000, -0.1250, 0.0000, -0.4375, 0.0000, -0.1875, 0.0000, -0.1250, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.0625, 0.0000, 0.0000, -0.3125, -0.1875, 0.0000, 0.0000, 0.0000, 0.3125, 0.2500, 0.0000, -0.3125, -0.4375, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.1250, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.5000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.1250, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.1875, -0.1875, -0.1875, -0.4375, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.1250, 0.3125, 0.1250, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.5000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1250, 0.0000, 0.0000, -0.5000, 0.0000, -0.1250, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.5000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.1875, 0.5625, 0.0000, 0.1875, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.1250, 0.6250, 0.0000, 0.0000, -0.1875, 0.3125, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.4375, 0.7500, 0.0000, 0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, -0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.2500, 0.1250, 0.5625, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.3750, 0.0000, 0.0625, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.4375, 0.0625, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.3125, 0.0000, 0.6875, 0.0000, 0.1875, 0.4375, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.0625, 0.0000, 0.1250, 0.3750, 0.3125, 0.0000, 0.0000, -0.0625, 0.0000, -0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.4375, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.8125, 0.3125, 0.0000, 0.0000, 0.3750, 0.1875, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0625, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, -0.1875, 0.1250, 0.5625, -0.1875, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, -0.1250, -0.1250, -0.5000, 0.0000, -0.0625, 0.0000, -0.2500, -0.6875, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.1250, -0.1250, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.3750, -0.4375, -0.3750, -0.1250, -0.1250, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.4375, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.4375, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.5000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.6250, 0.1875, 0.3125, 0.0000, 0.1250, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.4375, -0.0625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.4375, -0.5000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.0625, -0.1875, 0.0000, 0.1875, 0.0000, 0.0000};
+weight6_t w6[2304] = {0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0625, 0.0625, 0.0000, -0.1250, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.0625, 0.0000, 0.3750, 0.0625, 0.2500, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.3125, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.5000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1875, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.2500, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.0625, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1250, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.1250, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.4375, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.1250, 0.0000, 0.0000, -0.0625, 0.0625, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.1250, 0.0625, 0.0625, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, -0.2500, 0.0000, -0.1250, 0.1250, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1250, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.1875, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0625, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.3125, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0625, 0.0000, -0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.3750, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.3125, 0.0000, -0.1250, 0.2500, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0625, 0.0000, -0.5000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.5625, 0.1875, 0.0000, 0.1250, -0.1875, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0625, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, -0.6875, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.1875, 0.1250, 0.0000, 0.0000, -0.1250, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, -0.3750, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.6875, 0.0625, 0.0000, -0.0625, -0.3750, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, -0.5000, 0.3125, 0.3125, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.1250, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.6875, -0.0625, 0.0000, -0.1875, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.3125, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, -0.0625, 0.0000, 0.0000, 0.1875, -0.5625, 0.0000, -0.3750, 0.0000, 0.2500, 0.0000, -0.1875, -0.5000, 0.0000, 0.0000, 0.5625, 0.3125, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0625, -0.1250, 0.0000, -0.0625, -0.3125, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.3750, 0.0000, -0.4375, 0.0000, 0.0000, 0.0625, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.3125, -0.3750, 0.0000, 0.0000, 0.0625, 0.0000, -0.2500, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0625, -0.0625, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0625, 0.4375, 0.3125, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.3750, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.1875, -0.8750, -0.6250, 0.0000, 0.3750, 0.0000, 0.4375, 0.0000, 0.3750, 0.1250, -0.1875, -0.4375, 0.0000, 0.0000, 0.3125, 0.0000, 0.3750, -0.5000, -0.3750, -0.2500, 0.0000, 0.4375, 0.1875, 0.0000, 0.1250, 0.4375, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0625, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, -0.1250, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.1875, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.3750, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.2500, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1875, -0.0625, 0.0000, 0.0000, 0.3125, -0.6875, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.4375, -0.1875, -0.3125, 0.3125, 0.0000, 0.1250, -0.2500, 0.0000, -0.2500, 0.0000, -0.0625, 0.1250, 0.1875, 0.0000, 0.4375, -0.5625, -0.1250, 0.0000, 0.0000, 0.5625, 0.0000, 0.0625, 0.0000, -0.4375, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.3125, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0625, 0.0625, 0.0000, -0.0625, 0.0000, -0.4375, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.2500, 0.0000, 0.6875, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.5625, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.1875, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.1250, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, -0.4375, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.1875, 0.0000, 0.0000, 0.0000, 0.7500, 0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.2500, 0.0625, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.3750, 0.3750, 0.0000, -0.2500, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.1875, 0.4375, -0.1250, 0.2500, -0.4375, 0.0000, 0.0000, 0.2500, 0.0000, -0.1250, -0.1875, -0.5000, 0.6250, 0.4375, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1250, 0.0000, 0.3125, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, -0.1250, -0.6250, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, -0.5625, 0.5625, -0.3750, -0.1875, 0.1875, 0.0000, 0.1875, 0.2500, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.0000, 0.1250, -0.5000, -0.1250, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0625, 0.0000, -0.3125, 0.0000, -0.1250, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, -0.3125, 0.0625, 0.0000, -0.5625, 0.2500, 0.0000, 0.4375, 0.0000, -0.1250, 0.0000, 0.0000, 0.4375, 0.0625, 0.0625, 0.1250, 0.0000, -0.1250, 0.0000, -0.1250, 0.0000, 0.5000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, -0.5625, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.3750, -0.6875, 0.5000, 0.0000, 0.3750, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.2500, 0.0000, 0.0000, 0.1250, 0.8750, 0.1875, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.0625, 0.3125, -0.0625, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.1250, 0.0000, 0.1250, 0.0000, -0.0625, 0.0000, 0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.1250, 0.5000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.1250, -0.6875, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.3750, 0.0000, 0.0000, 0.0000, -0.4375, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0625, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.0625, -0.5000, -0.0625, 0.0000, 0.0000, 0.2500, 0.1250, 0.0000, -0.0625, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.1250, 0.1875, 0.0625, 0.0000, -0.1875, 0.0000, -0.4375, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.5000, -0.3125, 0.0625, -0.2500, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, 0.3750, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0625, 0.0000, 0.0000, -0.0625, 0.3750, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0625, 0.1250, 0.0000, 0.0625, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.1250, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.3750, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, -0.1250, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.4375, 0.0000, 0.0000, 0.0000, -0.0625, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.3750, 0.0000, -0.5000, 0.3750, 0.0000, 0.0000, 0.5000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8125, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.3750, 0.0000, -0.2500, 0.0000, 0.0000, -0.0625, -0.9375, 0.0000, -0.0625, -0.3125, 0.0000, 0.0625, 0.0000, 0.8125, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.4375, 0.0000, 0.0000, -0.2500, 0.2500, 0.7500, -0.0625, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000};
 # 23 "firmware/parameters.h" 2
 # 1 "firmware/weights/b6.h" 1
 # 12 "firmware/weights/b6.h"
-bias6_t b6[16] = {-0.31250, 0.28125, -0.15625, -0.28125, 0.06250, 0.46875, 0.09375, 0.06250, 0.12500, -0.09375, -0.09375, -0.15625, 0.00000, 0.00000, 0.15625, 0.00000};
+bias6_t b6[16] = {-0.37500, 0.28125, -0.21875, -0.34375, 0.09375, 0.53125, 0.06250, 0.03125, 0.12500, -0.12500, -0.09375, -0.15625, 0.00000, -0.03125, 0.12500, 0.00000};
 # 24 "firmware/parameters.h" 2
-# 1 "firmware/weights/w10.h" 1
-# 12 "firmware/weights/w10.h"
-weight10_t w10[4000] = {0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.2500, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, -0.1250, 0.0625, 0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.1875, 0.0625, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.1250, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.3125, -0.1875, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.1875, 0.4375, -0.1875, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.1875, 0.0000, 0.1250, 0.0000, -0.5000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, -0.7500, -0.1875, 0.0000, 0.0000, 0.0000, 0.1875, -0.3750, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, -1.0000, 0.1250, 0.0625, -0.7500, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, 0.0000, 0.0000, -0.8750, 0.0000, -0.1250, -0.1875, -0.1250, 0.3750, 0.0000, -0.1875, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, -0.5625, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, -0.6250, 0.0000, 0.0000, 0.1875, -0.3750, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.1250, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, -0.2500, -0.8125, -0.5625, 0.2500, -0.5000, -0.3125, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.6250, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.5625, 0.0000, -0.0625, 0.0000, 0.6875, 0.0000, 0.0000, -0.6875, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, -0.5625, 0.0000, -0.0625, 0.2500, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.7500, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, -0.3750, 0.0000, -0.1250, 0.0000, 0.2500, 0.0000, 0.0625, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, -0.1250, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, -0.1250, -0.1250, -0.1250, -0.1250, -0.1250, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.7500, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, -0.4375, -0.2500, 0.8750, 0.0000, 0.3125, 0.0000, 0.0000, -0.6875, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, -0.1250, 0.0000, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0625, -0.1250, -0.1250, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, -0.2500, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.5625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.5625, 0.2500, 0.0000, -0.1250, 0.2500, -0.6250, -0.1250, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.1250, 0.0000, -0.0625, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -0.3125, -0.1875, 0.0000, -1.0000, 0.0000, -0.1875, -0.9375, -0.0625, -0.2500, 0.0000, -0.8125, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.4375, 0.4375, 0.0000, 0.0000, 0.0000, 0.0625, 0.1875, 0.1250, 0.0000, 0.1875, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.3125, -0.1875, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.1250, -0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1875, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.5000, 0.0000, 0.0000, -0.1250, -0.1875, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -1.0000, 0.6250, 0.0000, 0.0000, -0.2500, 0.1250, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.2500, 0.2500, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.1875, -0.0625, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, -0.6250, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.9375, -0.2500, 0.0000, 0.6250, -0.4375, 0.0000, 0.0000, 0.0000, 0.1875, -0.2500, 0.0000, -0.4375, 0.0000, 0.0000, -0.6250, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.6875, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.1875, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.1250, 0.0000, 0.0000, 0.5000, 0.0000, -0.4375, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.6875, 0.0000, 0.8750, 0.0000, 0.7500, 0.0000, 0.0000, 0.1250, 0.1250, 0.0000, 0.0000, 0.6875, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.1875, -0.1875, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.3750, -0.8750, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.2500, 0.2500, 0.0000, -0.4375, 0.0000, -0.0625, -0.3125, 0.0000, -0.1250, 0.4375, 0.0000, 0.2500, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.6875, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.4375, 0.0000, 0.0000, -0.1875, 0.0000, -1.0000, 0.0000, 0.0000, -0.5625, 0.0000, -0.1875, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0625, -0.1875, 0.0000, 0.4375, -0.1875, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, 0.1250, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.2500, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.2500, -0.2500, -0.0625, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.2500, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, -0.1250, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.1250, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.7500, 0.0000, -0.8750, 0.0000, 0.3750, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.5000, 0.0000, 0.8125, 0.0000, -0.3125, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, -0.1875, 0.0000, 0.6875, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.9375, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, -0.1875, -0.5000, 0.7500, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.5625, 0.0000, 0.0000, -1.0000, -0.1250, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.9375, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, -0.3125, -0.3125, 0.0000, 0.0000, 0.0000, 0.0625, -0.6875, 0.0000, 0.0000, -0.6250, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.4375, -0.1250, 0.6875, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.2500, 0.0000, -0.3125, -0.3750, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.1875, 0.0625, 0.0000, 0.0000, -1.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.3125, 0.5000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.5000, 0.0000, -0.6250, 0.0000, -0.1250, 0.0000, -0.7500, -0.8125, -0.1250, 0.0000, 0.0000, 0.0000, -0.7500, -0.2500, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.7500, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -0.0625, -0.6875, 0.6250, 0.2500, 0.5625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, -1.0000, -0.1250, -1.0000, 0.1875, 0.1250, 0.8125, -0.3750, 0.0000, 0.5625, 0.0000, 0.0000, -0.0625, 0.0000, 0.2500, 0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, -0.2500, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.1875, 0.1250, 0.0000, -0.7500, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, -0.9375, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.4375, 0.0000, -0.6250, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.5625, 0.0000, -0.1875, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.2500, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, -0.1875, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, -0.1250, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.8125, 0.0000, -0.8125, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.5000, 0.0000, -0.4375, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, -1.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.6875, 0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, -0.2500, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.5625, 0.0000, 0.0625, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, -0.3125, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, -0.1250, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -1.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.1875, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, -0.1875, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.7500, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0625, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.1250, 0.1250, 0.0625, 0.0000, 0.0625, 0.4375, 0.3125, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.5625, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0625, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1250, 0.0000, -0.1250, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.3125, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1875, 0.2500, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0625, 0.1250, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, -0.2500, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0625, 0.0000, 0.7500, -0.1250, 0.3750, -0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8125, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, -0.0625, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.5625, -0.1875, -0.1875, 0.0000, -0.1250, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.5000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.1250, -0.3750, 0.0000, -0.7500, 0.0000, -0.2500, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, -0.1250, 0.0000, -0.3125, 0.1250, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, -0.3125, 0.0000, 0.0000, -0.1250, 0.0000, -0.1875, -0.2500, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, -0.1250, 0.0000, 0.0000, -0.2500, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.3125, -0.1250, 0.0000, 0.2500, -0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.6875, 0.0000, -0.0625, 0.0000, -0.1250, 0.1250, 0.0000, 0.0000, 0.6875, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.9375, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -0.1875, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.1250, 0.0000, -0.3750, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.0625, -0.0625, 0.0000, 0.0000, 0.2500, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, -0.6875, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.8750, 0.0000, 0.2500, -0.0625, 0.0000, 0.0000, -0.2500, -0.9375, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.2500, -0.3125, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.6250, -0.0625, 0.0625, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -1.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -1.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, -0.6250, 0.0000, 0.0000, -0.7500, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, -0.6250, 0.0000, -0.2500, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0625, -0.5625, 0.0000, 0.0000, 0.0000, -0.1875, -0.1250, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.0625, -0.8125, 0.0000, 0.0000, 0.2500, -0.8750, -0.3750, 0.0000, 0.7500, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.0625, -0.3750, 0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.0625, 0.0000, 0.2500, -0.4375, 0.0625, 0.0000, -0.5625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.3750, 0.0000, 0.0000, -0.5625, 0.0000, -0.6875, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.3125, 0.0000, -0.1250, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.2500, 0.0000, 0.3125, 0.0625, 0.0625, 0.0000, 0.0000, -0.9375, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0625, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8750, 0.0625, 0.0000, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.2500, 0.0000, -0.5625, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.3750, 0.0000, 0.0000, -0.3125, 0.1875, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, -1.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.5000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.5625, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.3750, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.1875, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000};
+# 1 "firmware/weights/w11.h" 1
+# 12 "firmware/weights/w11.h"
+weight11_t w11[4000] = {0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.3125, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.1875, 0.0625, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.3750, -0.1875, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.1875, 0.5000, -0.2500, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.3125, 0.0000, 0.1250, 0.0000, -0.5625, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.8125, 0.0000, 0.0000, -0.8125, -0.1875, 0.0000, 0.0000, 0.0000, 0.3125, -0.4375, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, -1.0000, 0.1250, 0.0625, -0.6875, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.1250, 0.0000, 0.0000, -0.9375, 0.0000, -0.1875, -0.3125, -0.1250, 0.4375, 0.0000, -0.0625, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.5625, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.6250, 0.0000, 0.0000, 0.2500, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.2500, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, -0.3125, -0.8750, -0.5625, 0.3125, -0.4375, -0.4375, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.6250, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.5625, 0.0000, -0.0625, 0.0000, 0.7500, 0.0000, 0.0000, -0.7500, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, -0.5000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.8125, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, -0.5000, 0.0000, -0.3125, 0.0000, 0.3125, 0.0000, 0.0625, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.0625, -0.1875, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, -0.1250, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, -0.1250, -0.0625, -0.1250, -0.1250, -0.1250, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.8750, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.7500, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, -0.5000, -0.2500, 0.9375, 0.0000, 0.3750, 0.0000, 0.0000, -0.6875, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.0625, -0.1250, 0.0000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, -0.3125, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.5000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.6250, 0.3125, 0.0000, -0.1250, 0.3125, -0.6250, -0.1875, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.1250, 0.0000, -0.0625, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -0.1875, -0.2500, 0.0000, -1.0000, 0.0000, -0.1875, -1.0000, 0.0000, -0.3125, 0.0000, -0.8750, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.1875, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.5000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0625, 0.0000, 0.2500, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.2500, -0.2500, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.0625, -0.1875, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, -0.1250, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8125, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8750, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, -0.5000, 0.0000, 0.0000, -0.1875, -0.1875, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -1.0000, 0.6875, 0.0000, 0.0000, -0.2500, 0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.3125, 0.3750, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.2500, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, -0.6250, 0.0000, 0.0000, 0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.9375, -0.3125, 0.0000, 0.6250, -0.5625, 0.0000, 0.0000, 0.0000, 0.2500, -0.3750, 0.0000, -0.3750, 0.0000, 0.0000, -0.6250, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, -0.6875, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.2500, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.1875, 0.0000, 0.0000, 0.5625, 0.0000, -0.4375, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.6250, 0.0000, 0.9375, 0.0000, 0.8125, 0.0000, 0.0000, 0.1875, 0.2500, 0.0000, 0.0000, 0.6875, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.1875, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.1250, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.4375, -0.9375, -0.1250, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.3125, 0.3125, 0.0000, -0.5000, 0.0000, -0.0625, -0.3750, 0.0000, -0.1250, 0.4375, 0.0000, 0.3125, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, -0.6875, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.5000, 0.0000, 0.0000, -0.1250, 0.0000, -1.0000, 0.0000, 0.0000, -0.5625, 0.0000, -0.2500, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.0625, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.1250, -0.2500, 0.0000, 0.3750, -0.2500, 0.0000, 0.0000, -0.1250, 0.0000, -0.1250, 0.1875, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, -0.2500, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.2500, -0.3125, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.3125, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.0625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.1875, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.8750, 0.0000, -1.0000, 0.0000, 0.4375, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.5625, 0.0000, 0.8750, 0.0000, -0.3750, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5000, -0.1250, 0.0000, 0.8125, 0.0000, 0.8750, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -1.0000, 0.0000, 0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, -0.2500, -0.5000, 0.7500, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.5000, 0.0000, 0.0000, -1.0000, -0.1250, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.9375, 0.0000, 0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, -0.3750, -0.4375, 0.0000, 0.0000, 0.0000, 0.0625, -0.8125, 0.0000, 0.0000, -0.6875, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.5000, -0.1250, 0.6875, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.3125, 0.0000, -0.3750, -0.4375, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.8750, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, -0.3750, 0.5000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.6250, 0.0000, -0.6875, 0.0000, -0.1875, 0.0000, -0.8125, -0.8750, -0.1250, 0.0000, 0.0000, 0.0000, -0.6875, -0.3125, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -0.6250, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, -0.0625, -0.6875, 0.6250, 0.2500, 0.6250, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -1.0000, -0.1250, -1.0000, 0.2500, 0.1250, 0.8750, -0.3750, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, -0.2500, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, -0.2500, 0.1250, 0.0000, -0.6250, 0.0000, 0.0000, 0.8125, 0.0000, 0.0000, -1.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.4375, 0.0000, -0.6875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.6250, 0.0000, -0.1875, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -0.1875, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.3125, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, -0.1875, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.1875, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, -0.8750, 0.0000, -0.9375, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, -0.3125, 0.8125, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.8125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, -1.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.6875, 0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -0.3750, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.6250, 0.0000, 0.1875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, -0.4375, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.1875, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, 0.0000, 0.0000, -1.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.4375, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.1875, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, -0.3125, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, -0.6875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0625, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.1875, 0.0625, 0.0625, 0.0000, 0.0625, 0.5000, 0.3750, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.1250, 0.0000, 0.0000, 0.1250, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.6250, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.6875, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.1250, 0.0000, -0.0625, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.4375, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.2500, 0.3125, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7500, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.1250, 0.1875, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.1250, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, -0.3125, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.7500, -0.1250, 0.4375, -0.1875, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -0.1250, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.8750, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, -0.0625, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, 0.5625, -0.1875, -0.1875, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.5625, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, -0.3125, 0.0000, -0.1250, -0.5000, 0.0000, -0.8125, 0.0000, -0.3750, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.1875, 0.0000, -0.3750, 0.1875, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -1.0000, -0.3750, 0.0000, 0.0000, -0.1250, 0.0000, -0.1875, -0.3750, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.1250, 0.0000, -0.3125, 0.0000, 0.0000, -0.3125, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.3750, -0.1875, 0.0000, 0.3125, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.1875, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, -0.7500, 0.0000, -0.0625, 0.0000, -0.1875, 0.1875, 0.0000, 0.0000, 0.6875, -0.6875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -1.0000, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, -0.1250, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3125, 0.0000, 0.0625, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.5625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, -0.1250, 0.0000, 0.0000, 0.3125, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, 0.0000, -0.0625, 0.0000, -0.7500, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3125, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, -0.9375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, -0.9375, 0.0000, 0.2500, -0.0625, 0.0000, 0.0000, -0.3125, -0.8750, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.2500, -0.3750, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.5625, -0.2500, 0.0625, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, 0.0000, -1.0000, -1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8125, 0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -1.0000, 0.0000, 0.0000, 0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6875, 0.0000, -0.5625, 0.0000, 0.0000, -0.6250, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, -0.5000, 0.0000, 0.0000, 0.0000, 0.0000, -0.8750, 0.0000, 0.0000, -0.5625, 0.0000, -0.1875, 0.0000, 0.0000, 0.5000, 0.0000, 0.0000, 0.0000, -0.5000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, 0.1250, -0.6250, 0.0000, 0.0000, 0.0000, -0.1875, -0.0625, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, -0.5625, -0.0625, -0.8750, 0.0000, 0.0000, 0.3125, -0.9375, -0.4375, 0.0000, 0.8750, 0.0000, 0.0000, -0.6250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.0625, -0.4375, 0.0625, 0.0000, 0.0000, 0.0000, 0.1875, 0.1250, 0.0000, 0.3125, -0.5625, 0.0625, 0.0000, -0.5625, 0.1250, 0.0000, 0.0000, 0.0000, 0.0000, -0.2500, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, 0.3125, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, -0.3750, 0.0000, 0.0000, -0.5625, 0.0000, -0.7500, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.3750, 0.0000, -0.1250, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.7500, 0.0000, 0.3125, 0.0000, 0.3750, 0.0625, 0.0625, 0.0000, 0.0000, -0.9375, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0625, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9375, 0.0625, 0.0000, -0.3125, 0.0000, -0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, -0.2500, 0.0000, -0.5625, 0.0000, -0.8750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.4375, 0.0000, 0.0000, -0.4375, 0.2500, 0.0000, 0.0000, 0.0000, -0.8125, 0.0000, -1.0000, 0.0000, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1250, 0.0000, 0.0000, -0.2500, 0.0000, 0.0000, -0.1875, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.1875, 0.4375, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1875, 0.5625, 0.0000, -0.7500, 0.0000, 0.0000, 0.0000, -0.1250, -0.0625, 0.0000, 0.0000, 0.0000, -0.1875, 0.0000, -0.5000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.3750, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, -0.1250, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.2500, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, -0.6250, -0.2500, -0.4375, 0.0000, 0.0000, 0.0000, 0.0000, 0.0625, 0.0000, 0.0000, 0.0000, 0.0000};
 # 25 "firmware/parameters.h" 2
-# 1 "firmware/weights/b10.h" 1
-# 12 "firmware/weights/b10.h"
-bias10_t b10[10] = {0.34375, 0.34375, 0.00000, -0.28125, 0.00000, -0.28125, 0.12500, -0.09375, 0.00000, 0.18750};
+# 1 "firmware/weights/b11.h" 1
+# 12 "firmware/weights/b11.h"
+bias11_t b11[10] = {0.37500, 0.37500, 0.00000, -0.28125, -0.03125, -0.28125, 0.12500, -0.09375, 0.00000, 0.18750};
 # 26 "firmware/parameters.h" 2
 
 
@@ -66167,8 +65237,8 @@ struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 9;
     static const unsigned n_out = 16;
     static const unsigned reuse_factor = 72;
-    static const unsigned strategy = nnet::resource;
-    typedef ap_fixed<16,6> accum_t;
+    static const unsigned strategy = nnet::latency;
+    typedef ap_fixed<10,6> accum_t;
     typedef bias2_t bias_t;
     typedef weight2_t weight_t;
     template<class x_T, class y_T, class res_T>
@@ -66192,18 +65262,28 @@ struct config2 : nnet::conv2d_config {
     static const unsigned out_height = 26;
     static const unsigned out_width = 26;
     static const unsigned reuse_factor = 72;
-    static const unsigned n_zeros = 130;
+    static const unsigned n_zeros = 127;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned strategy = nnet::latency;
+    static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    typedef ap_fixed<16,6> accum_t;
+    typedef ap_fixed<10,6> accum_t;
     typedef bias2_t bias_t;
     typedef weight2_t weight_t;
     typedef config2_mult mult_config;
 };
 const ap_uint<config2::filt_height * config2::filt_width> config2::pixels[] = {1,3,7,6,4,9,27,63,54,36,73,219,511,438,292,72,216,504,432,288,64,192,448,384,256};
+
+
+struct linear_config3 : nnet::activ_config {
+    static const unsigned n_in = 26*26*16;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 36;
+    typedef ap_fixed<18,8> table_t;
+};
 
 
 struct relu_config4 : nnet::activ_config {
@@ -66223,6 +65303,11 @@ struct config5 : nnet::pooling2d_config {
     static const unsigned stride_width = 2;
     static const unsigned pool_height = 2;
     static const unsigned pool_width = 2;
+
+    static const unsigned filt_height = 2;
+    static const unsigned filt_width = 2;
+    static const unsigned n_chan = 16;
+
     static const unsigned out_height = 13;
     static const unsigned out_width = 13;
     static const unsigned pad_top = 0;
@@ -66230,17 +65315,18 @@ struct config5 : nnet::pooling2d_config {
     static const unsigned pad_left = 0;
     static const unsigned pad_right = 0;
     static const nnet::Pool_Op pool_op = nnet::Max;
+    static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned reuse = 36;
-    typedef ap_fixed<16,6> accum_t;
+    typedef ap_fixed<3,2> accum_t;
 };
 
 
 struct config6_mult : nnet::dense_config {
     static const unsigned n_in = 144;
     static const unsigned n_out = 16;
-    static const unsigned reuse_factor = 144;
-    static const unsigned strategy = nnet::resource;
-    typedef ap_fixed<16,6> accum_t;
+    static const unsigned reuse_factor = 72;
+    static const unsigned strategy = nnet::latency;
+    typedef ap_fixed<10,6> accum_t;
     typedef bias6_t bias_t;
     typedef weight6_t weight_t;
     template<class x_T, class y_T, class res_T>
@@ -66263,19 +65349,29 @@ struct config6 : nnet::conv2d_config {
     static const unsigned stride_width = 1;
     static const unsigned out_height = 11;
     static const unsigned out_width = 11;
-    static const unsigned reuse_factor = 144;
-    static const unsigned n_zeros = 1729;
+    static const unsigned reuse_factor = 72;
+    static const unsigned n_zeros = 1740;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned strategy = nnet::latency;
+    static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    typedef ap_fixed<16,6> accum_t;
+    typedef ap_fixed<10,6> accum_t;
     typedef bias6_t bias_t;
     typedef weight6_t weight_t;
     typedef config6_mult mult_config;
 };
 const ap_uint<config6::filt_height * config6::filt_width> config6::pixels[] = {1,3,7,6,4,9,27,63,54,36,73,219,511,438,292,72,216,504,432,288,64,192,448,384,256};
+
+
+struct linear_config7 : nnet::activ_config {
+    static const unsigned n_in = 11*11*16;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 36;
+    typedef ap_fixed<18,8> table_t;
+};
 
 
 struct relu_config8 : nnet::activ_config {
@@ -66295,6 +65391,11 @@ struct config9 : nnet::pooling2d_config {
     static const unsigned stride_width = 2;
     static const unsigned pool_height = 2;
     static const unsigned pool_width = 2;
+
+    static const unsigned filt_height = 2;
+    static const unsigned filt_width = 2;
+    static const unsigned n_chan = 16;
+
     static const unsigned out_height = 5;
     static const unsigned out_width = 5;
     static const unsigned pad_top = 0;
@@ -66302,32 +65403,42 @@ struct config9 : nnet::pooling2d_config {
     static const unsigned pad_left = 0;
     static const unsigned pad_right = 0;
     static const nnet::Pool_Op pool_op = nnet::Max;
+    static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned reuse = 36;
-    typedef ap_fixed<16,6> accum_t;
+    typedef ap_fixed<3,2> accum_t;
 };
 
 
-struct config10 : nnet::dense_config {
-    static const unsigned n_in = 5*5*16;
+struct config11 : nnet::dense_config {
+    static const unsigned n_in = 400;
     static const unsigned n_out = 10;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::resource;
-    static const unsigned reuse_factor = 40;
-    static const unsigned n_zeros = 3000;
-    static const unsigned n_nonzeros = 1000;
+    static const unsigned reuse_factor = 20;
+    static const unsigned n_zeros = 3028;
+    static const unsigned n_nonzeros = 972;
     static const bool store_weights_in_bram = false;
-    typedef ap_fixed<16,6> accum_t;
-    typedef bias10_t bias_t;
-    typedef weight10_t weight_t;
+    typedef ap_fixed<10,6> accum_t;
+    typedef bias11_t bias_t;
+    typedef weight11_t weight_t;
     typedef ap_uint<1> index_t;
     template<class x_T, class y_T, class res_T>
     using product = nnet::product::mult<x_T, y_T, res_T>;
 };
 
 
-struct softmax_config12 : nnet::activ_config {
+struct linear_config12 : nnet::activ_config {
     static const unsigned n_in = 10;
     static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 36;
+    typedef ap_fixed<18,8> table_t;
+};
+
+
+struct softmax_config13 : nnet::activ_config {
+    static const unsigned n_in = 10;
+    static const unsigned table_size = 256;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned reuse_factor = 1;
     static const nnet::softmax_implementation implementation = nnet::softmax_implementation::stable;
@@ -66338,13 +65449,13 @@ struct softmax_config12 : nnet::activ_config {
 
 void myproject(
     hls::stream<input_t> &layer0,
-    hls::stream<result_t> &layer12_out,
+    hls::stream<result_t> &layer13_out,
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
 
 
-_ssdm_op_SpecInterface(&layer0, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");_ssdm_op_SpecInterface(&layer12_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&layer0, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");_ssdm_op_SpecInterface(&layer13_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 
  const_size_in_1 = 28*28*1;
@@ -66352,39 +65463,44 @@ _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 # 58 "firmware/myproject.cpp"
     hls::stream<layer2_t> layer2_out("layer2_out");
 _ssdm_SpecStream( &layer2_out, 0, 676, "");
-
  nnet::conv_2d_cl<input_t, layer2_t, config2>(layer0, layer2_out, w2, b2);
+
+    hls::stream<layer3_t> layer3_out("layer3_out");
+_ssdm_SpecStream( &layer3_out, 0, 676, "");
+ nnet::linear<layer2_t, layer3_t, linear_config3>(layer2_out, layer3_out);
 
     hls::stream<layer4_t> layer4_out("layer4_out");
 _ssdm_SpecStream( &layer4_out, 0, 676, "");
-
- nnet::relu<layer2_t, layer4_t, relu_config4>(layer2_out, layer4_out);
+ nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out);
 
     hls::stream<layer5_t> layer5_out("layer5_out");
 _ssdm_SpecStream( &layer5_out, 0, 169, "");
-
  nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
 
     hls::stream<layer6_t> layer6_out("layer6_out");
 _ssdm_SpecStream( &layer6_out, 0, 121, "");
-
  nnet::conv_2d_cl<layer5_t, layer6_t, config6>(layer5_out, layer6_out, w6, b6);
+
+    hls::stream<layer7_t> layer7_out("layer7_out");
+_ssdm_SpecStream( &layer7_out, 0, 121, "");
+ nnet::linear<layer6_t, layer7_t, linear_config7>(layer6_out, layer7_out);
 
     hls::stream<layer8_t> layer8_out("layer8_out");
 _ssdm_SpecStream( &layer8_out, 0, 121, "");
-
- nnet::relu<layer6_t, layer8_t, relu_config8>(layer6_out, layer8_out);
+ nnet::relu<layer7_t, layer8_t, relu_config8>(layer7_out, layer8_out);
 
     hls::stream<layer9_t> layer9_out("layer9_out");
 _ssdm_SpecStream( &layer9_out, 0, 25, "");
-
  nnet::pooling2d_cl<layer8_t, layer9_t, config9>(layer8_out, layer9_out);
 
-    hls::stream<layer10_t> layer10_out("layer10_out");
-_ssdm_SpecStream( &layer10_out, 0, 1, "");
+    hls::stream<layer11_t> layer11_out("layer11_out");
+_ssdm_SpecStream( &layer11_out, 0, 1, "");
+ nnet::dense<layer9_t, layer11_t, config11>(layer9_out, layer11_out, w11, b11);
 
- nnet::dense<layer9_t, layer10_t, config10>(layer9_out, layer10_out, w10, b10);
+    hls::stream<layer12_t> layer12_out("layer12_out");
+_ssdm_SpecStream( &layer12_out, 0, 1, "");
+ nnet::linear<layer11_t, layer12_t, linear_config12>(layer11_out, layer12_out);
 
-    nnet::softmax<layer10_t, result_t, softmax_config12>(layer10_out, layer12_out);
+    nnet::softmax<layer12_t, result_t, softmax_config13>(layer12_out, layer13_out);
 
 }

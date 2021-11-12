@@ -1,10 +1,13 @@
 #ifndef MYPROJECT_BRIDGE_H_
 #define MYPROJECT_BRIDGE_H_
 
-#include "firmware/myproject.h"
+#include "firmware/myproject_axi.h"
 #include "firmware/nnet_utils/nnet_helpers.h"
 #include <algorithm>
 #include <map>
+
+//hls-fpga-machine-learning insert bram
+
 
 namespace nnet {
     bool trace_enabled = false;
@@ -47,36 +50,36 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 
 // Wrapper of top level function for Python bridge
 void myproject_float(
-    float layer0[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    float layer12_out[N_LAYER_10],
+    float layer0[N_IN],
+    float layer13_out[N_OUT],
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
     
-    hls::stream<input_t> layer0_ap("layer0");
-    nnet::convert_data<float, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(layer0, layer0_ap);
+    input_axi_t layer0_ap[N_IN];
+    nnet::convert_data<float, input_axi_t, N_IN>(layer0, layer0_ap);
 
-    hls::stream<result_t> layer12_out_ap("layer12_out");
+    output_axi_t layer13_out_ap[N_OUT];
 
-    myproject(layer0_ap, layer12_out_ap, const_size_in_1, const_size_out_1);
+    myproject_axi(layer0_ap,layer13_out_ap);
 
-    nnet::convert_data<result_t, float, N_LAYER_10>(layer12_out_ap, layer12_out);
+    nnet::convert_data<output_axi_t, float, N_OUT>(layer13_out_ap, layer13_out);
 }
 
 void myproject_double(
-    double layer0[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    double layer12_out[N_LAYER_10],
+    double layer0[N_IN],
+    double layer13_out[N_OUT],
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
-    hls::stream<input_t> layer0_ap("layer0");
-    nnet::convert_data<double, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(layer0, layer0_ap);
+    input_axi_t layer0_ap[N_IN];
+    nnet::convert_data<double, input_axi_t, N_IN>(layer0, layer0_ap);
 
-    hls::stream<result_t> layer12_out_ap("layer12_out");
+    output_axi_t layer13_out_ap[N_OUT];
 
-    myproject(layer0_ap, layer12_out_ap, const_size_in_1, const_size_out_1);
+    myproject_axi(layer0_ap,layer13_out_ap);
 
-    nnet::convert_data<result_t, double, N_LAYER_10>(layer12_out_ap, layer12_out);
+    nnet::convert_data<output_axi_t, double, N_OUT>(layer13_out_ap, layer13_out);
 }
 
 }

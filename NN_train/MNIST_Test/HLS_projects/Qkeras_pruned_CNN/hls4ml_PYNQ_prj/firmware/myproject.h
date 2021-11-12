@@ -20,22 +20,16 @@
 #ifndef MYPROJECT_H_
 #define MYPROJECT_H_
 
-#ifndef __HLS4ML_STANDALONE__
-#include <gmp.h>
-#define __gmp_const const
-#endif
-
 #include "ap_int.h"
 #include "ap_fixed.h"
 #include "hls_stream.h"
 
 #include "defines.h"
 
-
 // Prototype of top level function for C-synthesis
 void myproject(
     hls::stream<input_t> &layer0,
-    hls::stream<result_t> &layer12_out,
+    hls::stream<result_t> &layer13_out,
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 );

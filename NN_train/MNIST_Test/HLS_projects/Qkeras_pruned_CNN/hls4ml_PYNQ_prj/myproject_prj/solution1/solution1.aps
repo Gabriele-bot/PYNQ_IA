@@ -22,7 +22,7 @@
         <library value="xilinx/zynq/zynq_fpv6" name="DefaultPlatform"/>
     </libraryList>
     <clockList>
-        <clock default="false" name="default" period="5"/>
+        <clock name="default" default="false" period="5"/>
     </clockList>
 </AutoPilot:solution>
 

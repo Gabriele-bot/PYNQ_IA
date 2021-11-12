@@ -23,17 +23,17 @@
 
 void myproject(
     hls::stream<input_t> &layer0,
-    hls::stream<result_t> &layer12_out,
+    hls::stream<result_t> &layer13_out,
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
 
     //hls-fpga-machine-learning insert IO
-    #pragma HLS INTERFACE axis port=layer0,layer12_out 
+    #pragma HLS INTERFACE axis port=layer0,layer13_out 
     #pragma HLS DATAFLOW 
 
     const_size_in_1 = N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1;
-    const_size_out_1 = N_LAYER_10;
+    const_size_out_1 = N_LAYER_11;
 
 #ifndef __SYNTHESIS__
     static bool loaded_weights = false;
@@ -43,8 +43,8 @@ void myproject(
         nnet::load_weights_from_txt<bias2_t, 16>(b2, "b2.txt");
         nnet::load_weights_from_txt<weight6_t, 2304>(w6, "w6.txt");
         nnet::load_weights_from_txt<bias6_t, 16>(b6, "b6.txt");
-        nnet::load_weights_from_txt<weight10_t, 4000>(w10, "w10.txt");
-        nnet::load_weights_from_txt<bias10_t, 10>(b10, "b10.txt");
+        nnet::load_weights_from_txt<weight11_t, 4000>(w11, "w11.txt");
+        nnet::load_weights_from_txt<bias11_t, 10>(b11, "b11.txt");
         loaded_weights = true;
     }
 #endif
@@ -57,39 +57,44 @@ void myproject(
 
     hls::stream<layer2_t> layer2_out("layer2_out");
     #pragma HLS STREAM variable=layer2_out depth=676
-    //#pragma HLS STABLE variable=layer2_out // disabled
     nnet::conv_2d_cl<input_t, layer2_t, config2>(layer0, layer2_out, w2, b2); // q_conv2d
+
+    hls::stream<layer3_t> layer3_out("layer3_out");
+    #pragma HLS STREAM variable=layer3_out depth=676
+    nnet::linear<layer2_t, layer3_t, linear_config3>(layer2_out, layer3_out); // q_conv2d_linear
 
     hls::stream<layer4_t> layer4_out("layer4_out");
     #pragma HLS STREAM variable=layer4_out depth=676
-    //#pragma HLS STABLE variable=layer4_out // disabled
-    nnet::relu<layer2_t, layer4_t, relu_config4>(layer2_out, layer4_out); // q_relu
+    nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_relu
 
     hls::stream<layer5_t> layer5_out("layer5_out");
     #pragma HLS STREAM variable=layer5_out depth=169
-    //#pragma HLS STABLE variable=layer5_out // disabled
     nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // maxp
 
     hls::stream<layer6_t> layer6_out("layer6_out");
     #pragma HLS STREAM variable=layer6_out depth=121
-    //#pragma HLS STABLE variable=layer6_out // disabled
     nnet::conv_2d_cl<layer5_t, layer6_t, config6>(layer5_out, layer6_out, w6, b6); // q_conv2d_1
+
+    hls::stream<layer7_t> layer7_out("layer7_out");
+    #pragma HLS STREAM variable=layer7_out depth=121
+    nnet::linear<layer6_t, layer7_t, linear_config7>(layer6_out, layer7_out); // q_conv2d_1_linear
 
     hls::stream<layer8_t> layer8_out("layer8_out");
     #pragma HLS STREAM variable=layer8_out depth=121
-    //#pragma HLS STABLE variable=layer8_out // disabled
-    nnet::relu<layer6_t, layer8_t, relu_config8>(layer6_out, layer8_out); // 1_relu_1
+    nnet::relu<layer7_t, layer8_t, relu_config8>(layer7_out, layer8_out); // 1_relu_1
 
     hls::stream<layer9_t> layer9_out("layer9_out");
     #pragma HLS STREAM variable=layer9_out depth=25
-    //#pragma HLS STABLE variable=layer9_out // disabled
     nnet::pooling2d_cl<layer8_t, layer9_t, config9>(layer8_out, layer9_out); // maxp_1
 
-    hls::stream<layer10_t> layer10_out("layer10_out");
-    #pragma HLS STREAM variable=layer10_out depth=1
-    //#pragma HLS STABLE variable=layer10_out // disabled
-    nnet::dense<layer9_t, layer10_t, config10>(layer9_out, layer10_out, w10, b10); // q_dense
+    hls::stream<layer11_t> layer11_out("layer11_out");
+    #pragma HLS STREAM variable=layer11_out depth=1
+    nnet::dense<layer9_t, layer11_t, config11>(layer9_out, layer11_out, w11, b11); // q_dense
 
-    nnet::softmax<layer10_t, result_t, softmax_config12>(layer10_out, layer12_out); // softmax
+    hls::stream<layer12_t> layer12_out("layer12_out");
+    #pragma HLS STREAM variable=layer12_out depth=1
+    nnet::linear<layer11_t, layer12_t, linear_config12>(layer11_out, layer12_out); // q_dense_linear
+
+    nnet::softmax<layer12_t, result_t, softmax_config13>(layer12_out, layer13_out); // softmax
 
 }

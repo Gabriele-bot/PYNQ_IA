@@ -1,4 +1,12 @@
-Backend: Pynq
+AcceleratorConfig:
+  Board: pynq-z2
+  Driver: python
+  Interface: axi_stream
+  Precision:
+    Input: ap_fixed<8,2>
+    Output: ap_fixed<8,2>
+Backend: VivadoAccelerator
+Board: pynq-z2
 ClockPeriod: 5
 HLSConfig:
   LayerName:
@@ -7,47 +15,58 @@ HLSConfig:
         result: ap_fixed<3,2>
       ReuseFactor: 1
     layer0:
-      Precision: ap_fixed<8,3>
+      Precision: ap_ufixed<8,3>
     maxp:
-      Precision: ap_fixed<16,6>
+      Precision: ap_fixed<3,2>
+      Trace: true
     maxp_1:
-      Precision: ap_fixed<16,6>
+      Precision: ap_fixed<3,2>
+      Trace: true
     q_conv2d:
       Precision:
         bias: ap_fixed<7,1>
+        result: ap_fixed<9,3>
         weight: ap_fixed<4,2>
       ReuseFactor: 72
+      Strategy: Latency
+      Trace: true
     q_conv2d_1:
       Precision:
         bias: ap_fixed<6,1>
+        result: ap_fixed<9,5>
         weight: ap_fixed<5,1>
-      ReuseFactor: 144
+      ReuseFactor: 72
+      Strategy: Latency
+      Trace: true
     q_dense:
       Precision:
         bias: ap_fixed<6,1>
+        result: ap_fixed<10,6>
         weight: ap_fixed<5,1>
-      ReuseFactor: 40
+      ReuseFactor: 20
+      Strategy: Resource
+      Trace: true
     q_relu:
       Precision:
         result: ap_fixed<3,2>
       ReuseFactor: 1
     softmax:
-      Precision: ap_fixed<16,6>
+      Precision: ap_fixed<8,2>
       ReuseFactor: 1
       Strategy: Stable
+      Trace: true
       exp_table_t: ap_fixed<12,4>
       inv_table_t: ap_fixed<12,2>
-      table_size: 1024
+      table_size: 256
   Model:
-    Precision: ap_fixed<16,6>
+    Precision: ap_fixed<10,6>
     ReuseFactor: 36
     Strategy: Resource
   SkipOptimizers:
   - reshape_stream
 IOType: io_stream
-Interface: s_axilite
 KerasModel: !keras_model '/home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj/keras_model.h5'
 OutputDir: /home/gabri-bot/University/Git_hub/PYNQ_IA/NN_train/MNIST_Test/HLS_projects/Qkeras_pruned_CNN/hls4ml_PYNQ_prj
 ProjectName: myproject
-Stamp: 43CaDcd6
+Stamp: 68521Cc9
 XilinxPart: xc7z020clg400-1

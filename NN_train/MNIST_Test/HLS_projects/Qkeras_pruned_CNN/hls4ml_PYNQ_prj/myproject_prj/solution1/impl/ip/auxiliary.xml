@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="myproject_axi" xd:componentRef="myproject_axi" xd:initiationInterval="66871" xd:clockPeriod="5.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
-  <xd:arg xd:name="in[]" xd:originalName="in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x400" xd:arraySize="784" xd:dataWidth="8"/>
-  <xd:arg xd:name="out[]" xd:originalName="out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x800" xd:arraySize="10" xd:dataWidth="16"/>
-  <xd:latencyEstimates xd:best-case="66676" xd:worst-case="66870" xd:average-case="66676"/>
-  <xd:resourceEstimates xd:LUT="49461" xd:FF="50421" xd:BRAM="245" xd:DSP="125"/>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="myproject_axi" xd:componentRef="myproject_axi" xd:initiationInterval="6274" xd:clockPeriod="5.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="in_data" xd:originalName="in_data" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis"/>
+  <xd:arg xd:name="in_last_V" xd:originalName="in_last_V" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis"/>
+  <xd:arg xd:name="out_data" xd:originalName="out_data" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis"/>
+  <xd:arg xd:name="out_last_V" xd:originalName="out_last_V" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis"/>
+  <xd:latencyEstimates xd:best-case="6273" xd:worst-case="6273" xd:average-case="6273"/>
+  <xd:resourceEstimates xd:LUT="58408" xd:FF="26094" xd:BRAM="115" xd:DSP="10"/>
 </xd:acceleratorMap>

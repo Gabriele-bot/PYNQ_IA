@@ -4,9 +4,9 @@ Here are presented two examples of FPGA neural network inference, namely the jet
 
 It is used a different  **`hls4ml`** version from actual release (0.5.0), to install it run the following command:  
 ```
-pip install git+https://github.com/jmduarte/hls4ml.git@pynq#egg=hls4ml[profiling]
+pip install git+https://github.com/fastmachinelearning/hls4ml.git@master#egg=hls4ml[profiling]
 ```
-This specific hls4ml branch can be found [here](https://github.com/jmduarte/hls4ml/tree/pynq) and the original notebooks [at this link](https://github.com/jmduarte/pynq_hls4ml) 
+This the main branch of the hls4ml.
 
 ## Code
 The files are organized as follows
@@ -33,21 +33,19 @@ Here are presented the resources estimated by vivado and the actual utilization 
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
 |-------------------|--------|-------|------|-------|
 |Vanilla            |-       |-      |-     |-      |
-|Quntized+Pruned    |87      |56     |47    |92     |
-|FPGA implementation|27      |5      |26    |56     |
+|Quntized+Pruned    |41      |4      |24    |109    |
+|FPGA implementation|33      |5      |21    |35     |
 
 ### Resources [MNIST classification -DNN-]
 
 |Model              |BRAM[\%]|DSP[\%]|FF[\%]|LUT[\%]|
 |-------------------|--------|-------|------|-------|
 |Vanilla            |-       |-      |-     |-      |
-|Quntized+Pruned    |139     |4      |41    |268    |
-|FPGA implementation|66      |5      |42    |46     |
+|Quntized+Pruned    |149     |4      |49    |325    |
+|FPGA implementation|68      |5      |47    |68     |
 
 ### Latency
-As it is clear the main bottlenecks are the PS-PL interface (AXI memory mapped) and the encode-decode routines performed on the PS side, to lower the first it is possible to perform burst transfers employing a DMA (transfer data via DDR memory, but it require an AXI stream interface to the ip), to alleviate the second issue the functions for encoding and decoding can be vectorized.  
-
-These problems can be avoided entirely if the input and output are preprocessed in the PL side, leaving the PS only the result analysis.
+As it is clear the main bottlenecks are the PS-PL interface (AXIS DMA), to transfer and to read back a single frame at least 60 microsendos are required, this number is found with a large transfer (10000 frames), with a smaller buffer size the latency degrades.
 
 ### Comparisons
 <center>

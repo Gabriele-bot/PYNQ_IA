@@ -95,7 +95,7 @@ if {$opt(cosim)} {
   cosim_design -trace_level all
   set time_end [clock clicks -milliseconds]
   puts "INFO:"
-  puts [read [open myproject_prj/solution1/sim/report/myproject_cosim.rpt r]]
+  puts [read [open myproject_prj/solution1/sim/report/myproject_axi_cosim.rpt r]]
   report_time "C/RTL SIMULATION" $time_start $time_end
 }
 

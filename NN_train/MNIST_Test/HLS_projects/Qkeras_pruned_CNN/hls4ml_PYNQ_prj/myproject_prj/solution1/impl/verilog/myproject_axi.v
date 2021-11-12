@@ -7,856 +7,907 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="myproject_axi,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=6.325000,HLS_SYN_LAT=66676,HLS_SYN_TPT=none,HLS_SYN_MEM=245,HLS_SYN_DSP=125,HLS_SYN_FF=50421,HLS_SYN_LUT=49461,HLS_VERSION=2020_1}" *)
+(* CORE_GENERATION_INFO="myproject_axi,hls_ip_2020_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.429000,HLS_SYN_LAT=6273,HLS_SYN_TPT=6274,HLS_SYN_MEM=115,HLS_SYN_DSP=10,HLS_SYN_FF=26094,HLS_SYN_LUT=58408,HLS_VERSION=2020_1}" *)
 
 module myproject_axi (
+        in_r_TDATA,
+        in_r_TLAST,
+        out_r_TDATA,
+        out_r_TLAST,
         ap_clk,
         ap_rst_n,
-        s_axi_AXILiteS_AWVALID,
-        s_axi_AXILiteS_AWREADY,
-        s_axi_AXILiteS_AWADDR,
-        s_axi_AXILiteS_WVALID,
-        s_axi_AXILiteS_WREADY,
-        s_axi_AXILiteS_WDATA,
-        s_axi_AXILiteS_WSTRB,
-        s_axi_AXILiteS_ARVALID,
-        s_axi_AXILiteS_ARREADY,
-        s_axi_AXILiteS_ARADDR,
-        s_axi_AXILiteS_RVALID,
-        s_axi_AXILiteS_RREADY,
-        s_axi_AXILiteS_RDATA,
-        s_axi_AXILiteS_RRESP,
-        s_axi_AXILiteS_BVALID,
-        s_axi_AXILiteS_BREADY,
-        s_axi_AXILiteS_BRESP
+        in_r_TVALID,
+        in_r_TREADY,
+        out_r_TVALID,
+        out_r_TREADY
 );
 
-parameter    ap_ST_fsm_state1 = 8'd1;
-parameter    ap_ST_fsm_state2 = 8'd2;
-parameter    ap_ST_fsm_state3 = 8'd4;
-parameter    ap_ST_fsm_state4 = 8'd8;
-parameter    ap_ST_fsm_state5 = 8'd16;
-parameter    ap_ST_fsm_state6 = 8'd32;
-parameter    ap_ST_fsm_state7 = 8'd64;
-parameter    ap_ST_fsm_state8 = 8'd128;
-parameter    C_S_AXI_AXILITES_DATA_WIDTH = 32;
-parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 12;
-parameter    C_S_AXI_DATA_WIDTH = 32;
 
-parameter C_S_AXI_AXILITES_WSTRB_WIDTH = (32 / 8);
-parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
-
+input  [31:0] in_r_TDATA;
+input  [0:0] in_r_TLAST;
+output  [31:0] out_r_TDATA;
+output  [0:0] out_r_TLAST;
 input   ap_clk;
 input   ap_rst_n;
-input   s_axi_AXILiteS_AWVALID;
-output   s_axi_AXILiteS_AWREADY;
-input  [C_S_AXI_AXILITES_ADDR_WIDTH - 1:0] s_axi_AXILiteS_AWADDR;
-input   s_axi_AXILiteS_WVALID;
-output   s_axi_AXILiteS_WREADY;
-input  [C_S_AXI_AXILITES_DATA_WIDTH - 1:0] s_axi_AXILiteS_WDATA;
-input  [C_S_AXI_AXILITES_WSTRB_WIDTH - 1:0] s_axi_AXILiteS_WSTRB;
-input   s_axi_AXILiteS_ARVALID;
-output   s_axi_AXILiteS_ARREADY;
-input  [C_S_AXI_AXILITES_ADDR_WIDTH - 1:0] s_axi_AXILiteS_ARADDR;
-output   s_axi_AXILiteS_RVALID;
-input   s_axi_AXILiteS_RREADY;
-output  [C_S_AXI_AXILITES_DATA_WIDTH - 1:0] s_axi_AXILiteS_RDATA;
-output  [1:0] s_axi_AXILiteS_RRESP;
-output   s_axi_AXILiteS_BVALID;
-input   s_axi_AXILiteS_BREADY;
-output  [1:0] s_axi_AXILiteS_BRESP;
+input   in_r_TVALID;
+output   in_r_TREADY;
+output   out_r_TVALID;
+input   out_r_TREADY;
 
  reg    ap_rst_n_inv;
-wire   [9:0] in_V_address0;
-reg    in_V_ce0;
-wire   [7:0] in_V_q0;
-wire   [3:0] out_V_address0;
-reg    out_V_ce0;
-reg    out_V_we0;
-wire   [9:0] i_fu_268_p2;
-reg   [9:0] i_reg_421;
-(* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
-wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln21_fu_262_p2;
-reg   [7:0] ctype_data_V_reg_431;
-wire    ap_CS_fsm_state3;
-reg   [15:0] tmp_data_V_0_reg_436;
-wire    ap_CS_fsm_state6;
-wire   [15:0] out_local_V_data_0_V_dout;
-wire    out_local_V_data_0_V_empty_n;
-reg    out_local_V_data_0_V_read;
-wire   [15:0] out_local_V_data_1_V_dout;
-wire    out_local_V_data_1_V_empty_n;
-reg    out_local_V_data_1_V_read;
-wire   [15:0] out_local_V_data_2_V_dout;
-wire    out_local_V_data_2_V_empty_n;
-reg    out_local_V_data_2_V_read;
-wire   [15:0] out_local_V_data_3_V_dout;
-wire    out_local_V_data_3_V_empty_n;
-reg    out_local_V_data_3_V_read;
-wire   [15:0] out_local_V_data_4_V_dout;
-wire    out_local_V_data_4_V_empty_n;
-reg    out_local_V_data_4_V_read;
-wire   [15:0] out_local_V_data_5_V_dout;
-wire    out_local_V_data_5_V_empty_n;
-reg    out_local_V_data_5_V_read;
-wire   [15:0] out_local_V_data_6_V_dout;
-wire    out_local_V_data_6_V_empty_n;
-reg    out_local_V_data_6_V_read;
-wire   [15:0] out_local_V_data_7_V_dout;
-wire    out_local_V_data_7_V_empty_n;
-reg    out_local_V_data_7_V_read;
-wire   [15:0] out_local_V_data_8_V_dout;
-wire    out_local_V_data_8_V_empty_n;
-reg    out_local_V_data_8_V_read;
-wire   [15:0] out_local_V_data_9_V_dout;
-wire    out_local_V_data_9_V_empty_n;
-reg    out_local_V_data_9_V_read;
-wire    io_acc_block_signal_op64;
-reg   [15:0] tmp_data_V_1_reg_441;
-reg   [15:0] tmp_data_V_2_reg_446;
-reg   [15:0] tmp_data_V_3_reg_451;
-reg   [15:0] tmp_data_V_4_reg_456;
-reg   [15:0] tmp_data_V_5_reg_461;
-reg   [15:0] tmp_data_V_6_reg_466;
-reg   [15:0] tmp_data_V_7_reg_471;
-reg   [15:0] tmp_data_V_8_reg_476;
-reg   [15:0] tmp_data_V_98_reg_481;
-wire   [3:0] j_fu_325_p2;
-reg   [3:0] j_reg_489;
-wire    ap_CS_fsm_state7;
-wire   [15:0] tmp_fu_331_p12;
-reg   [15:0] tmp_reg_494;
-wire   [0:0] icmp_ln34_fu_319_p2;
-wire    grp_myproject_fu_227_layer0_V_data_V_read;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_0_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_0_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_1_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_1_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_2_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_2_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_3_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_3_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_4_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_4_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_5_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_5_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_6_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_6_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_7_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_7_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_8_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_8_V_write;
-wire   [15:0] grp_myproject_fu_227_layer12_out_V_data_9_V_din;
-wire    grp_myproject_fu_227_layer12_out_V_data_9_V_write;
-wire    grp_myproject_fu_227_ap_start;
-wire    grp_myproject_fu_227_ap_done;
-wire    grp_myproject_fu_227_ap_ready;
-wire    grp_myproject_fu_227_ap_idle;
-reg    grp_myproject_fu_227_ap_continue;
-reg   [9:0] i_0_reg_204;
-wire    ap_CS_fsm_state1;
-wire    ap_CS_fsm_state4;
+wire    Loop_1_proc406_U0_ap_start;
+wire    Loop_1_proc406_U0_ap_done;
+wire    Loop_1_proc406_U0_ap_continue;
+wire    Loop_1_proc406_U0_ap_idle;
+wire    Loop_1_proc406_U0_ap_ready;
+wire    Loop_1_proc406_U0_start_out;
+wire    Loop_1_proc406_U0_start_write;
+wire    Loop_1_proc406_U0_in_r_TREADY;
+wire   [7:0] Loop_1_proc406_U0_in_local_V_data_0_V_din;
+wire    Loop_1_proc406_U0_in_local_V_data_0_V_write;
+wire   [0:0] Loop_1_proc406_U0_ap_return;
+wire    ap_channel_done_is_last_0_i_loc_channel;
+wire    is_last_0_i_loc_channel_full_n;
+wire    myproject_U0_ap_start;
+wire    myproject_U0_start_out;
+wire    myproject_U0_start_write;
+wire    myproject_U0_layer0_V_data_V_read;
+wire   [7:0] myproject_U0_layer13_out_V_data_0_V_din;
+wire    myproject_U0_layer13_out_V_data_0_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_1_V_din;
+wire    myproject_U0_layer13_out_V_data_1_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_2_V_din;
+wire    myproject_U0_layer13_out_V_data_2_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_3_V_din;
+wire    myproject_U0_layer13_out_V_data_3_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_4_V_din;
+wire    myproject_U0_layer13_out_V_data_4_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_5_V_din;
+wire    myproject_U0_layer13_out_V_data_5_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_6_V_din;
+wire    myproject_U0_layer13_out_V_data_6_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_7_V_din;
+wire    myproject_U0_layer13_out_V_data_7_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_8_V_din;
+wire    myproject_U0_layer13_out_V_data_8_V_write;
+wire   [7:0] myproject_U0_layer13_out_V_data_9_V_din;
+wire    myproject_U0_layer13_out_V_data_9_V_write;
+wire    myproject_U0_ap_done;
+wire    myproject_U0_ap_ready;
+wire    myproject_U0_ap_idle;
+wire    myproject_U0_ap_continue;
+wire    Block_myproject_axi_exit36_proc_U0_ap_start;
+wire    Block_myproject_axi_exit36_proc_U0_ap_done;
+wire    Block_myproject_axi_exit36_proc_U0_ap_continue;
+wire    Block_myproject_axi_exit36_proc_U0_ap_idle;
+wire    Block_myproject_axi_exit36_proc_U0_ap_ready;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_0_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_1_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_2_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_3_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_4_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_5_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_6_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_7_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_8_V_read;
+wire    Block_myproject_axi_exit36_proc_U0_out_local_V_data_9_V_read;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_0;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_0_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_1;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_1_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_2;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_2_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_3;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_3_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_4;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_4_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_5;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_5_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_6;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_6_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_7;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_7_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_8;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_8_ap_vld;
+wire   [7:0] Block_myproject_axi_exit36_proc_U0_tmp_data_V_9;
+wire    Block_myproject_axi_exit36_proc_U0_tmp_data_V_9_ap_vld;
+wire    ap_channel_done_tmp_data_V_9;
+wire    tmp_data_V_9_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_9;
+wire    ap_sync_channel_write_tmp_data_V_9;
+wire    ap_channel_done_tmp_data_V_8;
+wire    tmp_data_V_8_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_8;
+wire    ap_sync_channel_write_tmp_data_V_8;
+wire    ap_channel_done_tmp_data_V_7;
+wire    tmp_data_V_7_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_7;
+wire    ap_sync_channel_write_tmp_data_V_7;
+wire    ap_channel_done_tmp_data_V_6;
+wire    tmp_data_V_6_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_6;
+wire    ap_sync_channel_write_tmp_data_V_6;
+wire    ap_channel_done_tmp_data_V_5;
+wire    tmp_data_V_5_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_5;
+wire    ap_sync_channel_write_tmp_data_V_5;
+wire    ap_channel_done_tmp_data_V_4;
+wire    tmp_data_V_4_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_4;
+wire    ap_sync_channel_write_tmp_data_V_4;
+wire    ap_channel_done_tmp_data_V_3;
+wire    tmp_data_V_3_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_3;
+wire    ap_sync_channel_write_tmp_data_V_3;
+wire    ap_channel_done_tmp_data_V_2;
+wire    tmp_data_V_2_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_2;
+wire    ap_sync_channel_write_tmp_data_V_2;
+wire    ap_channel_done_tmp_data_V_1;
+wire    tmp_data_V_1_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_1;
+wire    ap_sync_channel_write_tmp_data_V_1;
+wire    ap_channel_done_tmp_data_V_0;
+wire    tmp_data_V_0_full_n;
+reg    ap_sync_reg_channel_write_tmp_data_V_0;
+wire    ap_sync_channel_write_tmp_data_V_0;
+wire    Loop_2_proc_U0_ap_start;
+wire    Loop_2_proc_U0_ap_done;
+wire    Loop_2_proc_U0_ap_continue;
+wire    Loop_2_proc_U0_ap_idle;
+wire    Loop_2_proc_U0_ap_ready;
+wire   [31:0] Loop_2_proc_U0_out_r_TDATA;
+wire    Loop_2_proc_U0_out_r_TVALID;
+wire   [0:0] Loop_2_proc_U0_out_r_TLAST;
+wire    ap_sync_continue;
 wire    in_local_V_data_0_V_full_n;
-reg    in_local_V_data_0_V_write;
-reg   [3:0] j3_0_reg_215;
-wire    ap_CS_fsm_state8;
-reg    grp_myproject_fu_227_ap_start_reg;
-wire    ap_CS_fsm_state5;
-wire    ap_sync_grp_myproject_fu_227_ap_ready;
-wire    ap_sync_grp_myproject_fu_227_ap_done;
-reg    ap_block_state5_on_subcall_done;
-reg    ap_sync_reg_grp_myproject_fu_227_ap_ready;
-reg    ap_sync_reg_grp_myproject_fu_227_ap_done;
 wire   [7:0] in_local_V_data_0_V_dout;
 wire    in_local_V_data_0_V_empty_n;
-reg    in_local_V_data_0_V_read;
+wire   [0:0] is_last_0_i_loc_channel_dout;
+wire    is_last_0_i_loc_channel_empty_n;
 wire    out_local_V_data_0_V_full_n;
-reg    out_local_V_data_0_V_write;
+wire   [7:0] out_local_V_data_0_V_dout;
+wire    out_local_V_data_0_V_empty_n;
 wire    out_local_V_data_1_V_full_n;
-reg    out_local_V_data_1_V_write;
+wire   [7:0] out_local_V_data_1_V_dout;
+wire    out_local_V_data_1_V_empty_n;
 wire    out_local_V_data_2_V_full_n;
-reg    out_local_V_data_2_V_write;
+wire   [7:0] out_local_V_data_2_V_dout;
+wire    out_local_V_data_2_V_empty_n;
 wire    out_local_V_data_3_V_full_n;
-reg    out_local_V_data_3_V_write;
+wire   [7:0] out_local_V_data_3_V_dout;
+wire    out_local_V_data_3_V_empty_n;
 wire    out_local_V_data_4_V_full_n;
-reg    out_local_V_data_4_V_write;
+wire   [7:0] out_local_V_data_4_V_dout;
+wire    out_local_V_data_4_V_empty_n;
 wire    out_local_V_data_5_V_full_n;
-reg    out_local_V_data_5_V_write;
+wire   [7:0] out_local_V_data_5_V_dout;
+wire    out_local_V_data_5_V_empty_n;
 wire    out_local_V_data_6_V_full_n;
-reg    out_local_V_data_6_V_write;
+wire   [7:0] out_local_V_data_6_V_dout;
+wire    out_local_V_data_6_V_empty_n;
 wire    out_local_V_data_7_V_full_n;
-reg    out_local_V_data_7_V_write;
+wire   [7:0] out_local_V_data_7_V_dout;
+wire    out_local_V_data_7_V_empty_n;
 wire    out_local_V_data_8_V_full_n;
-reg    out_local_V_data_8_V_write;
+wire   [7:0] out_local_V_data_8_V_dout;
+wire    out_local_V_data_8_V_empty_n;
 wire    out_local_V_data_9_V_full_n;
-reg    out_local_V_data_9_V_write;
-wire   [63:0] zext_ln25_fu_274_p1;
-wire   [63:0] zext_ln35_fu_347_p1;
-reg   [7:0] ap_NS_fsm;
+wire   [7:0] out_local_V_data_9_V_dout;
+wire    out_local_V_data_9_V_empty_n;
+wire   [7:0] tmp_data_V_0_dout;
+wire    tmp_data_V_0_empty_n;
+wire   [7:0] tmp_data_V_1_dout;
+wire    tmp_data_V_1_empty_n;
+wire   [7:0] tmp_data_V_2_dout;
+wire    tmp_data_V_2_empty_n;
+wire   [7:0] tmp_data_V_3_dout;
+wire    tmp_data_V_3_empty_n;
+wire   [7:0] tmp_data_V_4_dout;
+wire    tmp_data_V_4_empty_n;
+wire   [7:0] tmp_data_V_5_dout;
+wire    tmp_data_V_5_empty_n;
+wire   [7:0] tmp_data_V_6_dout;
+wire    tmp_data_V_6_empty_n;
+wire   [7:0] tmp_data_V_7_dout;
+wire    tmp_data_V_7_empty_n;
+wire   [7:0] tmp_data_V_8_dout;
+wire    tmp_data_V_8_empty_n;
+wire   [7:0] tmp_data_V_9_dout;
+wire    tmp_data_V_9_empty_n;
+wire   [0:0] start_for_myproject_U0_din;
+wire    start_for_myproject_U0_full_n;
+wire   [0:0] start_for_myproject_U0_dout;
+wire    start_for_myproject_U0_empty_n;
+wire   [0:0] start_for_Block_myproject_axi_exit36_proc_U0_din;
+wire    start_for_Block_myproject_axi_exit36_proc_U0_full_n;
+wire   [0:0] start_for_Block_myproject_axi_exit36_proc_U0_dout;
+wire    start_for_Block_myproject_axi_exit36_proc_U0_empty_n;
+wire    Block_myproject_axi_exit36_proc_U0_start_full_n;
+wire    Block_myproject_axi_exit36_proc_U0_start_write;
+wire    Loop_2_proc_U0_start_full_n;
+wire    Loop_2_proc_U0_start_write;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 8'd1;
-#0 grp_myproject_fu_227_ap_start_reg = 1'b0;
-#0 ap_sync_reg_grp_myproject_fu_227_ap_ready = 1'b0;
-#0 ap_sync_reg_grp_myproject_fu_227_ap_done = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_9 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_8 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_7 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_6 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_5 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_4 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_3 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_2 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_1 = 1'b0;
+#0 ap_sync_reg_channel_write_tmp_data_V_0 = 1'b0;
 end
 
-myproject_axi_AXILiteS_s_axi #(
-    .C_S_AXI_ADDR_WIDTH( C_S_AXI_AXILITES_ADDR_WIDTH ),
-    .C_S_AXI_DATA_WIDTH( C_S_AXI_AXILITES_DATA_WIDTH ))
-myproject_axi_AXILiteS_s_axi_U(
-    .AWVALID(s_axi_AXILiteS_AWVALID),
-    .AWREADY(s_axi_AXILiteS_AWREADY),
-    .AWADDR(s_axi_AXILiteS_AWADDR),
-    .WVALID(s_axi_AXILiteS_WVALID),
-    .WREADY(s_axi_AXILiteS_WREADY),
-    .WDATA(s_axi_AXILiteS_WDATA),
-    .WSTRB(s_axi_AXILiteS_WSTRB),
-    .ARVALID(s_axi_AXILiteS_ARVALID),
-    .ARREADY(s_axi_AXILiteS_ARREADY),
-    .ARADDR(s_axi_AXILiteS_ARADDR),
-    .RVALID(s_axi_AXILiteS_RVALID),
-    .RREADY(s_axi_AXILiteS_RREADY),
-    .RDATA(s_axi_AXILiteS_RDATA),
-    .RRESP(s_axi_AXILiteS_RRESP),
-    .BVALID(s_axi_AXILiteS_BVALID),
-    .BREADY(s_axi_AXILiteS_BREADY),
-    .BRESP(s_axi_AXILiteS_BRESP),
-    .ACLK(ap_clk),
-    .ARESET(ap_rst_n_inv),
-    .ACLK_EN(1'b1),
-    .in_V_address0(in_V_address0),
-    .in_V_ce0(in_V_ce0),
-    .in_V_q0(in_V_q0),
-    .out_V_address0(out_V_address0),
-    .out_V_ce0(out_V_ce0),
-    .out_V_we0(out_V_we0),
-    .out_V_d0(tmp_reg_494)
-);
-
-myproject grp_myproject_fu_227(
-    .layer0_V_data_V_dout(in_local_V_data_0_V_dout),
-    .layer0_V_data_V_empty_n(in_local_V_data_0_V_empty_n),
-    .layer0_V_data_V_read(grp_myproject_fu_227_layer0_V_data_V_read),
-    .layer12_out_V_data_0_V_din(grp_myproject_fu_227_layer12_out_V_data_0_V_din),
-    .layer12_out_V_data_0_V_full_n(out_local_V_data_0_V_full_n),
-    .layer12_out_V_data_0_V_write(grp_myproject_fu_227_layer12_out_V_data_0_V_write),
-    .layer12_out_V_data_1_V_din(grp_myproject_fu_227_layer12_out_V_data_1_V_din),
-    .layer12_out_V_data_1_V_full_n(out_local_V_data_1_V_full_n),
-    .layer12_out_V_data_1_V_write(grp_myproject_fu_227_layer12_out_V_data_1_V_write),
-    .layer12_out_V_data_2_V_din(grp_myproject_fu_227_layer12_out_V_data_2_V_din),
-    .layer12_out_V_data_2_V_full_n(out_local_V_data_2_V_full_n),
-    .layer12_out_V_data_2_V_write(grp_myproject_fu_227_layer12_out_V_data_2_V_write),
-    .layer12_out_V_data_3_V_din(grp_myproject_fu_227_layer12_out_V_data_3_V_din),
-    .layer12_out_V_data_3_V_full_n(out_local_V_data_3_V_full_n),
-    .layer12_out_V_data_3_V_write(grp_myproject_fu_227_layer12_out_V_data_3_V_write),
-    .layer12_out_V_data_4_V_din(grp_myproject_fu_227_layer12_out_V_data_4_V_din),
-    .layer12_out_V_data_4_V_full_n(out_local_V_data_4_V_full_n),
-    .layer12_out_V_data_4_V_write(grp_myproject_fu_227_layer12_out_V_data_4_V_write),
-    .layer12_out_V_data_5_V_din(grp_myproject_fu_227_layer12_out_V_data_5_V_din),
-    .layer12_out_V_data_5_V_full_n(out_local_V_data_5_V_full_n),
-    .layer12_out_V_data_5_V_write(grp_myproject_fu_227_layer12_out_V_data_5_V_write),
-    .layer12_out_V_data_6_V_din(grp_myproject_fu_227_layer12_out_V_data_6_V_din),
-    .layer12_out_V_data_6_V_full_n(out_local_V_data_6_V_full_n),
-    .layer12_out_V_data_6_V_write(grp_myproject_fu_227_layer12_out_V_data_6_V_write),
-    .layer12_out_V_data_7_V_din(grp_myproject_fu_227_layer12_out_V_data_7_V_din),
-    .layer12_out_V_data_7_V_full_n(out_local_V_data_7_V_full_n),
-    .layer12_out_V_data_7_V_write(grp_myproject_fu_227_layer12_out_V_data_7_V_write),
-    .layer12_out_V_data_8_V_din(grp_myproject_fu_227_layer12_out_V_data_8_V_din),
-    .layer12_out_V_data_8_V_full_n(out_local_V_data_8_V_full_n),
-    .layer12_out_V_data_8_V_write(grp_myproject_fu_227_layer12_out_V_data_8_V_write),
-    .layer12_out_V_data_9_V_din(grp_myproject_fu_227_layer12_out_V_data_9_V_din),
-    .layer12_out_V_data_9_V_full_n(out_local_V_data_9_V_full_n),
-    .layer12_out_V_data_9_V_write(grp_myproject_fu_227_layer12_out_V_data_9_V_write),
+Loop_1_proc406 Loop_1_proc406_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_myproject_fu_227_ap_start),
-    .ap_done(grp_myproject_fu_227_ap_done),
-    .ap_ready(grp_myproject_fu_227_ap_ready),
-    .ap_idle(grp_myproject_fu_227_ap_idle),
-    .ap_continue(grp_myproject_fu_227_ap_continue)
+    .ap_start(Loop_1_proc406_U0_ap_start),
+    .start_full_n(start_for_myproject_U0_full_n),
+    .ap_done(Loop_1_proc406_U0_ap_done),
+    .ap_continue(Loop_1_proc406_U0_ap_continue),
+    .ap_idle(Loop_1_proc406_U0_ap_idle),
+    .ap_ready(Loop_1_proc406_U0_ap_ready),
+    .start_out(Loop_1_proc406_U0_start_out),
+    .start_write(Loop_1_proc406_U0_start_write),
+    .in_r_TLAST(in_r_TLAST),
+    .in_r_TVALID(in_r_TVALID),
+    .in_r_TREADY(Loop_1_proc406_U0_in_r_TREADY),
+    .in_local_V_data_0_V_din(Loop_1_proc406_U0_in_local_V_data_0_V_din),
+    .in_local_V_data_0_V_full_n(in_local_V_data_0_V_full_n),
+    .in_local_V_data_0_V_write(Loop_1_proc406_U0_in_local_V_data_0_V_write),
+    .in_r_TDATA(in_r_TDATA),
+    .ap_return(Loop_1_proc406_U0_ap_return)
 );
 
-myproject_axi_mux_104_16_1_1 #(
-    .ID( 1 ),
-    .NUM_STAGE( 1 ),
-    .din0_WIDTH( 16 ),
-    .din1_WIDTH( 16 ),
-    .din2_WIDTH( 16 ),
-    .din3_WIDTH( 16 ),
-    .din4_WIDTH( 16 ),
-    .din5_WIDTH( 16 ),
-    .din6_WIDTH( 16 ),
-    .din7_WIDTH( 16 ),
-    .din8_WIDTH( 16 ),
-    .din9_WIDTH( 16 ),
-    .din10_WIDTH( 4 ),
-    .dout_WIDTH( 16 ))
-myproject_axi_mux_104_16_1_1_U1203(
-    .din0(tmp_data_V_0_reg_436),
-    .din1(tmp_data_V_1_reg_441),
-    .din2(tmp_data_V_2_reg_446),
-    .din3(tmp_data_V_3_reg_451),
-    .din4(tmp_data_V_4_reg_456),
-    .din5(tmp_data_V_5_reg_461),
-    .din6(tmp_data_V_6_reg_466),
-    .din7(tmp_data_V_7_reg_471),
-    .din8(tmp_data_V_8_reg_476),
-    .din9(tmp_data_V_98_reg_481),
-    .din10(j3_0_reg_215),
-    .dout(tmp_fu_331_p12)
+myproject myproject_U0(
+    .ap_start(myproject_U0_ap_start),
+    .start_full_n(start_for_Block_myproject_axi_exit36_proc_U0_full_n),
+    .start_out(myproject_U0_start_out),
+    .start_write(myproject_U0_start_write),
+    .layer0_V_data_V_dout(in_local_V_data_0_V_dout),
+    .layer0_V_data_V_empty_n(in_local_V_data_0_V_empty_n),
+    .layer0_V_data_V_read(myproject_U0_layer0_V_data_V_read),
+    .layer13_out_V_data_0_V_din(myproject_U0_layer13_out_V_data_0_V_din),
+    .layer13_out_V_data_0_V_full_n(out_local_V_data_0_V_full_n),
+    .layer13_out_V_data_0_V_write(myproject_U0_layer13_out_V_data_0_V_write),
+    .layer13_out_V_data_1_V_din(myproject_U0_layer13_out_V_data_1_V_din),
+    .layer13_out_V_data_1_V_full_n(out_local_V_data_1_V_full_n),
+    .layer13_out_V_data_1_V_write(myproject_U0_layer13_out_V_data_1_V_write),
+    .layer13_out_V_data_2_V_din(myproject_U0_layer13_out_V_data_2_V_din),
+    .layer13_out_V_data_2_V_full_n(out_local_V_data_2_V_full_n),
+    .layer13_out_V_data_2_V_write(myproject_U0_layer13_out_V_data_2_V_write),
+    .layer13_out_V_data_3_V_din(myproject_U0_layer13_out_V_data_3_V_din),
+    .layer13_out_V_data_3_V_full_n(out_local_V_data_3_V_full_n),
+    .layer13_out_V_data_3_V_write(myproject_U0_layer13_out_V_data_3_V_write),
+    .layer13_out_V_data_4_V_din(myproject_U0_layer13_out_V_data_4_V_din),
+    .layer13_out_V_data_4_V_full_n(out_local_V_data_4_V_full_n),
+    .layer13_out_V_data_4_V_write(myproject_U0_layer13_out_V_data_4_V_write),
+    .layer13_out_V_data_5_V_din(myproject_U0_layer13_out_V_data_5_V_din),
+    .layer13_out_V_data_5_V_full_n(out_local_V_data_5_V_full_n),
+    .layer13_out_V_data_5_V_write(myproject_U0_layer13_out_V_data_5_V_write),
+    .layer13_out_V_data_6_V_din(myproject_U0_layer13_out_V_data_6_V_din),
+    .layer13_out_V_data_6_V_full_n(out_local_V_data_6_V_full_n),
+    .layer13_out_V_data_6_V_write(myproject_U0_layer13_out_V_data_6_V_write),
+    .layer13_out_V_data_7_V_din(myproject_U0_layer13_out_V_data_7_V_din),
+    .layer13_out_V_data_7_V_full_n(out_local_V_data_7_V_full_n),
+    .layer13_out_V_data_7_V_write(myproject_U0_layer13_out_V_data_7_V_write),
+    .layer13_out_V_data_8_V_din(myproject_U0_layer13_out_V_data_8_V_din),
+    .layer13_out_V_data_8_V_full_n(out_local_V_data_8_V_full_n),
+    .layer13_out_V_data_8_V_write(myproject_U0_layer13_out_V_data_8_V_write),
+    .layer13_out_V_data_9_V_din(myproject_U0_layer13_out_V_data_9_V_din),
+    .layer13_out_V_data_9_V_full_n(out_local_V_data_9_V_full_n),
+    .layer13_out_V_data_9_V_write(myproject_U0_layer13_out_V_data_9_V_write),
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_done(myproject_U0_ap_done),
+    .ap_ready(myproject_U0_ap_ready),
+    .ap_idle(myproject_U0_ap_idle),
+    .ap_continue(myproject_U0_ap_continue)
 );
 
-fifo_w8_d784_A in_local_V_data_0_V_fifo_U(
+Block_myproject_axi_exit36_proc Block_myproject_axi_exit36_proc_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(Block_myproject_axi_exit36_proc_U0_ap_start),
+    .ap_done(Block_myproject_axi_exit36_proc_U0_ap_done),
+    .ap_continue(Block_myproject_axi_exit36_proc_U0_ap_continue),
+    .ap_idle(Block_myproject_axi_exit36_proc_U0_ap_idle),
+    .ap_ready(Block_myproject_axi_exit36_proc_U0_ap_ready),
+    .out_local_V_data_0_V_dout(out_local_V_data_0_V_dout),
+    .out_local_V_data_0_V_empty_n(out_local_V_data_0_V_empty_n),
+    .out_local_V_data_0_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_0_V_read),
+    .out_local_V_data_1_V_dout(out_local_V_data_1_V_dout),
+    .out_local_V_data_1_V_empty_n(out_local_V_data_1_V_empty_n),
+    .out_local_V_data_1_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_1_V_read),
+    .out_local_V_data_2_V_dout(out_local_V_data_2_V_dout),
+    .out_local_V_data_2_V_empty_n(out_local_V_data_2_V_empty_n),
+    .out_local_V_data_2_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_2_V_read),
+    .out_local_V_data_3_V_dout(out_local_V_data_3_V_dout),
+    .out_local_V_data_3_V_empty_n(out_local_V_data_3_V_empty_n),
+    .out_local_V_data_3_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_3_V_read),
+    .out_local_V_data_4_V_dout(out_local_V_data_4_V_dout),
+    .out_local_V_data_4_V_empty_n(out_local_V_data_4_V_empty_n),
+    .out_local_V_data_4_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_4_V_read),
+    .out_local_V_data_5_V_dout(out_local_V_data_5_V_dout),
+    .out_local_V_data_5_V_empty_n(out_local_V_data_5_V_empty_n),
+    .out_local_V_data_5_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_5_V_read),
+    .out_local_V_data_6_V_dout(out_local_V_data_6_V_dout),
+    .out_local_V_data_6_V_empty_n(out_local_V_data_6_V_empty_n),
+    .out_local_V_data_6_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_6_V_read),
+    .out_local_V_data_7_V_dout(out_local_V_data_7_V_dout),
+    .out_local_V_data_7_V_empty_n(out_local_V_data_7_V_empty_n),
+    .out_local_V_data_7_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_7_V_read),
+    .out_local_V_data_8_V_dout(out_local_V_data_8_V_dout),
+    .out_local_V_data_8_V_empty_n(out_local_V_data_8_V_empty_n),
+    .out_local_V_data_8_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_8_V_read),
+    .out_local_V_data_9_V_dout(out_local_V_data_9_V_dout),
+    .out_local_V_data_9_V_empty_n(out_local_V_data_9_V_empty_n),
+    .out_local_V_data_9_V_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_9_V_read),
+    .tmp_data_V_0(Block_myproject_axi_exit36_proc_U0_tmp_data_V_0),
+    .tmp_data_V_0_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_0_ap_vld),
+    .tmp_data_V_1(Block_myproject_axi_exit36_proc_U0_tmp_data_V_1),
+    .tmp_data_V_1_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_1_ap_vld),
+    .tmp_data_V_2(Block_myproject_axi_exit36_proc_U0_tmp_data_V_2),
+    .tmp_data_V_2_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_2_ap_vld),
+    .tmp_data_V_3(Block_myproject_axi_exit36_proc_U0_tmp_data_V_3),
+    .tmp_data_V_3_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_3_ap_vld),
+    .tmp_data_V_4(Block_myproject_axi_exit36_proc_U0_tmp_data_V_4),
+    .tmp_data_V_4_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_4_ap_vld),
+    .tmp_data_V_5(Block_myproject_axi_exit36_proc_U0_tmp_data_V_5),
+    .tmp_data_V_5_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_5_ap_vld),
+    .tmp_data_V_6(Block_myproject_axi_exit36_proc_U0_tmp_data_V_6),
+    .tmp_data_V_6_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_6_ap_vld),
+    .tmp_data_V_7(Block_myproject_axi_exit36_proc_U0_tmp_data_V_7),
+    .tmp_data_V_7_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_7_ap_vld),
+    .tmp_data_V_8(Block_myproject_axi_exit36_proc_U0_tmp_data_V_8),
+    .tmp_data_V_8_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_8_ap_vld),
+    .tmp_data_V_9(Block_myproject_axi_exit36_proc_U0_tmp_data_V_9),
+    .tmp_data_V_9_ap_vld(Block_myproject_axi_exit36_proc_U0_tmp_data_V_9_ap_vld)
+);
+
+Loop_2_proc Loop_2_proc_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(Loop_2_proc_U0_ap_start),
+    .ap_done(Loop_2_proc_U0_ap_done),
+    .ap_continue(Loop_2_proc_U0_ap_continue),
+    .ap_idle(Loop_2_proc_U0_ap_idle),
+    .ap_ready(Loop_2_proc_U0_ap_ready),
+    .out_r_TDATA(Loop_2_proc_U0_out_r_TDATA),
+    .out_r_TVALID(Loop_2_proc_U0_out_r_TVALID),
+    .out_r_TREADY(out_r_TREADY),
+    .out_r_TLAST(Loop_2_proc_U0_out_r_TLAST),
+    .p_read(is_last_0_i_loc_channel_dout),
+    .tmp_data_V_0(tmp_data_V_0_dout),
+    .tmp_data_V_1(tmp_data_V_1_dout),
+    .tmp_data_V_2(tmp_data_V_2_dout),
+    .tmp_data_V_3(tmp_data_V_3_dout),
+    .tmp_data_V_4(tmp_data_V_4_dout),
+    .tmp_data_V_5(tmp_data_V_5_dout),
+    .tmp_data_V_6(tmp_data_V_6_dout),
+    .tmp_data_V_7(tmp_data_V_7_dout),
+    .tmp_data_V_8(tmp_data_V_8_dout),
+    .tmp_data_V_9(tmp_data_V_9_dout)
+);
+
+fifo_w8_d784_A in_local_V_data_0_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(ctype_data_V_reg_431),
+    .if_din(Loop_1_proc406_U0_in_local_V_data_0_V_din),
     .if_full_n(in_local_V_data_0_V_full_n),
-    .if_write(in_local_V_data_0_V_write),
+    .if_write(Loop_1_proc406_U0_in_local_V_data_0_V_write),
     .if_dout(in_local_V_data_0_V_dout),
     .if_empty_n(in_local_V_data_0_V_empty_n),
-    .if_read(in_local_V_data_0_V_read)
+    .if_read(myproject_U0_layer0_V_data_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_0_V_fifo_U(
+fifo_w1_d2_A is_last_0_i_loc_channel_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_0_V_din),
+    .if_din(Loop_1_proc406_U0_ap_return),
+    .if_full_n(is_last_0_i_loc_channel_full_n),
+    .if_write(Loop_1_proc406_U0_ap_done),
+    .if_dout(is_last_0_i_loc_channel_dout),
+    .if_empty_n(is_last_0_i_loc_channel_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d10_A out_local_V_data_0_V_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(myproject_U0_layer13_out_V_data_0_V_din),
     .if_full_n(out_local_V_data_0_V_full_n),
-    .if_write(out_local_V_data_0_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_0_V_write),
     .if_dout(out_local_V_data_0_V_dout),
     .if_empty_n(out_local_V_data_0_V_empty_n),
-    .if_read(out_local_V_data_0_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_0_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_1_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_1_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_1_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_1_V_din),
     .if_full_n(out_local_V_data_1_V_full_n),
-    .if_write(out_local_V_data_1_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_1_V_write),
     .if_dout(out_local_V_data_1_V_dout),
     .if_empty_n(out_local_V_data_1_V_empty_n),
-    .if_read(out_local_V_data_1_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_1_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_2_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_2_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_2_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_2_V_din),
     .if_full_n(out_local_V_data_2_V_full_n),
-    .if_write(out_local_V_data_2_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_2_V_write),
     .if_dout(out_local_V_data_2_V_dout),
     .if_empty_n(out_local_V_data_2_V_empty_n),
-    .if_read(out_local_V_data_2_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_2_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_3_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_3_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_3_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_3_V_din),
     .if_full_n(out_local_V_data_3_V_full_n),
-    .if_write(out_local_V_data_3_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_3_V_write),
     .if_dout(out_local_V_data_3_V_dout),
     .if_empty_n(out_local_V_data_3_V_empty_n),
-    .if_read(out_local_V_data_3_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_3_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_4_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_4_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_4_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_4_V_din),
     .if_full_n(out_local_V_data_4_V_full_n),
-    .if_write(out_local_V_data_4_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_4_V_write),
     .if_dout(out_local_V_data_4_V_dout),
     .if_empty_n(out_local_V_data_4_V_empty_n),
-    .if_read(out_local_V_data_4_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_4_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_5_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_5_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_5_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_5_V_din),
     .if_full_n(out_local_V_data_5_V_full_n),
-    .if_write(out_local_V_data_5_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_5_V_write),
     .if_dout(out_local_V_data_5_V_dout),
     .if_empty_n(out_local_V_data_5_V_empty_n),
-    .if_read(out_local_V_data_5_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_5_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_6_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_6_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_6_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_6_V_din),
     .if_full_n(out_local_V_data_6_V_full_n),
-    .if_write(out_local_V_data_6_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_6_V_write),
     .if_dout(out_local_V_data_6_V_dout),
     .if_empty_n(out_local_V_data_6_V_empty_n),
-    .if_read(out_local_V_data_6_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_6_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_7_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_7_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_7_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_7_V_din),
     .if_full_n(out_local_V_data_7_V_full_n),
-    .if_write(out_local_V_data_7_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_7_V_write),
     .if_dout(out_local_V_data_7_V_dout),
     .if_empty_n(out_local_V_data_7_V_empty_n),
-    .if_read(out_local_V_data_7_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_7_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_8_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_8_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_8_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_8_V_din),
     .if_full_n(out_local_V_data_8_V_full_n),
-    .if_write(out_local_V_data_8_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_8_V_write),
     .if_dout(out_local_V_data_8_V_dout),
     .if_empty_n(out_local_V_data_8_V_empty_n),
-    .if_read(out_local_V_data_8_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_8_V_read)
 );
 
-fifo_w16_d10_A out_local_V_data_9_V_fifo_U(
+fifo_w8_d10_A out_local_V_data_9_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_myproject_fu_227_layer12_out_V_data_9_V_din),
+    .if_din(myproject_U0_layer13_out_V_data_9_V_din),
     .if_full_n(out_local_V_data_9_V_full_n),
-    .if_write(out_local_V_data_9_V_write),
+    .if_write(myproject_U0_layer13_out_V_data_9_V_write),
     .if_dout(out_local_V_data_9_V_dout),
     .if_empty_n(out_local_V_data_9_V_empty_n),
-    .if_read(out_local_V_data_9_V_read)
+    .if_read(Block_myproject_axi_exit36_proc_U0_out_local_V_data_9_V_read)
+);
+
+fifo_w8_d2_A tmp_data_V_0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_0),
+    .if_full_n(tmp_data_V_0_full_n),
+    .if_write(ap_channel_done_tmp_data_V_0),
+    .if_dout(tmp_data_V_0_dout),
+    .if_empty_n(tmp_data_V_0_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_1_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_1),
+    .if_full_n(tmp_data_V_1_full_n),
+    .if_write(ap_channel_done_tmp_data_V_1),
+    .if_dout(tmp_data_V_1_dout),
+    .if_empty_n(tmp_data_V_1_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_2_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_2),
+    .if_full_n(tmp_data_V_2_full_n),
+    .if_write(ap_channel_done_tmp_data_V_2),
+    .if_dout(tmp_data_V_2_dout),
+    .if_empty_n(tmp_data_V_2_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_3_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_3),
+    .if_full_n(tmp_data_V_3_full_n),
+    .if_write(ap_channel_done_tmp_data_V_3),
+    .if_dout(tmp_data_V_3_dout),
+    .if_empty_n(tmp_data_V_3_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_4_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_4),
+    .if_full_n(tmp_data_V_4_full_n),
+    .if_write(ap_channel_done_tmp_data_V_4),
+    .if_dout(tmp_data_V_4_dout),
+    .if_empty_n(tmp_data_V_4_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_5_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_5),
+    .if_full_n(tmp_data_V_5_full_n),
+    .if_write(ap_channel_done_tmp_data_V_5),
+    .if_dout(tmp_data_V_5_dout),
+    .if_empty_n(tmp_data_V_5_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_6_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_6),
+    .if_full_n(tmp_data_V_6_full_n),
+    .if_write(ap_channel_done_tmp_data_V_6),
+    .if_dout(tmp_data_V_6_dout),
+    .if_empty_n(tmp_data_V_6_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_7_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_7),
+    .if_full_n(tmp_data_V_7_full_n),
+    .if_write(ap_channel_done_tmp_data_V_7),
+    .if_dout(tmp_data_V_7_dout),
+    .if_empty_n(tmp_data_V_7_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_8_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_8),
+    .if_full_n(tmp_data_V_8_full_n),
+    .if_write(ap_channel_done_tmp_data_V_8),
+    .if_dout(tmp_data_V_8_dout),
+    .if_empty_n(tmp_data_V_8_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+fifo_w8_d2_A tmp_data_V_9_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(Block_myproject_axi_exit36_proc_U0_tmp_data_V_9),
+    .if_full_n(tmp_data_V_9_full_n),
+    .if_write(ap_channel_done_tmp_data_V_9),
+    .if_dout(tmp_data_V_9_dout),
+    .if_empty_n(tmp_data_V_9_empty_n),
+    .if_read(Loop_2_proc_U0_ap_ready)
+);
+
+start_for_myproject_U0 start_for_myproject_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_myproject_U0_din),
+    .if_full_n(start_for_myproject_U0_full_n),
+    .if_write(Loop_1_proc406_U0_start_write),
+    .if_dout(start_for_myproject_U0_dout),
+    .if_empty_n(start_for_myproject_U0_empty_n),
+    .if_read(myproject_U0_ap_ready)
+);
+
+start_for_Block_myproject_axi_exit36_proc_U0 start_for_Block_myproject_axi_exit36_proc_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_Block_myproject_axi_exit36_proc_U0_din),
+    .if_full_n(start_for_Block_myproject_axi_exit36_proc_U0_full_n),
+    .if_write(myproject_U0_start_write),
+    .if_dout(start_for_Block_myproject_axi_exit36_proc_U0_dout),
+    .if_empty_n(start_for_Block_myproject_axi_exit36_proc_U0_empty_n),
+    .if_read(Block_myproject_axi_exit36_proc_U0_ap_ready)
 );
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
+        ap_sync_reg_channel_write_tmp_data_V_0 <= 1'b0;
     end else begin
-        ap_CS_fsm <= ap_NS_fsm;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (ap_rst_n_inv == 1'b1) begin
-        ap_sync_reg_grp_myproject_fu_227_ap_done <= 1'b0;
-    end else begin
-        if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
-            ap_sync_reg_grp_myproject_fu_227_ap_done <= 1'b0;
-        end else if ((grp_myproject_fu_227_ap_done == 1'b1)) begin
-            ap_sync_reg_grp_myproject_fu_227_ap_done <= 1'b1;
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_0 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_0 <= ap_sync_channel_write_tmp_data_V_0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_sync_reg_grp_myproject_fu_227_ap_ready <= 1'b0;
+        ap_sync_reg_channel_write_tmp_data_V_1 <= 1'b0;
     end else begin
-        if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
-            ap_sync_reg_grp_myproject_fu_227_ap_ready <= 1'b0;
-        end else if ((grp_myproject_fu_227_ap_ready == 1'b1)) begin
-            ap_sync_reg_grp_myproject_fu_227_ap_ready <= 1'b1;
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_1 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_1 <= ap_sync_channel_write_tmp_data_V_1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        grp_myproject_fu_227_ap_start_reg <= 1'b0;
+        ap_sync_reg_channel_write_tmp_data_V_2 <= 1'b0;
     end else begin
-        if ((((icmp_ln21_fu_262_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)) | ((ap_sync_grp_myproject_fu_227_ap_ready == 1'b0) & (1'b1 == ap_CS_fsm_state5)))) begin
-            grp_myproject_fu_227_ap_start_reg <= 1'b1;
-        end else if ((grp_myproject_fu_227_ap_ready == 1'b1)) begin
-            grp_myproject_fu_227_ap_start_reg <= 1'b0;
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_2 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_2 <= ap_sync_channel_write_tmp_data_V_2;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((in_local_V_data_0_V_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        i_0_reg_204 <= i_reg_421;
-    end else if ((1'b1 == ap_CS_fsm_state1)) begin
-        i_0_reg_204 <= 10'd0;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_3 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_3 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_3 <= ap_sync_channel_write_tmp_data_V_3;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        j3_0_reg_215 <= j_reg_489;
-    end else if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        j3_0_reg_215 <= 4'd0;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_4 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_4 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_4 <= ap_sync_channel_write_tmp_data_V_4;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        ctype_data_V_reg_431 <= in_V_q0;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_5 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_5 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_5 <= ap_sync_channel_write_tmp_data_V_5;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        i_reg_421 <= i_fu_268_p2;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_6 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_6 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_6 <= ap_sync_channel_write_tmp_data_V_6;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        j_reg_489 <= j_fu_325_p2;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_7 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_7 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_7 <= ap_sync_channel_write_tmp_data_V_7;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        tmp_data_V_0_reg_436 <= out_local_V_data_0_V_dout;
-        tmp_data_V_1_reg_441 <= out_local_V_data_1_V_dout;
-        tmp_data_V_2_reg_446 <= out_local_V_data_2_V_dout;
-        tmp_data_V_3_reg_451 <= out_local_V_data_3_V_dout;
-        tmp_data_V_4_reg_456 <= out_local_V_data_4_V_dout;
-        tmp_data_V_5_reg_461 <= out_local_V_data_5_V_dout;
-        tmp_data_V_6_reg_466 <= out_local_V_data_6_V_dout;
-        tmp_data_V_7_reg_471 <= out_local_V_data_7_V_dout;
-        tmp_data_V_8_reg_476 <= out_local_V_data_8_V_dout;
-        tmp_data_V_98_reg_481 <= out_local_V_data_9_V_dout;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_8 <= 1'b0;
+    end else begin
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_8 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_8 <= ap_sync_channel_write_tmp_data_V_8;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln34_fu_319_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
-        tmp_reg_494 <= tmp_fu_331_p12;
-    end
-end
-
-always @ (*) begin
-    if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
-        grp_myproject_fu_227_ap_continue = 1'b1;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_sync_reg_channel_write_tmp_data_V_9 <= 1'b0;
     end else begin
-        grp_myproject_fu_227_ap_continue = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_V_ce0 = 1'b1;
-    end else begin
-        in_V_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_local_V_data_0_V_read = grp_myproject_fu_227_layer0_V_data_V_read;
-    end else begin
-        in_local_V_data_0_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((in_local_V_data_0_V_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        in_local_V_data_0_V_write = 1'b1;
-    end else begin
-        in_local_V_data_0_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        out_V_ce0 = 1'b1;
-    end else begin
-        out_V_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        out_V_we0 = 1'b1;
-    end else begin
-        out_V_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_0_V_read = 1'b1;
-    end else begin
-        out_local_V_data_0_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_0_V_write = grp_myproject_fu_227_layer12_out_V_data_0_V_write;
-    end else begin
-        out_local_V_data_0_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_1_V_read = 1'b1;
-    end else begin
-        out_local_V_data_1_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_1_V_write = grp_myproject_fu_227_layer12_out_V_data_1_V_write;
-    end else begin
-        out_local_V_data_1_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_2_V_read = 1'b1;
-    end else begin
-        out_local_V_data_2_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_2_V_write = grp_myproject_fu_227_layer12_out_V_data_2_V_write;
-    end else begin
-        out_local_V_data_2_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_3_V_read = 1'b1;
-    end else begin
-        out_local_V_data_3_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_3_V_write = grp_myproject_fu_227_layer12_out_V_data_3_V_write;
-    end else begin
-        out_local_V_data_3_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_4_V_read = 1'b1;
-    end else begin
-        out_local_V_data_4_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_4_V_write = grp_myproject_fu_227_layer12_out_V_data_4_V_write;
-    end else begin
-        out_local_V_data_4_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_5_V_read = 1'b1;
-    end else begin
-        out_local_V_data_5_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_5_V_write = grp_myproject_fu_227_layer12_out_V_data_5_V_write;
-    end else begin
-        out_local_V_data_5_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_6_V_read = 1'b1;
-    end else begin
-        out_local_V_data_6_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_6_V_write = grp_myproject_fu_227_layer12_out_V_data_6_V_write;
-    end else begin
-        out_local_V_data_6_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_7_V_read = 1'b1;
-    end else begin
-        out_local_V_data_7_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_7_V_write = grp_myproject_fu_227_layer12_out_V_data_7_V_write;
-    end else begin
-        out_local_V_data_7_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_8_V_read = 1'b1;
-    end else begin
-        out_local_V_data_8_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_8_V_write = grp_myproject_fu_227_layer12_out_V_data_8_V_write;
-    end else begin
-        out_local_V_data_8_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-        out_local_V_data_9_V_read = 1'b1;
-    end else begin
-        out_local_V_data_9_V_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        out_local_V_data_9_V_write = grp_myproject_fu_227_layer12_out_V_data_9_V_write;
-    end else begin
-        out_local_V_data_9_V_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            ap_NS_fsm = ap_ST_fsm_state2;
+        if (((Block_myproject_axi_exit36_proc_U0_ap_done & Block_myproject_axi_exit36_proc_U0_ap_continue) == 1'b1)) begin
+            ap_sync_reg_channel_write_tmp_data_V_9 <= 1'b0;
+        end else begin
+            ap_sync_reg_channel_write_tmp_data_V_9 <= ap_sync_channel_write_tmp_data_V_9;
         end
-        ap_ST_fsm_state2 : begin
-            if (((icmp_ln21_fu_262_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end
-        end
-        ap_ST_fsm_state3 : begin
-            ap_NS_fsm = ap_ST_fsm_state4;
-        end
-        ap_ST_fsm_state4 : begin
-            if (((in_local_V_data_0_V_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end
-        end
-        ap_ST_fsm_state5 : begin
-            if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
-                ap_NS_fsm = ap_ST_fsm_state6;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state5;
-            end
-        end
-        ap_ST_fsm_state6 : begin
-            if (((1'b1 == ap_CS_fsm_state6) & (io_acc_block_signal_op64 == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state7;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state6;
-            end
-        end
-        ap_ST_fsm_state7 : begin
-            if (((1'b1 == ap_CS_fsm_state7) & (icmp_ln34_fu_319_p2 == 1'd1))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state8;
-            end
-        end
-        ap_ST_fsm_state8 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        default : begin
-            ap_NS_fsm = 'bx;
-        end
-    endcase
+    end
 end
 
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+assign Block_myproject_axi_exit36_proc_U0_ap_continue = (ap_sync_channel_write_tmp_data_V_9 & ap_sync_channel_write_tmp_data_V_8 & ap_sync_channel_write_tmp_data_V_7 & ap_sync_channel_write_tmp_data_V_6 & ap_sync_channel_write_tmp_data_V_5 & ap_sync_channel_write_tmp_data_V_4 & ap_sync_channel_write_tmp_data_V_3 & ap_sync_channel_write_tmp_data_V_2 & ap_sync_channel_write_tmp_data_V_1 & ap_sync_channel_write_tmp_data_V_0);
 
-assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
+assign Block_myproject_axi_exit36_proc_U0_ap_start = start_for_Block_myproject_axi_exit36_proc_U0_empty_n;
 
-assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
+assign Block_myproject_axi_exit36_proc_U0_start_full_n = 1'b1;
 
-assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
+assign Block_myproject_axi_exit36_proc_U0_start_write = 1'b0;
 
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+assign Loop_1_proc406_U0_ap_continue = is_last_0_i_loc_channel_full_n;
 
-assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
+assign Loop_1_proc406_U0_ap_start = 1'b1;
 
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
+assign Loop_2_proc_U0_ap_continue = 1'b1;
 
-assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+assign Loop_2_proc_U0_ap_start = (tmp_data_V_9_empty_n & tmp_data_V_8_empty_n & tmp_data_V_7_empty_n & tmp_data_V_6_empty_n & tmp_data_V_5_empty_n & tmp_data_V_4_empty_n & tmp_data_V_3_empty_n & tmp_data_V_2_empty_n & tmp_data_V_1_empty_n & tmp_data_V_0_empty_n & is_last_0_i_loc_channel_empty_n);
 
-always @ (*) begin
-    ap_block_state5_on_subcall_done = ((ap_sync_grp_myproject_fu_227_ap_ready & ap_sync_grp_myproject_fu_227_ap_done) == 1'b0);
-end
+assign Loop_2_proc_U0_start_full_n = 1'b1;
+
+assign Loop_2_proc_U0_start_write = 1'b0;
+
+assign ap_channel_done_is_last_0_i_loc_channel = Loop_1_proc406_U0_ap_done;
+
+assign ap_channel_done_tmp_data_V_0 = ((ap_sync_reg_channel_write_tmp_data_V_0 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_1 = ((ap_sync_reg_channel_write_tmp_data_V_1 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_2 = ((ap_sync_reg_channel_write_tmp_data_V_2 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_3 = ((ap_sync_reg_channel_write_tmp_data_V_3 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_4 = ((ap_sync_reg_channel_write_tmp_data_V_4 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_5 = ((ap_sync_reg_channel_write_tmp_data_V_5 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_6 = ((ap_sync_reg_channel_write_tmp_data_V_6 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_7 = ((ap_sync_reg_channel_write_tmp_data_V_7 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_8 = ((ap_sync_reg_channel_write_tmp_data_V_8 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
+
+assign ap_channel_done_tmp_data_V_9 = ((ap_sync_reg_channel_write_tmp_data_V_9 ^ 1'b1) & Block_myproject_axi_exit36_proc_U0_ap_done);
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign ap_sync_grp_myproject_fu_227_ap_done = (grp_myproject_fu_227_ap_done | ap_sync_reg_grp_myproject_fu_227_ap_done);
+assign ap_sync_channel_write_tmp_data_V_0 = ((tmp_data_V_0_full_n & ap_channel_done_tmp_data_V_0) | ap_sync_reg_channel_write_tmp_data_V_0);
 
-assign ap_sync_grp_myproject_fu_227_ap_ready = (grp_myproject_fu_227_ap_ready | ap_sync_reg_grp_myproject_fu_227_ap_ready);
+assign ap_sync_channel_write_tmp_data_V_1 = ((tmp_data_V_1_full_n & ap_channel_done_tmp_data_V_1) | ap_sync_reg_channel_write_tmp_data_V_1);
 
-assign grp_myproject_fu_227_ap_start = grp_myproject_fu_227_ap_start_reg;
+assign ap_sync_channel_write_tmp_data_V_2 = ((tmp_data_V_2_full_n & ap_channel_done_tmp_data_V_2) | ap_sync_reg_channel_write_tmp_data_V_2);
 
-assign i_fu_268_p2 = (i_0_reg_204 + 10'd1);
+assign ap_sync_channel_write_tmp_data_V_3 = ((tmp_data_V_3_full_n & ap_channel_done_tmp_data_V_3) | ap_sync_reg_channel_write_tmp_data_V_3);
 
-assign icmp_ln21_fu_262_p2 = ((i_0_reg_204 == 10'd784) ? 1'b1 : 1'b0);
+assign ap_sync_channel_write_tmp_data_V_4 = ((tmp_data_V_4_full_n & ap_channel_done_tmp_data_V_4) | ap_sync_reg_channel_write_tmp_data_V_4);
 
-assign icmp_ln34_fu_319_p2 = ((j3_0_reg_215 == 4'd10) ? 1'b1 : 1'b0);
+assign ap_sync_channel_write_tmp_data_V_5 = ((tmp_data_V_5_full_n & ap_channel_done_tmp_data_V_5) | ap_sync_reg_channel_write_tmp_data_V_5);
 
-assign in_V_address0 = zext_ln25_fu_274_p1;
+assign ap_sync_channel_write_tmp_data_V_6 = ((tmp_data_V_6_full_n & ap_channel_done_tmp_data_V_6) | ap_sync_reg_channel_write_tmp_data_V_6);
 
-assign io_acc_block_signal_op64 = (out_local_V_data_9_V_empty_n & out_local_V_data_8_V_empty_n & out_local_V_data_7_V_empty_n & out_local_V_data_6_V_empty_n & out_local_V_data_5_V_empty_n & out_local_V_data_4_V_empty_n & out_local_V_data_3_V_empty_n & out_local_V_data_2_V_empty_n & out_local_V_data_1_V_empty_n & out_local_V_data_0_V_empty_n);
+assign ap_sync_channel_write_tmp_data_V_7 = ((tmp_data_V_7_full_n & ap_channel_done_tmp_data_V_7) | ap_sync_reg_channel_write_tmp_data_V_7);
 
-assign j_fu_325_p2 = (j3_0_reg_215 + 4'd1);
+assign ap_sync_channel_write_tmp_data_V_8 = ((tmp_data_V_8_full_n & ap_channel_done_tmp_data_V_8) | ap_sync_reg_channel_write_tmp_data_V_8);
 
-assign out_V_address0 = zext_ln35_fu_347_p1;
+assign ap_sync_channel_write_tmp_data_V_9 = ((tmp_data_V_9_full_n & ap_channel_done_tmp_data_V_9) | ap_sync_reg_channel_write_tmp_data_V_9);
 
-assign zext_ln25_fu_274_p1 = i_0_reg_204;
+assign ap_sync_continue = 1'b0;
 
-assign zext_ln35_fu_347_p1 = j3_0_reg_215;
+assign in_r_TREADY = Loop_1_proc406_U0_in_r_TREADY;
+
+assign myproject_U0_ap_continue = 1'b1;
+
+assign myproject_U0_ap_start = start_for_myproject_U0_empty_n;
+
+assign out_r_TDATA = Loop_2_proc_U0_out_r_TDATA;
+
+assign out_r_TLAST = Loop_2_proc_U0_out_r_TLAST;
+
+assign out_r_TVALID = Loop_2_proc_U0_out_r_TVALID;
+
+assign start_for_Block_myproject_axi_exit36_proc_U0_din = 1'b1;
+
+assign start_for_myproject_U0_din = 1'b1;
 
 endmodule //myproject_axi
