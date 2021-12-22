@@ -2,11 +2,10 @@
 
 Here are presented two examples of FPGA neural network inference, namely the jet tagging and MNIST classification.  
 
-It is used a different  **`hls4ml`** version from actual release (0.5.0), to install it run the following command:  
+It is used **`hls4ml`** 0.6.0 version,to install it run the following command (with also the profiling features):  
 ```
-pip install git+https://github.com/fastmachinelearning/hls4ml.git@master#egg=hls4ml[profiling]
+pip install hls4ml[profiling]
 ```
-This the main branch of the hls4ml.
 
 ## Code
 The files are organized as follows
@@ -44,8 +43,14 @@ Here are presented the resources estimated by vivado and the actual utilization 
 |Quntized+Pruned    |149     |4      |49    |325    |
 |FPGA implementation|68      |5      |47    |68     |
 
-### Latency
-As it is clear the main bottlenecks are the PS-PL interface (AXIS DMA), to transfer and to read back a single frame at least 60 microsendos are required, this number is found with a large transfer (10000 frames), with a smaller buffer size the latency degrades.
+### Performance
+|Device             |t<sub>img</sub><sup>CNN</sup>[&#956;s]|t<sub>img</sub><sup>DNN</sup>[&#956;s]|
+|-------------------|--------------------------------------|--------------------------------------|
+|CPU[3700X]         |95                                    |24                                    |
+|GPU[RX 580]        |30                                    |22                                    |
+|ZYNQ[PYNQ_Z2]      |87                                    |85                                    |
+|ALVEO[u50]         |21                                    |9                                     |
+As it is clear the main bottlenecks are the PS-PL interface (AXIS DMA), to transfer and to read back a single frame at least 60 microsendos are required, this number is found with a large transfer (10000 frames), with a smaller buffer size the time per image will degrade.
 
 ### Comparisons
 <center>
