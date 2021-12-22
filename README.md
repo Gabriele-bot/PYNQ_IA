@@ -49,7 +49,8 @@ Here are presented the resources estimated by vivado and the actual utilization 
 |CPU[3700X]         |95                                    |24                                    |
 |GPU[RX 580]        |30                                    |22                                    |
 |ZYNQ[PYNQ_Z2]      |87                                    |85                                    |
-|ALVEO[u50]         |21                                    |9                                     |
+|ALVEO[u50]         |21                                    |9                                     |  
+
 As it is clear the main bottlenecks are the PS-PL interface (AXIS DMA), to transfer and to read back a single frame at least 60 microsendos are required, this number is found with a large transfer (10000 frames), with a smaller buffer size the time per image will degrade.
 
 ### Comparisons
